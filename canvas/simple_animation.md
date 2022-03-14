@@ -30,7 +30,7 @@ animateSquare();
 
 Here it is live:
 
-{% include codepen.html id="ExoaRjv"}
+{% include codepen.html id="ExoaRjv" %}
 
 ## Getting Fancier: Using an Object to store information
 
