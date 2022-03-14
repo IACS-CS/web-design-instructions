@@ -7,3 +7,6 @@ Here are some [instructions](./firstPage.md)
 
 Testing youtube embed...
 {% include youtube.html id="6qXpBqfmBrk" %}
+
+Test codepen embed
+{% include codepen.html id="PoOvJGO" %}
