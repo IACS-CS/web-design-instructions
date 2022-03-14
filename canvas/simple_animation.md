@@ -272,5 +272,5 @@ function animateSquares () {
 {% include codepen.html id="bGaNjVq" %}
 
 Here's a video walkthrough of me moving from a single animation to a list of animations:
-
-{% include youtube id="6qXpBqfmBrk" %} 
+aaa
+{% include youtube.html id="6qXpBqfmBrk" %} 
