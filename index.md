@@ -1,7 +1,7 @@
 ### Create a Canvas
 
-Learn to [create a canvas](./canvas/creating_a_canvas.md)
-
+- Learn to [create a canvas](./canvas/creating_a_canvas.md)
+- Learn to [animate object](./canvas/simple_animation.md)
 
 ### Hello
 
