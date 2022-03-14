@@ -6,4 +6,4 @@ Really what I want to know is whether this thing works?
 Here are some [instructions](./firstPage.md)
 
 Testing youtube embed...
-{% youtube 6qXpBqfmBrk %}
+{% include youtube.html id="6qXpBqfmBrk" %}
