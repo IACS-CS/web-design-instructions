@@ -1,30 +1,9 @@
-### Create a Canvas
+# JavaScript How-To's!
+Hello students! I put together a new home for my how-to's hosted on github pages. My intention here is that these markdown files will be a bit longer lasting than the platforms we use to host code, which change from year to year (Cloud 9, repl.it, trinket.io, etc -- we've moved through a bunch over the past several years).
 
+This webpage will grow and eventually replace the [Google Doc of How-To's](https://docs.google.com/document/d/1MrPTAd-LPJpUH93BYElgGv_abhhagAWaURrOtqjfj9A/edit) that I made and shared with you earlier this semester.
+
+
+### Canvas Basics
 - Learn to [create a canvas](./canvas/creating_a_canvas.md)
 - Learn to [animate object](./canvas/simple_animation.md)
-
-### Hello
-
-This is my first markdown file.
-Really what I want to know is whether this thing works?
-
-```html
-<div>
-  <h2>Test heading</h2>
-  <p>This is a test of some HTML!</p>
-</div>
-```
-
-```javascript
-function () {
-  console.log('hello world');
-}
-```
-
-Here are some [instructions](./firstPage.md)
-
-Testing youtube embed...
-{% include youtube.html id="6qXpBqfmBrk" %}
-
-Test codepen embed
-{% include codepen.html id="PoOvJGO" %}

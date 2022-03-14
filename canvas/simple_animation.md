@@ -1,3 +1,10 @@
+- [Creating a Simple Animation](#creating-a-simple-animation)
+  - [Prerequisites](#prerequisites)
+  - [The Simplest Animation: a dropping square](#the-simplest-animation-a-dropping-square)
+  - [Getting Fancier: Using an Object to store information](#getting-fancier-using-an-object-to-store-information)
+    - [Tidying it Up with Function Calls](#tidying-it-up-with-function-calls)
+  - [Creating a List of Objects to animate](#creating-a-list-of-objects-to-animate)
+
 # Creating a Simple Animation
 
 The basic steps of an animation involve drawing something repeatedly, making a small change to your drawing each time you draw it.
@@ -272,5 +279,5 @@ function animateSquares () {
 {% include codepen.html id="bGaNjVq" %}
 
 Here's a video walkthrough of me moving from a single animation to a list of animations:
-aaa
+
 {% include youtube.html id="6qXpBqfmBrk" %} 
