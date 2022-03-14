@@ -1,3 +1,7 @@
+### Create a Canvas
+
+Learn to [create a canvas](./canvas/creating_a_canvas.md)
+
 ### Hello
 
 This is my first markdown file.
