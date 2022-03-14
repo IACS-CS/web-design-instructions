@@ -28,7 +28,7 @@ You can also just put the canvas directly in your HTML, like this -- you can add
 </div>
 ```
 
-Then you grab it from JavaScript using ```document. 
+Then you grab it from JavaScript using `document.querySelector('#your-id-here')`
 
 *JavaScript*
 ```javascript
@@ -36,8 +36,10 @@ let canvas = document.querySelector("#app-canvas");
 ```
 
 Note: in TypeScript, you can add a type hint so your code editor knows the canvas is a canvas, like this:
+
+TypeScript
 ```typescript
-let canvas : HTMLCanvasElement = document.querySelector('#')
+let canvas : HTMLCanvasElement = document.querySelector('#app-canvas')
 ```
 
 #### Creating a Canvas in JavaScript
@@ -81,6 +83,11 @@ Most of the time you create a canvas, you will want to configure it to be a cert
 
 1. The size of the coordinates you draw on the canvas with
 2. The size the canvas shows up on the screen.
+
+Here's a quick CodePen demo to show you how those two different sets of dimensions interact: try changing the different sizes and repeatedly drawing a square and see what happens:
+
+{% include codepen.html id="eYymVBW" %}
+
 
 #### A Simple Fixed-Size Canvas
 The easiest thing to do is to create a canvas with a fixed size in pixels, and set its internal and its display size to be the same. To do that you need to set the internal size using the *width* and *height* attributes of the canvas and the display size by setting the *width* and *height* attributes of the *style* of the canvas element.
