@@ -6,4 +6,5 @@
 ## YouTube WalkThrough: Responding to Clicks with the Canvas
 {% include youtube.html id="e0Y9CwBACxg" %}
 
-## More Reading...
+## Next Steps
+[Click and Drag](click_and_drag.md)
