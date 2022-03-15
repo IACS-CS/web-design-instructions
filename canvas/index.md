@@ -5,3 +5,4 @@
 - [Animate on the Canvas](simple_animation.md)
 - [Adding Images to a Canvas](images.md)
 - [Rotating drawings or images on the canvas](rotating.md)
+- [Layering Multiple Canvases](layering_canvases.md)

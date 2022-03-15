@@ -5,5 +5,6 @@ This webpage will grow and eventually replace the [Google Doc of How-To's](https
 
 
 ### Canvas Basics
+- Browse all [Canvas how-to's](canvas/index.md)
 - Learn to [create a canvas](./canvas/creating_a_canvas.md)
 - Learn to [animate object](./canvas/simple_animation.md)
