@@ -14,7 +14,13 @@
         left: calc((100% - var(--width))/2);
       }
       header nav a {
-        color : white;
+        color : white;        
+      }
+      header nav a::after {
+        content: " | ";
+      }
+      header nav a:last-child::after {
+        content : "";
       }
     </style>
 {% seo %}
