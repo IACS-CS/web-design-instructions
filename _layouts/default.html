@@ -6,7 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,maximum-scale=2">
     <link rel="stylesheet" type="text/css" media="screen" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-
+    <style>
+      .cp-embed-wrapper {
+        width: 100vw;
+        position: relative;
+        left: calc((640px - 100vw)/2);
+      }
+    </style>
 {% seo %}
     {% include head-custom.html %}
   </head>
@@ -30,9 +36,9 @@
             </section>
           {% endif %}
           <div>
-            <a href="/">About these Docs</a>
-            <a href="/canvas/">Canvas How-To's</a>
-            <a href="/fundamentals">JS Fundamentals</a>
+            <a href="/js1-docs/">About these Docs</a>
+            <a href="/js1-docs/canvas/">Canvas How-To's</a>
+            <a href="/js1-docs/fundamentals">JS Fundamentals</a>
           </div>
         </header>
     </div>
