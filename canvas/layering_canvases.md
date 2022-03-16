@@ -9,9 +9,17 @@
 
 Often it is simplest to put multiple canvases on top of each other like transparencies. Each layer can then do its own drawing and updating separately.
 
+Here is an example of a game made with three layers:
+
+{% include codepen.html id="mdpJKRz" tabs="result" %}
+
+Here is the exact same game with the layers side-by-side instead of on top of each other. Notice the game logic works the same -- the items are just not overlapping on the screen :)
+
+{% include codepen.html id="yLpYazZ" tabs="result" %}
+
 ### The Layering Layout
 
-In order to layer canvases, you need to style them so they are all exactly the same size and in the same position. The easiest way to do this is probably to set it up *in your HTML* rather than through JavaScript, since you can use HTML and CSS to make creating canvases a snap.
+In order to layer canvases (put them on top of each other), you need to style them so they are all exactly the same size and in the same position. The easiest way to do this is probably to set it up *in your HTML* rather than through JavaScript, since you can use HTML and CSS to make creating canvases a snap.
 
 Regardless of how you accomplish it, what you will need is:
 
