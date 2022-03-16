@@ -6,6 +6,9 @@ Here is documentation on functions from some other sources if you like:
 - [W3 Schools](https://www.w3schools.com/js/js_functions.asp)
 - [Mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
 
+Here is a video walkthrough about creating a function:
+{% include youtube.html id="d0G1xcM5B7c" %}
+
 ## Defining Functions
 At it's most basic, you can think of a function as a way to name a group of commands to run at a later time.
 
