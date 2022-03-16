@@ -1,3 +1,10 @@
+- [Layering Canvases](#layering-canvases)
+  - [The Layering Layout](#the-layering-layout)
+  - [Creating Multiple Canvases with HTML & CSS](#creating-multiple-canvases-with-html--css)
+  - [Creating Multiple Canvases with JavaScript](#creating-multiple-canvases-with-javascript)
+- [Very Simple Codepen Example](#very-simple-codepen-example)
+- [Advanced Example](#advanced-example)
+
 ## Layering Canvases
 
 Often it is simplest to put multiple canvases on top of each other like transparencies. Each layer can then do its own drawing and updating separately.
@@ -85,3 +92,14 @@ export let topCanvas = createCanvas();
 ## Very Simple Codepen Example
 {%include codepen.html id="mdpJKbK"%}
 
+## Advanced Example
+
+Here is a full "game" example, with three different layers.
+
+In this example, the bottom and middle layer each have their own animation.
+
+The top layer is the "control" layer and simply responds to the user mouse moving.
+
+The middle and top layer "interact" in my example, with the square that the user moves "eating" the circles that fly over the screen. This interaction has nothing to do with the canvases themselves, however: I simply create a list of objects and then each time the user moves I check through the list for any objects that are close enough to the user. 
+
+{%include codepen.html id="mdpJKRz" %}
