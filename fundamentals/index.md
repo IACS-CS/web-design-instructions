@@ -4,3 +4,4 @@ Fundamentals:
 - [Data Types (w3 schools)](https://www.w3schools.com/js/js_datatypes.asp)
 - [Objects (w3 Schools)](https://www.w3schools.com/js/js_objects.asp)
 - [Events](https://www.w3schools.com/js/js_events.asp)
+- [Modules (Import/Export)](modules.md)
