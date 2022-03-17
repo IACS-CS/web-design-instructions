@@ -49,6 +49,19 @@
             </section>
           {% endif %}
           <nav>
+            {% for collection in site.collections %}
+              {% assign name = collection.label %}
+              <div>
+                <h1>{{ name }}</h1>
+                {% for page in site.[name] %}
+                <article>
+                  <h2>{{ page.title }}</h2>
+                  <p>{{ page.content | markdownify }}</p>
+                </article>
+                {% endfor %}
+    
+  </div>
+{% endfor %}
             <div>
               <a href="/js1-docs/">About these Docs</a>
             </div>
