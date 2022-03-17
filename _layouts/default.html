@@ -20,11 +20,30 @@
         display: flex;
         gap: 4px;
       }
+      header nav div {
+        position: relative;
+      }
       header nav div .sub {
-        display: none;
+        display: none;     
+        position: absolute;
+        transform: translateY(-100px);
+        opacity: 0;
+        transition: all 300ms;
+        background-color: #212121;
+        display: flex;
+        flex-direction: column;        
       }
       header nav div:hover .sub {
         display: block;
+        position: absolute;
+        transform: translateY(0);
+        opacity: 1;
+      }
+      .sub a {
+        text-decoration: none;
+      }
+      .sub a:hover {
+        background-color: #424242;
       }
     </style>
 {% seo %}
@@ -69,7 +88,7 @@
               <a href="/js1-docs/fundamentals">JS Fundamentals</a>  
               <div class="sub">
                 {% for page in site.pages %}
-                  {% if page.url contains 'canvas' %}
+                  {% if page.url contains 'fundamentals' %}
                   <a href="/js1-docs/{{ page.url }}">
                       {{ page.title }}
                   </a>
