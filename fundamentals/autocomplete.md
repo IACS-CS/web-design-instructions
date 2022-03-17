@@ -4,4 +4,4 @@ Writing computer programs is very frustrating, but modern programming editors ma
 
 Here's a video walkthrough of using our editor in repl.it to help you avoid careless errors!
 
-{% youtube.html id="EUeFlUGLjmM" %}
+{% include youtube.html id="EUeFlUGLjmM" %}
