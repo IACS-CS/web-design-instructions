@@ -1,5 +1,16 @@
 # Modules
 
+- [Modules](#modules)
+  - [Why Modules](#why-modules)
+  - [Following the "import" chain...](#following-the-import-chain)
+    - [Standard Vite Template](#standard-vite-template)
+  - [Exports](#exports)
+    - [Named Exports (and Imports)](#named-exports-and-imports)
+    - [Default Exports (and Imports)](#default-exports-and-imports)
+  - [Troubleshooting: Circular Imports](#troubleshooting-circular-imports)
+    - [Problem](#problem)
+    - [Solution](#solution)
+
 Modules are a core way that programmers organize code, but a relatively new "official" feature of JavaScript, so if you google for information about "import" and "export" in JavaScript, you'll find sometimes conflicting information, based in the different systems that have existed over the past decade plus of development.
 
 In our class, so far, we've been using Vite as a development server, which automatically takes care of handling modules, bundling, and other elements of shipping JavaScript code (you don't have to care about these details, for now!).
@@ -76,7 +87,14 @@ export let player = {
 You can then import those items in another file, like so:
 **index.ts**
 ```typescript
-import {runGame} from './game'
+import {runGame} from './game';
+```
+
+Or...
+**playerStats.ts**
+```typescript
+import {player} from './game';
+...
 ```
 
 ### Default Exports (and Imports)
@@ -99,40 +117,52 @@ You could then import the "default" value from that file using any name you like
 
 **game.ts**
 ```typescript
-import images from './images';
+import Images from './images';
 
 ...
-ctx.drawImage(images.catImage,100,100,100,100);
+ctx.drawImage(Images.catImage,100,100,100,100);
 ```
 
-Since the default export was an object, we can refer to its properties using *dot notation.* This is a handy way to code because typescript will give you good autocompletion -- if you forget what you named your images, all you would have to do is type `images.` and your editor would suggest all the different images you'd exported from that module in the default export.
+Since the default export was an object, we can refer to its properties using *dot notation.* This is a handy way to code because your editor will give you good autocompletion based on the exported object -- if you forget what you named your images, all you would have to do is type `images.` and your editor would suggest all the different images you'd exported from that module in the default export.
 
-# Troubleshooting: Circular Imports
+You can name the object whatever you want when you import it, so I could rewrite the code above like so if I was so inclined:
+
+```typescript
+// I am a lazy programmer who hates typing...
+import ii from './images';
+
+ctx.drawImage(ii.catImage,100,100,100,100);
+```
+
+## Troubleshooting: Circular Imports
 
 Generally, you want to structure all of your files so that imports flow in one direction. It can be easy to accidentally set up a system where you have a "circular import" which means File A import File B but File B imports File A.
 
-For example, imaging a project organized like this:
+For example, imagine a project organized like this:
 
-- app (problem structure)
-  - canvas.ts: Code to set up a canvas and draw animation. Exports canvas, width, height, etc.
-  - images.ts: Code to provide image assets
-  - player.ts: Code to draw a player on the screen.
-  - enemies.ts: Code to draw enemies on the screen.
+**Problem Structure**
+- `app/`
+  - `canvas.ts`: Code to set up a canvas and draw animation. Exports canvas, width, height, etc.
+  - `images.ts`: Code to provide image assets
+  - `player.ts`: Code to draw a player on the screen.
+  - `enemies.ts`: Code to draw enemies on the screen.
   
-When the programmer goes to add animations, they might *naturally* add an animate function to the `canvas.ts` file. That function would need to have access to the player and enemy drawing code, so `canvas.ts` would have to import `enemies.ts` and `players.ts`. But, alas, `enemies.ts` and `player.ts` need access to the canvas to draw, so they would need to import canvas.ts. We have a circular import on our hands!
+When the programmer goes to implement animations, the `animate` function needs to have access to the player and enemy drawing code, so `canvas.ts` would have to import `enemies.ts` and `players.ts`. But, alas, `enemies.ts` and `player.ts` need access to the canvas to draw, so they would need to import canvas.ts. We have a circular import on our hands!
 
-- Problem:
-  - enemies.ts imports canvas.ts (so it can draw on the canvas)
-  - canvas.ts imports enemies.ts (so it can add the enemy to the canvas animation)
+### Problem
 
+  - `enemies.ts` imports `canvas.ts` (so it can draw on the canvas)
+  - `canvas.ts` imports `enemies.ts` (so it can add the enemy to the canvas animation)
+
+### Solution
 One way to solve this problem is to move the animation code into its own module, like so:
 
-- app (correct structure)
-  - canvas.ts: Code to set up a canvas. Exports canvas, width, height, etc.
-  - images.ts: Code to provide image assets
-  - player.ts: Code to draw a player on the screen.
-  - enemies.ts: Code to draw enemies on the screen.
-  - animation.ts: Imports canvas, images, player, enemies.
+- `app` (correct structure)
+  - `canvas.ts`: Code to set up a canvas. Exports canvas, width, height, etc.
+  - `images.ts`: Code to provide image assets
+  - `player.ts`: Code to draw a player on the screen.
+  - `enemies.ts`: Code to draw enemies on the screen.
+  - `animation.ts`: Imports canvas, images, player, enemies.
 
 **Typically the correct solution to a circular import is to make your code more highly modularized**.
 
