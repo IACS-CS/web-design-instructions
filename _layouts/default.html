@@ -50,12 +50,9 @@
           {% endif %}
           <nav>
             {% for page in site.pages %}
-              
-                <article>
-                  <h2>{{ page.title }}</h2>
-                  
-                </article>
-                
+              <a href="{{ page.url }}">
+                  {{ page.title }}
+              </a>                                  
             {% endfor %}
             <div>
               <a href="/js1-docs/">About these Docs</a>
