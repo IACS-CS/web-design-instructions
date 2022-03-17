@@ -56,7 +56,7 @@
             <div>
               <a href="/js1-docs/canvas/">Canvas How-To's</a>
               {% for page in site.pages %}
-              {% if page.url.contains 'canvas' %}
+              {% if page.url contains 'canvas' %}
               <a href="/js1-docs/{{ page.url }}">
                   {{ page.title }}
               </a>
