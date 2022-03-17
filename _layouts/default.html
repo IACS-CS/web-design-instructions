@@ -18,6 +18,7 @@
       }
       header nav {
         display: flex;
+        gap: 4px;
       }
       header nav div div {
         display: none;
@@ -48,17 +49,19 @@
               <a class="tar_download_link" href="{{ site.github.tar_url }}">Download this project as a tar.gz file</a>
             </section>
           {% endif %}
-          <nav>
-            {% for page in site.pages %}
-              <a href="{{ page.url }}">
-                  {{ page.title }}
-              </a>                                  
-            {% endfor %}
+          <nav>            
             <div>
               <a href="/js1-docs/">About these Docs</a>
             </div>
             <div>
               <a href="/js1-docs/canvas/">Canvas How-To's</a>
+              {% for page in site.pages %}
+              {% if page.url.contains 'canvas' %}
+              <a href="/js1-docs/{{ page.url }}">
+                  {{ page.title }}
+              </a>
+              {% endif %}   
+            {% endfor %}
             </div>
             <div>
               <a href="/js1-docs/fundamentals">JS Fundamentals</a>         
