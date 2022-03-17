@@ -20,10 +20,10 @@
         display: flex;
         gap: 4px;
       }
-      header nav div div {
+      header nav div .sub {
         display: none;
       }
-      header nav div:hover div {
+      header nav div:hover .sub {
         display: block;
       }
     </style>
@@ -55,16 +55,27 @@
             </div>
             <div>
               <a href="/js1-docs/canvas/">Canvas How-To's</a>
-              {% for page in site.pages %}
-              {% if page.url contains 'canvas' %}
-              <a href="/js1-docs/{{ page.url }}">
-                  {{ page.title }}
-              </a>
-              {% endif %}   
-            {% endfor %}
+              <div class="sub">
+                {% for page in site.pages %}
+                  {% if page.url contains 'canvas' %}
+                  <a href="/js1-docs/{{ page.url }}">
+                      {{ page.title }}
+                  </a>
+                  {% endif %}   
+                {% endfor %}
+              </div>
             </div>
             <div>
-              <a href="/js1-docs/fundamentals">JS Fundamentals</a>         
+              <a href="/js1-docs/fundamentals">JS Fundamentals</a>  
+              <div class="sub">
+                {% for page in site.pages %}
+                  {% if page.url contains 'canvas' %}
+                  <a href="/js1-docs/{{ page.url }}">
+                      {{ page.title }}
+                  </a>
+                  {% endif %}   
+                {% endfor %}
+              </div>       
             </div>
           </nav>
         </header>
