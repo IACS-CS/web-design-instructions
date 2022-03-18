@@ -1,7 +1,6 @@
 theme: jekyll-theme-slate
 plugins:
   - jekyll-relative-links
-  - jekyll-include-absolute
 relative_links:
   enabled: true
   collections: true
