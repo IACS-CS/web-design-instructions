@@ -1,11 +1,11 @@
+# Layering Canvases
+
 - [Layering Canvases](#layering-canvases)
   - [The Layering Layout](#the-layering-layout)
   - [Creating Multiple Canvases with HTML & CSS](#creating-multiple-canvases-with-html--css)
   - [Creating Multiple Canvases with JavaScript](#creating-multiple-canvases-with-javascript)
   - [Very Simple Codepen Example](#very-simple-codepen-example)
   - [Advanced Example](#advanced-example)
-
-# Layering Canvases
 
 Often it is simplest to put multiple canvases on top of each other like transparencies. Each layer can then do its own drawing and updating separately.
 

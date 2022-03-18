@@ -1,5 +1,11 @@
 # Rotating the Canvas
 
+- [Rotating the Canvas](#rotating-the-canvas)
+  - [The Challenge with Rotation...](#the-challenge-with-rotation)
+  - [Drawing in the Corner...](#drawing-in-the-corner)
+  - [Translating from the corner to the right position](#translating-from-the-corner-to-the-right-position)
+  - [Fancier Example](#fancier-example)
+
 Rotating on the canvas is pretty confusing. 
 
 There are transformations of the canvas that rotate elements, but the canvas is always rotated from the *origin* (0,0) in the top left, so in order to rotate items in place, you need to combine rotation *with* transformation.
@@ -26,7 +32,7 @@ ctx.strokeRect(200, 100, 50, 250);
 ctx.strokeRect(150, 150, 150, 50);
 // Rotated cross
 ctx.strokeStyle = 'red'
-ctx.rotate(Math.PI/5);
+ctx.rotate(-Math.PI/4);
 ctx.strokeRect(200, 100, 50, 250);
 ctx.strokeRect(150, 150, 150, 50);
 ```
@@ -43,7 +49,7 @@ ctx.strokeRect(-25, -75, 50, 250);
 ctx.strokeRect(-75, -25, 150, 50);
 // Rotated cross
 ctx.strokeStyle = 'red'
-ctx.rotate(Math.PI/5);
+ctx.rotate(Math.PI/4);
 ctx.strokeRect(-25, -75, 50, 250);
 ctx.strokeRect(-75, -25, 150, 50);
 ```
@@ -63,7 +69,7 @@ ctx.strokeRect(-25, -75, 50, 250);
 ctx.strokeRect(-75, -25, 150, 50);
 // Rotated cross
 ctx.strokeStyle = 'red'
-ctx.rotate(Math.PI/5);
+ctx.rotate(-Math.PI/4);
 ctx.strokeRect(-25, -75, 50, 250);
 ctx.strokeRect(-75, -25, 150, 50);
 ```

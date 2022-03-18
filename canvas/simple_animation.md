@@ -1,3 +1,5 @@
+# Creating a Simple Animation
+
 - [Creating a Simple Animation](#creating-a-simple-animation)
   - [Prerequisites](#prerequisites)
   - [The Simplest Animation: a dropping square](#the-simplest-animation-a-dropping-square)
@@ -5,7 +7,6 @@
     - [Tidying it Up with Function Calls](#tidying-it-up-with-function-calls)
   - [Creating a List of Objects to animate](#creating-a-list-of-objects-to-animate)
 
-# Creating a Simple Animation
 
 The basic steps of an animation involve drawing something repeatedly, making a small change to your drawing each time you draw it.
 

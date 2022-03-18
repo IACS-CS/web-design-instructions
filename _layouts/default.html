@@ -79,7 +79,7 @@
             <div>
               <a href="/js1-docs/canvas/">Canvas How-To's</a>
               <div class="sub">
-                {% for page in site.pages %}
+                {% for page in site.pages | sort:"url" %}
                   {% if page.url contains 'canvas' %}
                   <a href="/js1-docs/{{ page.url }}">
                       {{ page.title }}
@@ -91,7 +91,7 @@
             <div>
               <a href="/js1-docs/fundamentals">JS Fundamentals</a>  
               <div class="sub">
-                {% for page in site.pages %}
+                {% for page in site.pages | sort:"url" %}
                   {% if page.url contains 'fundamentals' %}
                   <a href="/js1-docs/{{ page.url }}">
                       {{ page.title }}
