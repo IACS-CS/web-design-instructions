@@ -1,5 +1,4 @@
 # Modules
-
 - [Modules](#modules)
   - [Why Modules](#why-modules)
   - [Following the "import" chain...](#following-the-import-chain)

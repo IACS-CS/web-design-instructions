@@ -1,4 +1,4 @@
-## Animating a Whole Game
+# Animating a Whole Game
 
 If you've already gotten some [basic animations](simple_animation.md) working, it's likely your next step is wanting to build a game with multiple different objects being animated. This how-to will talk you through how to do that. The other technique to use would be to [layer multiple canvases](layering_canvases.md), but generally the technique on this page is simpler.
 
@@ -99,7 +99,7 @@ Here's what that looks like:
 
 {% include codepen.html id="PoEPEeO" tabs="javascript,result" %}
 
-### Updating Multiple Objects...
+## Updating Multiple Objects...
 
 As you create multiple objects, your code is likely to grow more complex. As it does, it's a good idea to split your code into multiple functions to make it easier to manage.
 

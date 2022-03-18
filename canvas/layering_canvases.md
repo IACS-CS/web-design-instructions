@@ -2,10 +2,10 @@
   - [The Layering Layout](#the-layering-layout)
   - [Creating Multiple Canvases with HTML & CSS](#creating-multiple-canvases-with-html--css)
   - [Creating Multiple Canvases with JavaScript](#creating-multiple-canvases-with-javascript)
-- [Very Simple Codepen Example](#very-simple-codepen-example)
-- [Advanced Example](#advanced-example)
+  - [Very Simple Codepen Example](#very-simple-codepen-example)
+  - [Advanced Example](#advanced-example)
 
-## Layering Canvases
+# Layering Canvases
 
 Often it is simplest to put multiple canvases on top of each other like transparencies. Each layer can then do its own drawing and updating separately.
 
@@ -17,7 +17,7 @@ Here is the exact same game with the layers side-by-side instead of on top of ea
 
 {% include codepen.html id="yLpYazZ" tabs="result" %}
 
-### The Layering Layout
+## The Layering Layout
 
 In order to layer canvases (put them on top of each other), you need to style them so they are all exactly the same size and in the same position. The easiest way to do this is probably to set it up *in your HTML* rather than through JavaScript, since you can use HTML and CSS to make creating canvases a snap.
 
@@ -28,7 +28,7 @@ Regardless of how you accomplish it, what you will need is:
 
 Note: The last canvas you add will be on "top" of the pile, which means it will get all the clicks and such from the user and it will show up on top.
 
-### Creating Multiple Canvases with HTML & CSS
+## Creating Multiple Canvases with HTML & CSS
 
 To create multiple canvases with HTML and CSS, you can write code like this (adjust to the number of canvases you need to create):
 
@@ -69,7 +69,7 @@ export let midCanvas : HTMLCanvasElement = document.querySelector('#middle-canva
 export let botCanvas : HTMLCanvasElement = document.querySelector('#bottom-canvas');
 ```
 
-### Creating Multiple Canvases with JavaScript
+## Creating Multiple Canvases with JavaScript
 
 If you want to create many canvases in JavaScript, the easiest thing to do is create a container (e.g. `<div id="app">`) and then make a function to add a new canvas, like so:
 

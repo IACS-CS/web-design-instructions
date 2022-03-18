@@ -24,15 +24,13 @@
         position: relative;
       }
       header nav div .sub {
-        display: none;     
         position: absolute;
-        transform: translateY(-100px);
+        transform: translateY(-100%);
         opacity: 0;
         transition: all 300ms;
         background-color: #212121;
         display: flex;
         flex-direction: column;        
-        padding: 1em;
         box-sizing: border-box;
         z-index: 99;
       }
@@ -44,7 +42,10 @@
       }
       .sub a {
         text-decoration: none;
-      }
+        display: block;
+        padding: 0.5em;
+        border-top: 1px solid #efefef;
+      }      
       .sub a:hover {
         background-color: #424242;
       }
