@@ -1,7 +1,29 @@
 <iframe
-  src="/embeds/{{include.page}}"
-  width="560"
-  height="315"
+  src="/js1-docs/embeds/{{include.page}}"
+  {%
+  if
+  include.width
+  %}
+  width="{{include.width}}"
+  {%
+  else
+  %}
+  width="600px"
+  {%
+  endif
+  %}
+  {%
+  if
+  include.height
+  %}
+  height="{{include.height}}"
+  {%
+  else
+  %}
+  height="316"
+  {%
+  endif
+  %}
   frameborder="0"
   allowfullscreen
 >
