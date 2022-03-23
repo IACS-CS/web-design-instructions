@@ -4,7 +4,7 @@ Hello students! I put together a new home for my how-to's hosted on github pages
 This webpage will grow and eventually replace the [Google Doc of How-To's](https://docs.google.com/document/d/1MrPTAd-LPJpUH93BYElgGv_abhhagAWaURrOtqjfj9A/edit) that I made and shared with you earlier this semester.
 
 #### Test
-{%include test.html %}
+{%include local.html page="test.html" %}
 
 ### Canvas Basics
 - Browse all [Canvas how-to's](canvas/index.md)
