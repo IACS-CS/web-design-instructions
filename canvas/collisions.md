@@ -133,7 +133,7 @@ function checkForHit() {
 ```
 
 And here's the full arrow example for your reference:
-{% codepen.html id="OJzpbvV" %}
+{% include codepen.html id="OJzpbvV" %}
 
 
 ### Using the Distance Formula
