@@ -70,9 +70,12 @@ The solution is to check whether the arrow is *close enough* to the target. For 
 function checkArrow () {
   // if the is past the "wall"
   if (arrow.x >= 500) { 
-    arrow.x = 500; // stick the arrow to the wall
-    // And the arrow is between 198 and 202...
-    if (arrow.y >= 195 && arrow.y <= 204) {
+    // stick the arrow to the wall by setting X to 500;
+    // (we don't allow the arrow to move through the wall)
+    arrow.x = 500; 
+    // Check if the arrow hit the target by checking the
+    // y coordinate.
+    if (arrow.y >= 195 && arrow.y <= 205) {
       score += 1; // a hit!
     }    
   }
@@ -83,7 +86,7 @@ A slightly "fancier" way to do this is to use subtraction and absolute values to
 
 The generic condition, written in math, would be:
 
-  |actualValue - targetValue| < tolerance
+  `|actualValue - targetValue| < tolerance`
 
 In JavaScript, we write that:
 
@@ -100,8 +103,11 @@ Here it is in practice:
 function checkArrow () {  
   // if the is past the "wall"
   if (arrow.x >= 500) { 
-    arrow.x = 500; // stick the arrow to the wall
-    // And the arrow is between 198 and 202...
+    // stick the arrow to the wall by setting X to 500;
+    // (we don't allow the arrow to move through the wall)
+    arrow.x = 500; 
+    // Check if the Y coordinate is within 5 pixels of
+    // target at y=200
     if (Math.abs(arrow.y - 200) <= 5) {
       score += 1; // a hit!
     }    
@@ -138,7 +144,7 @@ And here's the full arrow example for your reference:
 
 ### Using the Distance Formula
 
-To check the distance of two objects in space, you'll want to use the distance formula. A nice thing about programming, is you can encapsulate bits of calculations you have to do with functions, so you could think about calculating whether a player has collided with an enemy like this:
+To check the distance of two objects in space, you'll want to use the distance formula. A nice thing about programming is that you can encapsulate bits of calculations you have to do in functions. So my first step solving a problem like this is to write code like the following:
 
 ```javascript
 
@@ -152,9 +158,9 @@ function checkForHit () {
 }
 ```
 
-Next you'll have to define "distance" -- I'm going to define it in terms of two objects with an x and a y property.
-It's customary to use "a" and "b" to refer to arbitrary items being compared, but you can call the parameters whatever
-you like:
+Now I just have to define my `getDistance` function, which will take two objects with an x and y property and return the distance between them.
+
+It's customary to use "a" and "b" to refer to arbitrary items being compared, but you can call the parameters whatever you like:
 
 ```javascript
 /* Calculate the distance between a and b using the pythogorean theorem */
@@ -167,6 +173,6 @@ function getDistance (a, b) {
 }
 ```
 
-Here's a simple game where you drive around a circle looking for invisible squares.
+Here's a simple game where you drive around chasing circles of different colors. Since I implemented the distance formula already, I went ahead and used it to change the color of your player as you get closer to the target, and to display your distance from the target on the screen (this gets handy at higher levels when the target turns invisible).
 
 {%include codepen.html id="VwypPWv" %}
