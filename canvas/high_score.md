@@ -35,5 +35,5 @@ ctx.fillText(`Score: ${score}`, 50, 50);
 
 Here's an extremely simple codepen that gives you "points" for clicking:
 
-{% codepen.html id="zYpZrNq" %}
+{% include codepen.html id="zYpZrNq" %}
 
