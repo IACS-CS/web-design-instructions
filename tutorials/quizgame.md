@@ -14,7 +14,11 @@ Over the course of the tutorial, you'll learn:
 
 ## Step 1: Make a Pretty Little Quiz Question
 
-## HTML 
+For our first step, we're just going to create a pretty-looking quiz. Here's what we're building first:
+
+{%include local.html page="quiz-static.html" %}
+
+## HTML
 
 For step 1 of our tutorial, we'll be writing HTML. HTML is a language that consists of open tags (`<p>`) and close tags (`</p>`) surrounding text to create "elements" like this:
 
