@@ -49,7 +49,7 @@ For our first quiz screen, we'll create the following HTML content (change the q
       <div class="answers">
         <button>1998</button>
         <button>2007</button>      
-        <button>20011</button>
+        <button>2011</button>
         <button>2015</button>
       </div>
     </div>  
@@ -229,4 +229,17 @@ export let questions = [
   }
 ];
 ```
+
+*Go ahead and create a new file called `questions.ts` with the code above.*
+
+### Using quiz data
+
+Next up, we need to *use* the quiz data we just created, so we'll create a new file called `quiz.ts`
+
+The quiz will be responsible for keeping track of where the user is in the quiz and displaying each question as they move through it.
+
+```
+import {questions} from './questions';
+
+let currentQuestionNumber = 0;
 
