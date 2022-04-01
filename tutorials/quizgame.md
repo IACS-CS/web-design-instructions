@@ -85,7 +85,7 @@ button {
 }
 ```
 
-If you want to learn a ton of CSS, sign up for my web-development class. To get you started, here are some rules that will make your basic quiz app look pretty OK (please mess around with these rules to customize this!)
+If you want to learn a ton of CSS, sign up for my web design class. To get you started, here are some rules that will make your basic quiz app look pretty OK (please mess around with these rules to customize this!)
 
 ```css
 body {
@@ -181,3 +181,52 @@ button:active {
 When you're all done, you should have a non-functional quiz-game looking pretty in your browser. [Here's an example](https://replit.com/@ThomasHinkle/QuizGame-Pretty).
 
 ## Step 2: Data!
+
+You'll notice our quiz game doesn't currently do anything. Our goal eventually is to do the following:
+
+- Represent the quiz itself as an array in JavaScript (a list of questions and answers).
+- Use that data to update our webpage with the current question
+- Make it so that the "next" button switches us to the next question.
+
+### Creating quiz data
+
+It is very common in JavaScript projects to model data as a list of objects. We're going to create a file with our quiz data where we do just that.
+
+We first need to decide what each question will look like. I'm going to start with something simple like this:
+
+```javascript
+{
+  question : 'When did the first class graduate from IACS?',
+  answer : '2011',
+  distractors : [
+    '1997',
+    '2007','2015'
+  ]
+}
+```
+
+To create a list of questions, we then would simply separate question objects with commas inside of a list (`[]`), like this:
+
+```javascript
+export let questions = [
+  {
+    question : 'When did the first class graduate from IACS?',
+    answer : '2011',
+    distractors : [
+      '1997',
+      '2007','2015'
+    ]
+  },
+  {
+    question : 'Where was the first IACS high school campus?',
+    answer : 'The Old Town Hall in Chelsmford center',
+    distractors : [
+      'The campus at 72 Tyng Road',
+      'The Pheasant Lane Mall',
+      'A strip mall in Billerica',
+      'A building on Brick Kiln Rd'
+    ]
+  }
+];
+```
+
