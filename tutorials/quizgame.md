@@ -75,6 +75,8 @@ The *ruleset* for CSS consists of a block of rules delimited with squiggle brack
 
 You can also make a rule for every instance of an element using just the element name, like this:
 
+_style.css_
+
 ```css
 button {
   padding: 3em;
@@ -207,6 +209,8 @@ We first need to decide what each question will look like. I'm going to start wi
 
 To create a list of questions, we then would simply separate question objects with commas inside of a list (`[]`), like this:
 
+_questions.ts_
+
 ```javascript
 export let questions = [
   {
@@ -230,6 +234,25 @@ export let questions = [
 ];
 ```
 
+#### Adding type hinting
+
+Note: in TypeScript, we can also help ourselves out by adding a type definition to our file. This will allow us to add type hinting to our functions later, which makes it easier to let the code editor auto-complete the details of questions for us.
+
+Here's what adding type definitions look like for the file above -- note, if we add a type definition to the questions variable itself we'll also get the editor to warn us if we leave a required part of our question off:
+
+_questions.ts_
+```typescript
+export type Question = {
+  question : string, /* A string */
+  answer : string, /* A string */
+  distractors : string[], /* A list of strings */
+}
+
+export let questions : Question[] = [
+  /* ... same code as before can go here ... */
+]
+```
+
 *Go ahead and create a new file called `questions.ts` with the code above.*
 
 ### Using quiz data
@@ -238,8 +261,308 @@ Next up, we need to *use* the quiz data we just created, so we'll create a new f
 
 The quiz will be responsible for keeping track of where the user is in the quiz and displaying each question as they move through it.
 
+#### Selecting Items from an Array
+
+In JavaScript, if you have an array of items, such as this:
+
+```javascript
+let colors = ['red','blue','green','yellow']
 ```
+
+you can select an item from the array by using a zero-based numerical index, such as `colors[0]`.
+
+If we want to keep track of which question a user is on, then, we'll want to simply have an index that starts at 0 that we add to and use that index to select the current question.
+
+Here's some simple code to help us move through our list:
+
+_quiz.ts_
+
+```javascript
 import {questions} from './questions';
 
 let currentQuestionNumber = 0;
+let currentQuestion = questions[currentQuestionNumber];
+
+export function nextQuestion () {  
+  currentQuestionNumber += 1;
+  currentQuestion = questions[currentQuestionNumber];
+}
+
+export function prevQuestion () {
+  currentQuestionNumber -= 1;
+  currentQuestion = questions[currentQuestionNumber];
+}
+```
+
+When we display our questions, let's assume we want to randomize the order of the answers. Here's a quick set of functions to do that
+
+_quiz.ts_
+
+```typescript
+/* We need to shuffle, and this isn't built in in JavaScript, which
+is annoying. This shuffle comes from stackoverflow:
+https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array */
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+function getAnswers (question : Question) {
+  let answers = [...question.distractors,question.answer];
+  shuffleArray(answers);
+  return answers;
+}
+
+```
+
+### Displaying Questions
+
+Next up, we need to be able to display our questions. The basic idea will be to reach into our HTML and swap out the portions of code we want to change.
+
+Our function will look like this (I've imported the type definition so that my editor will autocomplete when I type the code):
+
+```typescript
+import {Question} from './questions';
+
+function changeQuestion (question: Question) {
+  /* More coming soon... read on! */
+}
+```
+
+We can use template strings, which let us insert variables in the middle of our code, to make it relatively easy to mix HTML and JavaScript.
+
+If we look at our original HTML code, the key part that would have to change looks like this:
+
+```html
+<div class="question-container">
+  <div class="question">
+    In what year did IACS graduate its first class of Seniors?
+  </div>
+  <div class="answers">
+    <button>1998</button>
+    <button>2007</button>
+    <button>2011</button>
+    <button>2015</button>
+  </div>
+</div>
+```
+
+We'll use two different techniques to change up our HTML: 
+1. We'll change the contents of "question-container" to give us a blank slate.
+2. We'll create buttons for each option and add them to the answer container.
+
+The reason to add the answers separately is because we'll need to hook up event listeners on those objects.
+
+#### Using Template Strings
+
+
+```typescript
+import {Question} from './questions';
+
+function changeQuestion (question: Question) {
+  let container = document.querySelector('.question-container');
+  container.innerHTML = `
+  <div class="question-container">
+    <div class="question">
+      ${question.question}
+    </div>
+    <div class="answers">      
+    </div>
+  </div>
+  `;
+  // Now add the buttons by hand...
+  addAnswerButtons(
+    container.querySelector('.answers'), 
+    question
+  );
+}
+```
+
+#### Creating elements one at a time...
+
+To create the buttons, we'll add them one at a time:
+
+```typescript
+
+/* Create a single button with text string for question */
+function makeButton (a : string, question: Question) {
+  let button = document.createElement('button');
+  button.innerText = a;
+  button.addEventListener(
+    "click",
+    function () {
+      if (a==question.answer) {
+        // handle right answer
+        window.alert('Correct!');
+      } else {
+        // handle wrong answer
+        window.alert('Wrong!');
+      }
+    }
+  )
+}
+
+/* Add buttons for answers to container */
+function addAnswerButtons (container : HTMLDivElement, question: Question) {
+  let answers = getAnswers(question);
+  answers.forEach(
+    function (a) {
+      container.appendChild(
+        makeButton(a, question)
+      );      
+    }
+  )
+}
+```
+
+### Putting it all together
+
+The last step is just to create a working "Next" button and set up our buttons at the stop.
+
+Let's add an ID to our next button to make it easy to grab...
+
+_index.html_
+```html
+<button id="next">Next</button>
+```
+
+_quiz.ts_
+```typescript
+
+document
+  .querySelector('#next')
+  .addEventListener(
+    "click",
+    function () {
+      nextQuestion();
+      changeQuestion(currentQuestion);
+    }
+  )
+
+changeQuestion(currentQuestion);
+```
+
+As always, you *can* put everything in one file, but I find it hard to keep track of. For my actual "working" code I broke the code in these examples out into three files:
+
+- questions.ts :  List of questions and Question type
+- quiz.ts : Logic for advancing question in the quiz
+- quizDisplay.ts : Logic for changing HTML.
+- util.ts : Helper functions for shuffling our answers -- lots of projects have an extra file for putting code that doesn't fit elsewhere :)
+
+*util.ts*
+```typescript
+/* We need to shuffle, and this isn't built in in JavaScript, which
+is annoying. This shuffle comes from stackoverflow:
+https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array */
+export function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+```
+
+*questions.ts*
+
+```typescript
+```
+
+
+*quizDisplay.ts*
+
+```typescript
+import {Question} from './questions';
+import {shuffleArray} from './utils';
+
+function getAnswers (question : Question) {
+  let answers = [...question.distractors,question.answer];
+  shuffleArray(answers);
+  return answers;
+}
+
+export function changeQuestion (question: Question) {
+  let container = document.querySelector('.question-container');
+  container.innerHTML = `
+  <div class="question-container">
+    <div class="question">
+      ${question.question}
+    </div>
+    <div class="answers">      
+    </div>
+  </div>
+  `;
+  // Now add the buttons by hand...
+  addAnswerButtons(
+    container.querySelector('.answers'), 
+    question
+  );
+}
+
+/* Create a single button with text string for question */
+function makeButton (a : string, question: Question) {
+  let button = document.createElement('button');
+  button.innerText = a;
+  button.addEventListener(
+    "click",
+    function () {
+      if (a==question.answer) {
+        // handle right answer
+        window.alert('Correct!');
+      } else {
+        // handle wrong answer
+        window.alert('Wrong!');
+      }
+    }
+  )
+}
+
+/* Add buttons for answers to container */
+function addAnswerButtons (container : HTMLDivElement, question: Question) {
+  let answers = getAnswers(question);
+  answers.forEach(
+    function (a) {
+      container.appendChild(
+        makeButton(a, question)
+      );      
+    }
+  )
+}
+
+```
+
+*quiz.ts*
+
+```typescript
+import {questions, Question} from './questions';
+
+let currentQuestionNumber = 0;
+let currentQuestion = questions[currentQuestionNumber];
+
+function nextQuestion () {  
+  currentQuestionNumber += 1;
+  currentQuestion = questions[currentQuestionNumber];
+}
+
+function prevQuestion () {
+  currentQuestionNumber -= 1;
+  currentQuestion = questions[currentQuestionNumber];
+}
+
+
+document
+  .querySelector('#next')
+  .addEventListener(
+    "click",
+    function () {
+      nextQuestion();
+      changeQuestion(currentQuestion);
+    }
+  )
+
+changeQuestion(currentQuestion);
+```
+
+At this point, you should have a basic working game that pops up a window for right and wrong answers and lets you choose the next question!
 
