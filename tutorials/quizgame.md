@@ -16,7 +16,7 @@ Over the course of the tutorial, you'll learn:
 
 For our first step, we're just going to create a pretty-looking quiz. Here's what we're building first:
 
-{%include local.html page="quiz-static.html" %}
+{%include local.html page="quiz-static.html" height="800px" %}
 
 ## HTML
 
