@@ -96,7 +96,7 @@ There are lots of ways to get fancier with CSS and HTML. I'm going to create an 
 
 Here's how the basic idea will work:
 
-{%include local.html page="crossout.html"}
+{%include local.html page="crossout.html"%}
 
 To implement it, I'll go ahead and add two empty "divs" for my crossouts using JavaScript, then I'll add CSS to animate them.
 
