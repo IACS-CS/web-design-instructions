@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <style>
+      button {
+      }
+      button.step1 div {
+        width: 0;
+        box-sizing: border-box;
+        border-bottom: 10px solid red;
+        transition: all 500ms;
+      }
+      button.step1:hover div {
+        left: 0;
+        width: 100%;
+      }
+      button.step2 {
+        position: relative;
+      }
+      button.step2 div {
+        position: absolute;
+        left: 50%;
+        top: calc(50% - 5px);
+      }
+      button.step2:hover div {
+        left: 0;
+        top: calc(50% - 5px);
+      }
+      button.step3 div:first-child {
+        transform: rotate(-15deg);
+      }
+      button.step3 div:last-child {
+        transform: rotate(15deg);
+      }
+    </style>
+  </head>
+  <p>Hover over the buttons to see the effect:</p>
+  <ul>
+    <li>
+      Step 1: Add an element with a bottom border to the button; animate that
+      element growing from width 0 to width 100%:
+      <button class="step1">
+        Hover for Border
+        <div></div>
+      </button>
+    </li>
+    <li>
+      Step 2: Position that element over the center of the button
+      <button class="step1 step2">
+        Hover for centered border
+        <div></div>
+      </button>
+    </li>
+    <li>
+      Step 3: Add <em>two</em> such elements and rotate them so they form an "X"
+    </li>
+    <button class="step1 step2 step3">
+      Hover for centered border
+      <div></div>
+      <div></div>
+    </button>
+  </ul>
+</html>

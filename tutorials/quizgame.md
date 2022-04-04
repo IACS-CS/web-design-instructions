@@ -1,5 +1,23 @@
 # Quiz Game
 
+- [Quiz Game](#quiz-game)
+  - [Step 1: Make a Pretty Little Quiz Question](#step-1-make-a-pretty-little-quiz-question)
+    - [HTML](#html)
+    - [CSS](#css)
+  - [Step 2: Data!](#step-2-data)
+    - [Creating quiz data](#creating-quiz-data)
+      - [Adding type hinting](#adding-type-hinting)
+    - [Using quiz data](#using-quiz-data)
+      - [Selecting Items from an Array](#selecting-items-from-an-array)
+    - [Displaying Questions](#displaying-questions)
+      - [Using Template Strings](#using-template-strings)
+      - [Creating elements one at a time...](#creating-elements-one-at-a-time)
+    - [Putting it all together](#putting-it-all-together)
+  - [Putting it All Together](#putting-it-all-together-1)
+  - [Next Steps](#next-steps)
+    - [Animating Wrong Answers](#animating-wrong-answers)
+    - [Handling Correct Answers](#handling-correct-answers)
+
 In this tutorial, I'm going to walk you through creating a Quiz Game in JavaScript.
 
 We will begin once again with the vite template.
@@ -18,7 +36,7 @@ For our first step, we're just going to create a pretty-looking quiz. Here's wha
 
 {%include local.html page="quiz-static.html" height="800px" %}
 
-## HTML
+### HTML
 
 For step 1 of our tutorial, we'll be writing HTML. HTML is a language that consists of open tags (`<p>`) and close tags (`</p>`) surrounding text to create "elements" like this:
 
@@ -60,7 +78,7 @@ For our first quiz screen, we'll create the following HTML content (change the q
 </main>
 ```
 
-## CSS
+### CSS
 
 In order to make this code look pretty, we're going to create some basic style rules. Style rules consist of a *selector* and a *ruleset*. To select any element with an attribute like `class="name-of-class"` in the HTML, we write a *CSS* rule that looks like `.name-of-class` (starting with a period).
 
@@ -294,27 +312,42 @@ export function prevQuestion () {
 }
 ```
 
-When we display our questions, let's assume we want to randomize the order of the answers. Here's a quick set of functions to do that
+When we display our questions, let's assume we want to randomize the order of the answers. Unfortunately, JavaScript doesn't provide a shuffle function in its built-in library, so we have to implement one. I went ahead and created a little `utils.ts` module to stick it in, like this:
 
-_quiz.ts_
-
+_utils.ts_
 ```typescript
 /* We need to shuffle, and this isn't built in in JavaScript, which
 is annoying. This shuffle comes from stackoverflow:
 https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array */
-function shuffleArray(array) {
+export function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
+```
+
+Now I add a method to my `quiz.ts` which takes a question and returns a shuffled list of answers. To stick arrays together, you can use the *spread* operator (...), which lets you take two arrays and put them together, like this:
+
+```typescript
+let songbirds = ['chicadee','wren'];
+let waterfowl = ['duck','goose'];
+// The spread operator at work...
+let birds = [...songbirds,...waterfowl];
+```
+
+Here's how we'll use the spread operator to mix the answer with the distractors:
+
+_quiz.ts_
+
+```typescript
+import {shuffleArray} from './utils';
 
 function getAnswers (question : Question) {
   let answers = [...question.distractors,question.answer];
   shuffleArray(answers);
   return answers;
 }
-
 ```
 
 ### Displaying Questions
@@ -372,7 +405,7 @@ function changeQuestion (question: Question) {
     </div>
   </div>
   `;
-  // Now add the buttons by hand...
+  // Now add the buttons...
   addAnswerButtons(
     container.querySelector('.answers'), 
     question
@@ -382,7 +415,7 @@ function changeQuestion (question: Question) {
 
 #### Creating elements one at a time...
 
-To create the buttons, we'll add them one at a time:
+To create the buttons, we'll add them one at a time using `document.createElement`. We'll do it this way rather than assigning to `innerHTML` because we need a reference to the button objects in JavaScript so we can set up event listeners on the buttons anyway.
 
 ```typescript
 
@@ -395,13 +428,20 @@ function makeButton (a : string, question: Question) {
     function () {
       if (a==question.answer) {
         // handle right answer
+        // (this is just a placeholder for now --
+        // we should do something better with
+        // right answers eventually)
         window.alert('Correct!');
       } else {
         // handle wrong answer
+        // (this is just a placeholder for now
+        // -- we should do something better with
+        // wrong answers eventually)
         window.alert('Wrong!');
       }
     }
-  )
+  );
+  return button;
 }
 
 /* Add buttons for answers to container */
@@ -444,12 +484,16 @@ document
 changeQuestion(currentQuestion);
 ```
 
+## Putting it All Together
+
 As always, you *can* put everything in one file, but I find it hard to keep track of. For my actual "working" code I broke the code in these examples out into three files:
 
 - questions.ts :  List of questions and Question type
 - quiz.ts : Logic for advancing question in the quiz
 - quizDisplay.ts : Logic for changing HTML.
 - util.ts : Helper functions for shuffling our answers -- lots of projects have an extra file for putting code that doesn't fit elsewhere :)
+
+[Here's the code in a working repl](https://replit.com/@ThomasHinkle/QuizGame-Functioning)
 
 *util.ts*
 ```typescript
@@ -467,6 +511,29 @@ export function shuffleArray(array) {
 *questions.ts*
 
 ```typescript
+export type Question = {
+  question : string, /* A string */
+  answer : string, /* A string */
+  distractors : string[], /* A list of strings */
+}
+
+export let questions : Question[] = [
+  {
+    question : 'When did the first class graduate from IACS?',
+    answer : '2011',
+    distractors : ['1997','2007','2015']
+  },
+  {
+    question : 'Where was the first IACS high school campus?',
+    answer : 'The Old Town Hall in Chelsmford center',
+    distractors : [
+      'The campus at 72 Tyng Road',
+      'The Pheasant Lane Mall',
+      'A strip mall in Billerica',
+      'A building on Brick Kiln Rd'
+    ]
+  }
+];
 ```
 
 
@@ -515,7 +582,8 @@ function makeButton (a : string, question: Question) {
         window.alert('Wrong!');
       }
     }
-  )
+  );
+  return button;
 }
 
 /* Add buttons for answers to container */
@@ -566,3 +634,9 @@ changeQuestion(currentQuestion);
 
 At this point, you should have a basic working game that pops up a window for right and wrong answers and lets you choose the next question!
 
+## Next Steps
+
+There are various next steps you might want to take.
+
+### [Animating Wrong Answers](./quizgame-animating-wrong)
+### [Handling Correct Answers]('./quizgame-right-answers)
