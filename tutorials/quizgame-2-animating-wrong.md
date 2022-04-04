@@ -1,3 +1,8 @@
+---
+order: 2
+title : -Animating wrong answers
+---
+
 # Quiz Game: Animating Wrong Answers
 
 Note, this tutorial assumes you've already completed the steps in [the quizgame tutorial](./quizgame-1.md).

@@ -1,3 +1,8 @@
+---
+title: - Scoring right answers
+order: 3
+---
+
 # Quiz Game: Handling Right Answers
 
 This tutorial assumes you've already completed the set-up in [the quiz game tutorial]('./quizgame-1.md)

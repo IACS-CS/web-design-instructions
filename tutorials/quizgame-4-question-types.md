@@ -1,3 +1,8 @@
+---
+title: - Adding images & other data to questions
+order: 4
+---
+
 # Quiz Game: Expanding Question Types
 
 This tutorial assumes you've already complete [the Quizgame tutorial](quizgame-1.md).

@@ -1,3 +1,8 @@
+---
+title: Making a Quiz Game
+order: 1
+---
+
 # Quiz Game
 
 - [Quiz Game](#quiz-game)
