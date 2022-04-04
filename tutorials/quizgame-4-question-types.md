@@ -1,5 +1,7 @@
 # Quiz Game: Expanding Question Types
 
+This tutorial assumes you've already complete [the Quizgame tutorial](quizgame-1.md).
+
 Remember that our program fundamentally looks at the data in `questions.ts` and then uses it to create buttons in `quizDisplay.ts`. That means that any customization we want to do to questions, such as adding images into the responses or adding custom feedback for certain answers, will mean customizing our questions.ts type.
 
 I'm going to imagine that I'm expanding my quiz to allow the following new features:

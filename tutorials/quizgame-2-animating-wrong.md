@@ -1,6 +1,6 @@
 # Quiz Game: Animating Wrong Answers
 
-Note, this tutorial assumes you've already completed the steps in [the quizgame tutorial](./quizgame.md).
+Note, this tutorial assumes you've already completed the steps in [the quizgame tutorial](./quizgame-1.md).
 
 - [Quiz Game: Animating Wrong Answers](#quiz-game-animating-wrong-answers)
   - [CSS Animations](#css-animations)
@@ -8,6 +8,7 @@ Note, this tutorial assumes you've already completed the steps in [the quizgame 
   - [Step 2: CSS Transformations](#step-2-css-transformations)
   - [Getting Fancier: Adding elements to our animation](#getting-fancier-adding-elements-to-our-animation)
   - [Using JavaScript to randomize the style a bit!](#using-javascript-to-randomize-the-style-a-bit)
+  - [Next step...](#next-step)
 
 [Full example here](https://replit.com/@ThomasHinkle/QuizGame-Full#quiz.ts)
 ## CSS Animations
@@ -203,3 +204,6 @@ export function markWrong (button : HTMLButtonElement) {
 }
 ```
 
+## Next step...
+[Handling right answers](quizgame-3-right-answers.md)
+[Implementing different question types](quizgame-4-question-types.md)

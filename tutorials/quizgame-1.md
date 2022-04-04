@@ -639,6 +639,6 @@ At this point, you should have a basic working game that pops up a window for ri
 
 There are various next steps you might want to take.
 
-### [Animating Wrong Answers](./quizgame-animating-wrong)
-### [Scoring Answers]('./quizgame-right-answers)
-### [Customizing Question Types]('./question-types)
+### [Animating Wrong Answers](./quizgame-2-animating-wrong)
+### [Scoring Answers]('./quizgame-3-right-answers)
+### [Customizing Question Types]('./quizgame-4-question-types)
