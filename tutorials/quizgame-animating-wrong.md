@@ -2,6 +2,14 @@
 
 Note, this tutorial assumes you've already completed the steps in [the quizgame tutorial](./quizgame.md).
 
+- [Quiz Game: Animating Wrong Answers](#quiz-game-animating-wrong-answers)
+  - [CSS Animations](#css-animations)
+  - [Step 1: Adding and Removing Classes with JavaScript](#step-1-adding-and-removing-classes-with-javascript)
+  - [Step 2: CSS Transformations](#step-2-css-transformations)
+  - [Getting Fancier: Adding elements to our animation](#getting-fancier-adding-elements-to-our-animation)
+  - [Using JavaScript to randomize the style a bit!](#using-javascript-to-randomize-the-style-a-bit)
+
+[Full example here](https://replit.com/@ThomasHinkle/QuizGame-Full#quiz.ts)
 ## CSS Animations
 
 There are various techniques for animation in JavaScript. For *this* tutorial, we'll use CSS, or your style.css, to handle your animations. We'll use the *simplest* version of CSS animations, which is the `transition` which lets you automatically change any property smoothly between one value and another.
