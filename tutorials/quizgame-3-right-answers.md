@@ -1,6 +1,6 @@
 ---
 order: 3
-title: - Scoring right answers
+title: 1. Quiz Game - (3) Scoring right answers
 
 ---
 

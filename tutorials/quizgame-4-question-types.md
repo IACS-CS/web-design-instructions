@@ -1,6 +1,6 @@
 ---
 order: 4
-title: - Adding images & other data to questions
+title: 1. Quiz Game - (4) Adding images & other data to questions
 ---
 
 # Quiz Game: Expanding Question Types

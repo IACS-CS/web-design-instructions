@@ -1,6 +1,6 @@
 ---
 order: 2
-title : -Animating wrong answers
+title : 1. Quiz Game - (2) Animating Wrong Answers
 ---
 
 # Quiz Game: Animating Wrong Answers
