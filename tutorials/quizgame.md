@@ -20,9 +20,6 @@ order: 1
     - [Putting it all together](#putting-it-all-together)
   - [Putting it All Together](#putting-it-all-together-1)
   - [Next Steps](#next-steps)
-    - [Animating Wrong Answers](#animating-wrong-answers)
-    - [Scoring Answers](#scoring-answers)
-    - [Customizing Question Types](#customizing-question-types)
 
 In this tutorial, I'm going to walk you through creating a Quiz Game in JavaScript.
 
@@ -644,6 +641,6 @@ At this point, you should have a basic working game that pops up a window for ri
 
 There are various next steps you might want to take.
 
-### [Animating Wrong Answers](./quizgame-2-animating-wrong)
-### [Scoring Answers]('./quizgame-3-right-answers)
-### [Customizing Question Types]('./quizgame-4-question-types)
+- [Animating Wrong Answers](./quizgame-2-animating-wrong)
+- [Scoring Answers](./quizgame-3-right-answers)
+- [Customizing Question Types](./quizgame-4-question-types)
