@@ -117,7 +117,7 @@
             <div>
               <a href="/js1-docs/tutorials">Tutorials</a>  
               <div class="sub">
-                {% for page in site.pages | sort: "order" %}
+                {% for page in site.pages | sort:order %}
                   {% if page.url contains 'tutorials' %}
                   <a href="/js1-docs/{{ page.url }}">
                       {{ page.title }}
