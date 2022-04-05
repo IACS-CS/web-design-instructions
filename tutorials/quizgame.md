@@ -1,6 +1,6 @@
 ---
-title: Making a Quiz Game
 order: 1
+title: Making a Quiz Game
 ---
 
 # Quiz Game

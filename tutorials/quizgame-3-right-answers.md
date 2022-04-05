@@ -1,6 +1,7 @@
 ---
-title: - Scoring right answers
 order: 3
+title: - Scoring right answers
+
 ---
 
 # Quiz Game: Handling Right Answers
