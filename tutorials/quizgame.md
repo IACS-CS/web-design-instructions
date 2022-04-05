@@ -14,6 +14,8 @@ title: 1. Quiz Game
       - [Adding type hinting](#adding-type-hinting)
     - [Using quiz data](#using-quiz-data)
       - [Selecting Items from an Array](#selecting-items-from-an-array)
+        - [Randomizing the order of answers](#randomizing-the-order-of-answers)
+          - [The Spread Operator](#the-spread-operator)
     - [Displaying Questions](#displaying-questions)
       - [Using Template Strings](#using-template-strings)
       - [Creating elements one at a time...](#creating-elements-one-at-a-time)
@@ -315,6 +317,8 @@ export function prevQuestion () {
 }
 ```
 
+##### Randomizing the order of answers
+
 When we display our questions, let's assume we want to randomize the order of the answers. Unfortunately, JavaScript doesn't provide a shuffle function in its built-in library, so we have to implement one. I went ahead and created a little `utils.ts` module to stick it in, like this:
 
 _utils.ts_
@@ -330,7 +334,12 @@ export function shuffleArray(array) {
 }
 ```
 
-Now I add a method to my `quiz.ts` which takes a question and returns a shuffled list of answers. To stick arrays together, you can use the *spread* operator (...), which lets you take two arrays and put them together, like this:
+Now I add a method to my `quiz.ts` which takes a question and returns a shuffled list of answers. The goal here is to make sure that my answers don't always show up with the correct
+answer first, so if I have 1 correct answer and 3 distractors, I want my function to get a 
+list of those 4 answers in a random order.
+
+###### The Spread Operator
+To stick arrays together, you can use the *spread* operator (...), which lets you take two arrays and put them together, like this:
 
 ```typescript
 let songbirds = ['chicadee','wren'];
@@ -341,7 +350,7 @@ let birds = [...songbirds,...waterfowl];
 
 Here's how we'll use the spread operator to mix the answer with the distractors:
 
-_quiz.ts_
+_quizDisplay.ts_
 
 ```typescript
 import {shuffleArray} from './utils';
