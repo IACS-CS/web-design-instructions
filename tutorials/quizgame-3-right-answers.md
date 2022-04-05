@@ -5,7 +5,7 @@ order: 3
 
 # Quiz Game: Handling Right Answers
 
-This tutorial assumes you've already completed the set-up in [the quiz game tutorial]('./quizgame-1.md)
+This tutorial assumes you've already completed the set-up in [the quiz game tutorial]('./quizgame.md)
 
 Let's assume that when users get an answer right, we want to:
 

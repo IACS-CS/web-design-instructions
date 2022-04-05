@@ -5,7 +5,7 @@ title : -Animating wrong answers
 
 # Quiz Game: Animating Wrong Answers
 
-Note, this tutorial assumes you've already completed the steps in [the quizgame tutorial](./quizgame-1.md).
+Note, this tutorial assumes you've already completed the steps in [the quizgame tutorial](./quizgame.md).
 
 - [Quiz Game: Animating Wrong Answers](#quiz-game-animating-wrong-answers)
   - [CSS Animations](#css-animations)
