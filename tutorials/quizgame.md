@@ -286,15 +286,9 @@ The quiz will be responsible for keeping track of where the user is in the quiz 
 
 #### Selecting Items from an Array
 
-In JavaScript, if you have an array of items, such as this:
+Our list of questions is an array of objects representing each question.  To keep track of which question a user is on, we'll want to simply have an *index* to tell us which question we're on, and use that index to select the current question from our array of questions. 
 
-```javascript
-let colors = ['red','blue','green','yellow']
-```
-
-you can select an item from the array by using a zero-based numerical index, such as `colors[0]`.
-
-If we want to keep track of which question a user is on, then, we'll want to simply have an index that starts at 0 that we add to and use that index to select the current question.
+You can [read more about array indexes here](../fundamentals/lists#accessing-array-items)
 
 Here's some simple code to help us move through our list:
 
@@ -319,7 +313,19 @@ export function prevQuestion () {
 
 ##### Randomizing the order of answers
 
-When we display our questions, let's assume we want to randomize the order of the answers. Unfortunately, JavaScript doesn't provide a shuffle function in its built-in library, so we have to implement one. I went ahead and created a little `utils.ts` module to stick it in, like this:
+When we display our questions, let's assume we want to randomize the order of the answers. Remember, our questions look like this:
+
+```javascript
+{
+  question : 'When did the first class graduate IACS?',
+  answer : '2011',
+  distractors : ['2007','1997','2015'],
+}
+```
+
+What we want to do is add the answer to the list of distractors and then shuffle the list so they're in a random order.
+
+Unfortunately, JavaScript doesn't provide a shuffle function in its built-in library, so we have to implement one. I went ahead and created a little `utils.ts` module to stick it in, like this:
 
 _utils.ts_
 ```typescript
@@ -339,16 +345,8 @@ answer first, so if I have 1 correct answer and 3 distractors, I want my functio
 list of those 4 answers in a random order.
 
 ###### The Spread Operator
-To stick arrays together, you can use the *spread* operator (...), which lets you take two arrays and put them together, like this:
 
-```typescript
-let songbirds = ['chicadee','wren'];
-let waterfowl = ['duck','goose'];
-// The spread operator at work...
-let birds = [...songbirds,...waterfowl];
-```
-
-Here's how we'll use the spread operator to mix the answer with the distractors:
+We'll use the [spread operator](../fundamentals/lists#combining-arrays-with-the-spread-operator) to mix the answer with the distractors:
 
 _quizDisplay.ts_
 
