@@ -400,6 +400,7 @@ The reason to add the answers separately is because we'll need to hook up event 
 
 #### Using Template Strings
 
+*quizDisplay.ts*
 
 ```typescript
 import {Question} from './questions';
@@ -426,6 +427,8 @@ function changeQuestion (question: Question) {
 #### Creating elements one at a time...
 
 To create the buttons, we'll add them one at a time using `document.createElement`. We'll do it this way rather than assigning to `innerHTML` because we need a reference to the button objects in JavaScript so we can set up event listeners on the buttons anyway.
+
+*quizDisplay.ts* 
 
 ```typescript
 
@@ -613,6 +616,8 @@ function addAnswerButtons (container : HTMLDivElement, question: Question) {
 *quiz.ts*
 
 ```typescript
+
+import {changeQuestion} from './quizDisplay';
 import {questions, Question} from './questions';
 
 let currentQuestionNumber = 0;
