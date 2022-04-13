@@ -47,7 +47,7 @@ I also make some use of calculations in my templates which allow you to do some 
 
 Here is a template you can use for a fixed header/footer at the top and bottom of the screen and a body that takes up the whole screen.
 
-{%include codepen.html id="XWVPqGv" tabs="html,css" %}
+{%include codepen.html id="XWVPqGv" tabs="html,css,result" %}
 
 The basic concepts applied above are:
 
@@ -69,7 +69,7 @@ I'll also use *two* classes (bubble and left and bubble and right) to move them 
 
 Finally, we'll do some border rounding for kicks.
 
-{%include codepen.html id="wvpEXRZ" tabs="css,html" %}
+{%include codepen.html id="wvpEXRZ" tabs="css,html,result" %}
 
 ## Grid
 Coming soon...
