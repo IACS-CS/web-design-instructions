@@ -1,13 +1,18 @@
 # HTML: Nested Boxes
-
+- [HTML: Nested Boxes](#html-nested-boxes)
+  - [Heirarchy](#heirarchy)
+  - [Creating HTML from a structure](#creating-html-from-a-structure)
+  - [Beginning Layout](#beginning-layout)
+  - [Next Stop: Layout!](#next-stop-layout)
+  
 The most basic way to think about any webpage is as an arrangement of elements, which are themselves boxes (rectangles).
 
 Each "box" that a website is made of can contain:
 
 1. Text
-1. Media (images, video, audio)
-1. A canvas you can draw on with JavaScript
-1. Other boxes.
+2. Media (images, video, audio)
+3. A canvas you can draw on with JavaScript
+4. Other boxes.
 
 Any simple web application or game you want to create can be seen as a group of nested elements (images, text, etc).
 
@@ -154,4 +159,4 @@ Here's what it looks like rendered:
 
 ## Next Stop: Layout!
 
-Next up, check out my layout how-to's for a few basic layouts.
+Next up, check out my [layout how-to's for a few basic layouts](./layouts.md)
