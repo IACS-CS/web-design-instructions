@@ -73,7 +73,8 @@ Finally, we'll do some border rounding for kicks.
 
 ## Grid
 
-{%include codepen.html id="zYpJLLj" tabs="css,html" }
+{%include codepen.html id="zYpJLLj" tabs="css,html" %}
 
 ## Centered Pop-Up
-Coming soon...
+
+{%include codepen.html id="KKZxBbq" tabs="css,html" %}
