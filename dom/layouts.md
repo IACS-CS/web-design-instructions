@@ -2,6 +2,15 @@
 
 This document is going to show you how to create some simple page layouts. Note: I have a whole web design class where all we do is layouts, so my goal here is to teach you *as little as possible* to accomplish some common patterns you will want.
 
+
+- [Basic Layouts in HTML](#basic-layouts-in-html)
+  - [Notes](#notes)
+  - [Header/Body/Footer](#headerbodyfooter)
+  - [Left/Right Chat Bubbles](#leftright-chat-bubbles)
+  - [Grid](#grid)
+  - [Centered Pop-Up](#centered-pop-up)
+  
+## Notes
 I make some use of CSS variables here, which can be defined with a line like this:
 ```css
 --variable-name : value;
@@ -38,7 +47,7 @@ I also make some use of calculations in my templates which allow you to do some 
 
 Here is a template you can use for a fixed header/footer at the top and bottom of the screen and a body that takes up the whole screen.
 
-{%include codepen.html id=XWVPqGv tabs="html,css" %}
+{%include codepen.html id="XWVPqGv" tabs="html,css" %}
 
 The basic concepts applied above are:
 
@@ -60,7 +69,7 @@ I'll also use *two* classes (bubble and left and bubble and right) to move them 
 
 Finally, we'll do some border rounding for kicks.
 
-{%include codepen.html id=wvpEXRZ %}
+{%include codepen.html id="wvpEXRZ" tabs="css,html" %}
 
 ## Grid
 Coming soon...
