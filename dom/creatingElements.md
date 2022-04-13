@@ -19,17 +19,17 @@ For our purposes, there are three types of selectors you're likely to need:
 
 1. The **ID** selector is prefixed with a **#**: meant for *unique* elements on a webpage, can select an *id* attribute which can be added to any HTML element.
 
-HTML
+  HTML
 
-```html
-<div id="there-can-be-only-one"></div>
-```
+  ```html
+  <div id="there-can-be-only-one"></div>
+  ```
 
-JavaScript
+  JavaScript
 
-```javascript
-let div = document.querySelector('#there-can-be-only-one');
-```
+  ```javascript
+  let div = document.querySelector('#there-can-be-only-one');
+  ```
 
 2. The **class** selector is prefixed with a **.** and is meant to indicate a new "type" of thing.
 

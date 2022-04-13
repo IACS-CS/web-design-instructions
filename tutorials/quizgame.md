@@ -57,7 +57,7 @@ We're going to create our quiz game using only a couple of tags, they are:
 
 We can add the attribute `class="name"` to any *start tag* in order to create a new "class" (or type) of tag that we can later add style to using *CSS*. This saves us the work of adding specific style rules to every single tag as we add it to the document.
 
-For our first quiz screen, we'll create the following HTML content (change the quiz content to fit your own tastes!) inside of index.html. This code should get added in place of `<div id="app"></div>` in the generic vite template.
+For our first quiz screen, we'll create the following HTML content (change the quiz content to fit your own tastes!) inside of index.html. This code should get added in place of `<div id="app"></div>` in the generic vite template. Make sure not to delete the rest of the template, especially the `<script>` tag which imports the JavaScript you'll write later!
 
 ```html
 <main class="app">
@@ -280,13 +280,28 @@ export let questions : Question[] = [
 
 ### Using quiz data
 
-Next up, we need to *use* the quiz data we just created, so we'll create a new file called `quiz.ts`
+Next up, we need to *use* the quiz data we just created, so we'll create a new file called `quiz.ts` We'll also want to make sure to *import* this file into the `main.js` file that's imported in our `index.html`.
 
-The quiz will be responsible for keeping track of where the user is in the quiz and displaying each question as they move through it.
+So we should make sure we see the following lines:
+
+*index.html*
+
+```html
+...
+<script src="main.js"></script>
+```
+
+*main.js*
+
+```javascript
+import './quiz';
+```
+
+Your new module, `quiz.ts`, will be responsible for keeping track of where the user is in the quiz and displaying each question as they move through it. You'll later add files to display the questions (`quizDisplay.ts`).
 
 #### Selecting Items from an Array
 
-Our list of questions is an array of objects representing each question.  To keep track of which question a user is on, we'll want to simply have an *index* to tell us which question we're on, and use that index to select the current question from our array of questions. 
+Our list of questions is an array of objects representing each question.  To keep track of which question a user is on, we'll want to simply have an *index* to tell us which question we're on, and use that index to select the current question from our array of questions.
 
 You can [read more about array indexes here](../fundamentals/lists#accessing-array-items)
 
@@ -477,11 +492,13 @@ The last step is just to create a working "Next" button and set up our buttons a
 Let's add an ID to our next button to make it easy to grab...
 
 _index.html_
+
 ```html
 <button id="next">Next</button>
 ```
 
 _quiz.ts_
+
 ```typescript
 
 document
@@ -508,7 +525,15 @@ As always, you *can* put everything in one file, but I find it hard to keep trac
 
 [Here's the code in a working repl](https://replit.com/@ThomasHinkle/QuizGame-Functioning)
 
+*main.js*
+
+```javascript
+import './style.css';
+import './quiz';
+```
+
 *util.ts*
+
 ```typescript
 /* We need to shuffle, and this isn't built in in JavaScript, which
 is annoying. This shuffle comes from stackoverflow:
