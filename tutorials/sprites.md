@@ -32,4 +32,40 @@ Using CSS style rules, we can make any element on an HTML page have an image as 
 Here is a quick demonstration of how background-position works:
 
 
-{%include local.html page="html-sprite.html" height="800px" %}
+{%include local.html page="html-sprite.html" height="650px" %}
+
+## Canvas Based Sprite
+
+We can do the same thing in a canvas using the drawImage method of the 2d drawing context.
+
+The full structure of the `ctx.drawImage` is as follows:
+
+
+`drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)`
+
+In this case, `sx` and `sy` represent where we want to grab the image from in the source and `dx` and `dy` represent where we want to put the image.
+
+Let's say I wanted to simply display the image to the canvas at over and over, I would start with a call like this:
+
+`drawImage(dudeImage, 0, 0, 64, 64, 0, 0, 64, 64)`
+
+That draws the *first* 64x64 square of my spritesheet.
+
+Then when I update the animation, I would simply make a call like this:
+`drawImage(dudeImage, 64, 0, 64, 64, 0, 0, 64, 64)`
+
+Here is the same demo as above, only implemented with a canvas this time:
+
+{%include local.html page="canvas-sprite.html" height="650px" %}
+
+## Creating a Canvas Based Sprite
+
+The steps to create a canvas based sprite are a little complex. 
+
+1. First, you have to make sure you've loaded you spritesheet -- this is the same as loading any other image. See [images on canvases](../canvas/images.md).
+2. Second, you have to decide when you want to update your drawing. You could do this on a timer using requestAnimationFrame or you could do it in response to user input depending on your use case.
+3. Third, each time you want to update your sprite, you need to call `drawImage` usin its most verbose form, and update the source offset so you get the next frame of your sprite.
+
+
+
+
