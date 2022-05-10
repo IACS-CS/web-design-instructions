@@ -41,6 +41,33 @@ Here is a quick demonstration of how background-position works:
 
 {%include local.html page="html-sprite.html" height="650px" %}
 
+### Updating the Background Position with JavaScript
+
+You then want to write some JS like this...
+
+```javascript
+
+// select the item we want -- this assumes we have
+// <div id="sprite">
+let div = document.querySelector('#sprite'); 
+
+let frame = 0; // current frame
+let nframes = 8; // number of frames
+let size = 64;
+
+function showNextFrame () {
+  frame = (frame + 1) % nframes; // add one, loop back to zero
+  let offset = frame * size;
+  div.style.backgroundPosition = `-${offset}px`;
+}
+
+setInterval( // run forever on a timer
+  showNextFrame,
+  1000 / 12 // 12 times per second
+)
+
+```
+
 ## Canvas Based Sprite
 
 We can do the same thing in a canvas using the drawImage method of the 2d drawing context.
