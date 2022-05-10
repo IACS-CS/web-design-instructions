@@ -17,20 +17,27 @@ a slide reel, like this:
 
 ![Spritesheet Example](../embeds/dude.png)
 
-Each frame of my image is 128 by 128 pixels. Over the 8 frames, my little dude picks up each foot twice and blinks his eyes.
+Each frame of my image is 64 by 64 pixels. Over the 8 frames, my little dude picks up each foot twice and blinks his eyes.
 
 We can "play" our image in a plain HTML set-up *or* in a canvas based game. In either case, the concept is the same, we just want to show only a part of the image at a time.
 
-## CSS-based solution
+## HTML + CSS-based solution
 
-Using CSS style rules, we can make any element on an HTML page have an image as a background. The key properties to know about are:
+Using style rules, we can make any element on an HTML page have an image as a background. The key properties to know about are:
 
 * `width` / `height` : specify how big an element shoudl be
 * `background-size`: specify how much of the background to show.
 * `background-position`: specify where to move the "window" of an image.
 
-Here is a quick demonstration of how background-position works:
+When we specify `background-position`, we're effectively positioning the background relative to our "frame", so if we want to move to the right on our spritesheet, we
+actually move the background-position to the *left* (think of sliding a big canvas
+underneath an unmoving frame -- you would have to slide the canvas to the left to
+move the frame over the content to the right).
 
+So in my example, if I set background-position to 0, I see the first frame; if I set 
+it to -64px, I'll see the second frame, and so on.
+
+Here is a quick demonstration of how background-position works:
 
 {%include local.html page="html-sprite.html" height="650px" %}
 
