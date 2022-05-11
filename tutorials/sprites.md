@@ -41,9 +41,57 @@ Here is a quick demonstration of how background-position works:
 
 {%include local.html page="html-sprite.html" height="650px" %}
 
+### Creating the Sprite in HTML
+
+To create a sprite in your HTML, you will want to first get your sprite image uploaded onto your server. Then, we'll create a `<div>` in our HTML and set the HTML to be a background image. We can do this *inline* all in HTML or we can do it using a separate *CSS* stylesheet -- whichever you're comfortable with.
+
+#### All-in-one
+
+Supposing your file is at `spritesheet.png` and your sprite is 64x64 pixels, you can create a basic sprite on your page as follow:
+
+```html
+<div id="sprite"
+  style="
+    background-image : url('/spritesheet.png');
+    background-size: 64px 64px;
+    background-position: 0;
+    width: 64px;
+    height: 64px;
+  "
+></div>
+```
+
+#### With separate CSS
+
+We can do the exact same thing but using our separate `style.css` file, which gives us a better editing experience since most coding editors will autocomplete CSS correctly inside of a `style.css` file but not in an `html` file:
+
+HTML
+```html
+<div id="sprite"></div>
+```
+
+CSS
+```css
+#sprite {
+  background-image : url('/spritesheet.png');
+  background-size: 64px 64px;
+  background-position: 0;
+  width: 64px;
+  height: 64px;
+}
+```
+
 ### Updating the Background Position with JavaScript
 
-You then want to write some JS like this...
+Assuming you have a sprite showing up correctly, you can now animate it with some JavaScript. The basic concept is this:
+
+1. Keep track of what frame we're on with a variable.
+2. Create an update function which...
+   1. Adds 1 to the frame we're on (or cycles back to 0 when we're through)
+   2. Calculates the pixel offset based on the frame number and image size.
+   3. Updates the background-position property of our sprite div.
+3. Use setInterval to call our update function on a timer.
+
 
 ```javascript
 
@@ -53,7 +101,7 @@ let div = document.querySelector('#sprite');
 
 let frame = 0; // current frame
 let nframes = 8; // number of frames
-let size = 64;
+let size = 64; // size of each frame
 
 function showNextFrame () {
   frame = (frame + 1) % nframes; // add one, loop back to zero
@@ -100,6 +148,62 @@ The steps to create a canvas based sprite are a little complex.
 2. Second, you have to decide when you want to update your drawing. You could do this on a timer using requestAnimationFrame or you could do it in response to user input depending on your use case.
 3. Third, each time you want to update your sprite, you need to call `drawImage` usin its most verbose form, and update the source offset so you get the next frame of your sprite.
 
+## Wrapping it all up with a bow...
 
+If we wanted to make a game with lots of sprites, it might be handy to make a function which creates our sprite and starts it animating automatically.
 
+Here's what that might look like in practice:
+{%include local.html page="sprite-oo.html" height="650px" %}
 
+There are of course many approaches to this, but here's a simple functional approach:
+
+HTML
+```html
+<main id="sprite-area" style="position:relative;width:100vw;height:500px;background-color:#cecece;color:#222;display:flex;place-content:center;">
+    Click anywhere in this area to make a new sprite...
+  </main>
+```
+
+JS
+```javascript
+
+// Grab our "area"
+let area = document.querySelector('#sprite-area');
+
+// make a sprite for every click
+area.addEventListener(
+  'click',
+  function (e) {    
+    makeSprite(e.offsetX,e.offsetY);
+  }
+);
+
+// Our make sprite function puts a sprite at a position
+function makeSprite (x,y) {
+  let div = document.createElement('div');
+  div.style.backgroundImage = 'url(dude.png)';
+  div.style.width = '64px';
+  div.style.height = '64px';
+  div.style.top = `${y-32}px`;
+  div.style.left = `${x-32}px`;
+  div.style.position = 'absolute';
+  area.appendChild(div);
+  
+  let frame = 0;
+  let nframes = 8;
+  let size = 64;
+  let speed = 2 + Math.random() * 10;
+  window.setInterval(function () {
+      frame = (frame + 1) % nframes;
+      let offset = frame * size;
+      div.style.backgroundPosition = `-${offset}px`;     
+      x += speed;        
+      if (x > area.clientWidth) {
+        x = 0;
+      }
+      div.style.left = `${x-32}px`
+    }, 1000 / 6);
+}
+```
+
+A similar technique could be used with a canvas or, as in the example above, HTML + CSS styles.

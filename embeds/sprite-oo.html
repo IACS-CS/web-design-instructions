@@ -1,0 +1,60 @@
+<h2>HTML + JS Sprite</h2>
+<p>
+  In this demo, click anywhere below to create a new sprite in a div :)
+</p>
+
+<div style="display: flex; justify-content: space-around; align-items: center">
+  <div>
+
+  </div>
+  <main id="sprite-area" style="position:relative;width:100vw;height:500px;background-color:#cecece;color:#222;display:flex;place-content:center;">
+    <p>Click anywhere in this area to make a new sprite...</p>
+  </main>
+  
+</div>
+
+</div>
+
+<style>
+  #sprite-area * {
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  let area = document.querySelector('#sprite-area');
+  area.addEventListener(
+    'click',
+    function (e) {
+      console.log('make one')
+      makeSprite(e.offsetX,e.offsetY);
+    }
+  );
+  function makeSprite (x,y) {
+    let div = document.createElement('div');
+    div.style.backgroundImage = 'url(dude.png)';
+    div.style.width = '64px';
+    div.style.height = '64px';
+    div.style.top = `${y-32}px`;
+    div.style.left = `${x-32}px`;
+    div.style.position = 'absolute';
+    area.appendChild(div);
+    
+    let frame = 0;
+    let nframes = 8;
+    let size = 64;
+    let speed = 2 + Math.random() * 10;
+    window.setInterval(function () {
+        frame = (frame + 1) % nframes;
+        let offset = frame * size;
+        div.style.backgroundPosition = `-${offset}px`;     
+        x += speed;        
+        if (x > area.clientWidth) {
+          x = 0;
+        }
+        div.style.left = `${x-32}px`
+      }, 1000 / 6);
+  }
+
+  
+</script>
