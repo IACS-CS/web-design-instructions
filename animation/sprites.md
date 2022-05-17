@@ -158,13 +158,16 @@ Here's what that might look like in practice:
 There are of course many approaches to this, but here's a simple functional approach:
 
 HTML
+
 ```html
 <main id="sprite-area" style="position:relative;width:100vw;height:500px;background-color:#cecece;color:#222;display:flex;place-content:center;">
     Click anywhere in this area to make a new sprite...
   </main>
 ```
 
+
 JS
+
 ```javascript
 
 // Grab our "area"

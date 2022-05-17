@@ -1,6 +1,8 @@
-# Creating a Simple Animation
+# Canvas Animation Basics
+## Creating a Simple Animation
 
-- [Creating a Simple Animation](#creating-a-simple-animation)
+- [Canvas Animation Basics](#canvas-animation-basics)
+  - [Creating a Simple Animation](#creating-a-simple-animation)
   - [Prerequisites](#prerequisites)
   - [The Simplest Animation: a dropping square](#the-simplest-animation-a-dropping-square)
   - [Getting Fancier: Using an Object to store information](#getting-fancier-using-an-object-to-store-information)

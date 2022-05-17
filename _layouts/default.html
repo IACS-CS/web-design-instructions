@@ -115,6 +115,18 @@
               </div>       
             </div>
             <div>
+              <a href="/js1-docs/animation">Animation</a>  
+              <div class="sub">
+                {% for page in site.pages | sort: "order" %}
+                  {% if page.url contains 'animation' %}
+                  <a href="/js1-docs/{{ page.url }}">
+                      {{ page.title }}
+                  </a>
+                  {% endif %}   
+                {% endfor %}
+              </div>       
+            </div>
+            <div>
               <a href="/js1-docs/tutorials">Tutorials</a>  
               <div class="sub">
                 {% for page in site.pages | sort:order %}
