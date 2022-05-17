@@ -9,7 +9,7 @@ verbose.
 
 My first example will only change the X coordinate of the background position and do so on a timer:
 
-{%include local.html page="scroller.html" width="100vw" height="800px" %}
+{%include local.html page="scroller.html" width="1100px" height="800px" %}
 
 ## Scrolling in Two Dimensions
 
@@ -21,7 +21,7 @@ So, for example, to scroll over to 100px from the left and 200px from the top, w
 
 Here's a quick demonstration of what that looks like, with our little dude walking over the surface of the Mona Lisa.
 
-{%include local.html page="scroller2d.html" width="100vw" height="800px" %}
+{%include local.html page="scroller2d.html" width="1100px" height="800px" %}
 
 ## Updating the Background
 
