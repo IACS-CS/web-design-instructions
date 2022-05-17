@@ -1,3 +1,7 @@
+---
+order: 2
+---
+
 # Canvas: Animating a Whole Game
 
 If you've already gotten some [basic animations](simple_animation.md) working, it's likely your next step is wanting to build a game with multiple different objects being animated. This how-to will talk you through how to do that. The other technique to use would be to [layer multiple canvases](../canvas/layering_canvases.md), but generally the technique on this page is simpler.

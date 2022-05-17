@@ -1,3 +1,6 @@
+---
+order: 1
+---
 # Canvas Animation Basics
 ## Creating a Simple Animation
 

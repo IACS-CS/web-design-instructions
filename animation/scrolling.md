@@ -1,3 +1,6 @@
+---
+order: 4
+---
 # Scrolling backgrounds
 
 Often, we want to create the illusion that our character is moving through a background that is bigger than the screen we are displaying. 
@@ -30,3 +33,12 @@ background-position to be the opposite of those positions using a negative sign 
 moving the person 100 pixels forward, we're sliding the background 100 pixels backward underneath the person).
 
 See my guide on using [Objects to track movement for more info](../fundamentals/objectsForMovement.md).
+
+## Advanced techniques
+
+Note, you can [layer multiple canvases](../canvas/layering_canvases.md) or do the same technique with HTML elements in order to achieve multiple elements of your game moving in different fashions.
+
+### Parallax motion
+
+One simple 2D game trick is to have different parts of your background scroll by at a different speeds. This will give the illusion of depth. Imagine looking out of a car as it whizzes down the highway. If you look at the mile markers, they fly by quickly, while the woods in the distance move more slowly, and the mountain off on the skyline barely nudges along at all. Meanwhile, the moon stays in a fixed position. You can create this kind of effect in a game by layering different backgrounds and moving them along independently.
+

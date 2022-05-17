@@ -1,3 +1,7 @@
+---
+order: 3
+---
+
 # Sprites
 
 Game animations often make use of what is called a "spritesheet", which is an image containing all the "frames" of an animation for a given element of a game.
