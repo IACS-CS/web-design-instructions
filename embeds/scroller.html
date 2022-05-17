@@ -1,0 +1,116 @@
+<h2>HTML Horizontal Scrolling Background</h2>
+<p>In this demo, we create a horizontal scrolling background.</p>
+
+<div style="display: flex; justify-content: space-around; align-items: center">
+  <div class="controls">
+    <input
+      id="background-position-slider"
+      type="range"
+      min="0"
+      max="2400"
+      value="0"
+    />
+    <button id="play">Play</button>
+
+    <br />
+  </div>
+  <div
+    id="scrolling-demo"
+    style="
+      background-image: url(../embeds/scrolling.png);
+      width: 200px;
+      height: 200px;
+      display: grid;
+      place-content: end center;
+    "
+  >
+    <div
+      id="dude"
+      style="
+        width: 64px;
+        height: 64px;
+        background-image: url('../embeds/dude.png');
+        /* The next bit of style just places our dude 
+           in the center bottom of the BG */
+        display: grid;
+        place-content: end center;
+      "
+    >
+      <div id="dude"></div>
+    </div>
+  </div>
+</div>
+<pre style="width: 400px; margin: auto">
+ &lt;div style="
+      <span style="color:red;font-weight:bold">background-position: <span id="position-offset-display">0</span>px</span>
+      width: 200px;
+      height: 200px;      
+      background-image: url('/scrolling-background.png');            
+      /* The next bit of style just places our dude 
+           in the center bottom of the BG */
+      display: grid;
+      place-content: end center;
+  "&gt;
+      &lt;div id="dude"&gt;
+        &lt;!-- See sprite demo for details on how this dude works --&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+</pre>
+<hr />
+<p>The red box represents the "window" we are showing in our animation.</p>
+<div class="container" style="position: relative; transform: scale(0.33)">
+  <div
+    id="frame"
+    style="
+      width: 200px;
+      height: 200px;
+      box-sizing: border-box;
+      border: 3px solid red;
+      position: absolute;
+    "
+  ></div>
+  <img src="../embeds/scrolling.png" />
+</div>
+
+<script>
+  let frame = document.querySelector("#frame");
+  let slider = document.querySelector("#background-position-slider");
+  let bg = document.querySelector("#scrolling-demo");
+  let dude = document.querySelector("#dude");
+  let bpd = document.querySelector("#position-offset-display");
+  let dudeFrame = 0;
+  setInterval(() => {
+    dudeFrame = (dudeFrame + 1) % 8;
+    dude.style.backgroundPosition = `${-64 * dudeFrame}px`;
+  }, 1000 / 6);
+
+  slider.addEventListener("input", () => {
+    let v = slider.valueAsNumber;
+    setOffset(v);
+  });
+
+  function setOffset(v) {
+    bpd.textContent = `-${v}`;
+    frame.style.left = `${v}px`;
+    bg.style.backgroundPosition = `-${v}px`;
+  }
+
+  let playButton = document.querySelector("#play");
+  let playMode = false;
+  playButton.addEventListener("click", () => {
+    playMode = !playMode;
+    if (playMode) {
+      playButton.textContent = "Pause";
+    } else {
+      playButton.textContent = "Play";
+    }
+  });
+  window.setInterval(function () {
+    if (playMode) {
+      let value = slider.valueAsNumber;
+      let newValue = (value + 1) % 2400;
+      slider.valueAsNumber = newValue;
+      setOffset(newValue);
+    }
+  }, 1000 / 24);
+</script>
