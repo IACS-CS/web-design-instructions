@@ -40,6 +40,10 @@
         position: absolute;
         transform: translateY(0);
         opacity: 1;
+        pointer-events: none; /* Prevent hovering over missing menu from going crazy */
+      }
+      header nav div:hover .sub {
+        pointer-events: all;
       }
       .sub a {
         text-decoration: none;
