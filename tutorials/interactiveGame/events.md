@@ -23,12 +23,11 @@ canvas.addEventListener(
 ```
 
 Here's what that looks like in practice:
-{%include codepen.html id="dyKPZQj" tabs="js" %}
+{%include codepen.html id="dyKPZQj"  %}
 
 Note, we can also easily hook up both X and Y of an object, or we can reverse them for some unusual controls.
 
-{%include codepen.html id="ZERYaVe" tabs="js" %}
-
+{%include codepen.html id="ZERYaVe" %}
 
 ## Keyboard Events
 
@@ -38,13 +37,14 @@ You can [read a detailed page all about using the keyboard here](../../canvas/ke
 
 For my simple bucket game, I just want to make the left and right controls work.
 
+**handlers.ts**
+
 ```typescript
 import {bucket} from './bucket';
 
 window.addEventListener(
   'keydown',
-  function (event) {
-    
+  function (event) {    
     if (event.key=='ArrowRight' || event.key=='l') {
       bucket.x += 10;
     }

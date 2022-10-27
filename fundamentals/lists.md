@@ -30,8 +30,9 @@ At its most basic, an Array is just a list of values. Anything you can represent
 
 The *syntax* for an array is to use square brackets to start and end an array and commas between items in an array.
 
+```javascript
 let someArray = [value1, value2, value3];
-
+```
 
 ## Accessing Array Items
 
@@ -116,6 +117,45 @@ colors.forEach(
 );
 ```
 
+#### Using Arrow Functions
+
+Note: thus far in this course, I've only used the word `function` or methods to create a function. JavaScript has another kind of function called an *arrow* function, which can be useful in for loops any time you're using the keyword *this*. An Arrow function looks like this:
+
+```typescript
+// Regular Function
+function exampleFunction (arg1, arg2) {
+  //body of function
+}
+
+// Arrow Function
+const exampleFunction = (arg1, arg2) => {
+  // body of arrow function
+}
+```
+
+If an arrow function contains only one statement, you can omit the brackets and right it in one line, with the result being that the function
+returns the result of the line.
+
+```typescript
+// One line arrow function
+const addItems = (a, b) => a+b
+```
+
+Here's a typical use case where an arrow function would be handy:
+
+```typescript
+
+const player = {
+  score : 10,
+  bonuses : [4, 5, 8, 10],
+  applyBonuses () {
+    this.bonuses.forEach(
+      (b)=>this.score+=b
+    );
+  }
+}
+```
+
 ## Shuffling an Array
 
 Unfortunately, JavaScript doesn't provide a built-in method to shuffle arrays. Here's a simple one you can use:
@@ -130,4 +170,24 @@ export function shuffleArray (array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
+```
+
+## Removing items from an Array
+
+A somewhat normal pattern is to create an array of items and then remove items from the list one at a time. The typical way to do this in JavaScript is to use the `pop` method, which removes and returns the last item from a list. This is the counterpart of the `push` method which adds one item to a list.
+
+If you are keeping track of a "stack" of items to handle, `push` and `pop` are the normal methods to use. Here's an example live:
+
+{%include codepen.html id="zYaxyvp" %}
+
+```typescript
+
+const tasks = [];
+// Add items to the list
+tasks.push('Do homework');
+tasks.push('Eat dinner');
+
+// In some future code...
+let currentTask = tasks.pop();
+window.alert('The new task is ',currentTask);
 ```
