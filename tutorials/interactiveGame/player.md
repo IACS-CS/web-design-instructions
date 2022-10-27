@@ -135,7 +135,7 @@ import {bucket} from './bucket';
 ...
 
 function doDrawings () {
-  bucket.drawBucket();
+  bucket.draw();
 }
 ```
 
@@ -152,6 +152,6 @@ function doUpdates () {
 }
 ```
 
-Ok: now we should have confirmed that we have a bucket that can slide off the screen and fill with water. That means then ext step is to let the user *update* the bucket with events!
+Ok: now we should have confirmed that we have a bucket that can slide off the screen and fill with water. That means the next step is to let the user *update* the bucket with events!
 
 [Controlling our object with events](./events.md)
