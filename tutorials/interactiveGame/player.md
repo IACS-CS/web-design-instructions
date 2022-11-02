@@ -3,7 +3,7 @@
 So far, we've created functions and variables, and we've *used* objects, but you've likely never created an object before in JavaScript. We're going to create an object for our player using the simplest method possible (there are several ways to do this): the object literal.
 
 ## An Overview of Objects
-An object literal looks lke this:
+An object literal looks like this:
 
 ```javascript
 let newObject = {
@@ -112,16 +112,16 @@ function animate () {
   // Erase
   ctx.clearRect(0,0,canvas.width,canvas.height);
   // Update
-  doUpdates();
+  update();
   // Draw
-  doDrawings();
+  draw();
   window.requestAnimationFrame(animate);
 }
 
-function doUpdates () {
+function update () {
 }
 
-function doDrawings () {
+function draw () {
 }
 
 window.requestAnimationFrame(animate);
@@ -129,23 +129,26 @@ window.requestAnimationFrame(animate);
 
 We'll want to insert our bucket into the drawing phase of our animation loop, like this:
 
+**animate.ts**
 ```typescript
 import {bucket} from './bucket';
 
 ...
 
-function doDrawings () {
+function draw () {
+  ...
   bucket.draw();
+  ...
 }
 ```
 
 At this point, we should see a simple bucket on screen. If we update the x position of the bucket, the bucket will move -- let's prove that by just adding a quick animation (we'll remove it in a second since we know we don't
 actually want the animation to stick around):
 
-Inside our `doUpdates` function, let's add...
+Inside our `update` function, let's add...
 
 ```typescript
-function doUpdates () {
+function update () {
   // Testing - DELETE ME
   bucket.x += 1;
   bucket.waterAmount += 1;
