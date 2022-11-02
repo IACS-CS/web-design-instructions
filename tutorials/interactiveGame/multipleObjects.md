@@ -96,3 +96,5 @@ setInterval(
 Now, I will have the rain falling faster and faster each second, and I'll have the windspeed picking up.
 
 Note: in a real game I'll need to add some if statements that handle the situation when the fallSpeed becomes to big, otherwise the game will become unplayable once the speed gets too high. The particular logic of how objects update will depend on your game -- often you might want scoring a "point" to increase the difficulty of the game, so when I later on make my bucket and water interact, I might make it so each time you catch a rain drop the rain gets faster.
+
+Next step: [Detecting a collision between our player and our objects.](collisions.md)
