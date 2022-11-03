@@ -2,9 +2,23 @@
 
 It is often the case that you'll want more than one object, typically controlled by the computer (i.e. moving automatically) in your game. In this case, it is helpful to use a array (or list).
 
-You can read an overview of lists in JavaScript [here](../../fundamentals/lists.md).
+You can read an overview of lists in JavaScript [here](../../fundamentals/lists.md) or watch a [video course introducing arrays here](https://www.yout-ube.com/watch?v=oigfaZ5ApsM)
 
 A simple way to handle multiple items in your game is to make an object that manages a list of objects.
+
+## A simplified example
+
+[*If you'd rather watch me code than read, here's a 9 minute video walkthrough of me converting a simple single moving object into a object that manages an *array* of moving objects.*](https://youtu.be/FrILHRNwp5Y)
+
+For reference, here's what the code looked likeat the start of that video:
+
+{%include codepen.html id="BaVKMez" %}
+
+And here's the code at the end of the video:
+
+{%include codepen.html id="BaVKMXL" %}
+
+## The Rain Catcher Example
 
 For my rain-catching bucket, I'm going to make a `rain` object which manages the rain. The `rain` object will have a list of raindrops (`rain.raindrops`) to keep track of. I will then have methods to move the rain (`rain.move`), and to add more rain drops (`rain.add`) and to take raindrops away (`rain.remove`). And of course I'll need a way to draw my raindrops (`rain.draw`)
 

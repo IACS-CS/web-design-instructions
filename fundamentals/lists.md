@@ -26,6 +26,8 @@ Any time you can think of what you're programming as a list, you should be using
 
 ## What is an Array?
 
+Prefer to hear it explained with live code? [Here's a video tutorial introducing the very basics](https://www.yout-ube.com/watch?v=oigfaZ5ApsM)
+
 At its most basic, an Array is just a list of values. Anything you can represent in JavaScript can be put into an array, including numbers, strings, objects, functions, and even other arrays (for a nested array).
 
 The *syntax* for an array is to use square brackets to start and end an array and commas between items in an array.
@@ -191,3 +193,11 @@ tasks.push('Eat dinner');
 let currentTask = tasks.pop();
 window.alert('The new task is ',currentTask);
 ```
+
+## Further Reading...
+
+[Here is the w3schools page on arrays](https://www.w3schools.com/js/js_arrays.asp)
+
+[Here is my section on using multiple objects in my simple game tutorial](../tutorials/interactiveGame/multipleObjects.md)
+
+[Here is a section on using arrays in the quiz game tutorial](../tutorials/quizgame/quizgame-4-question-types.md)
