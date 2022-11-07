@@ -8,9 +8,9 @@ A simple way to handle multiple items in your game is to make an object that man
 
 ## A simplified example
 
-[*If you'd rather watch me code than read, here's a 9 minute video walkthrough of me converting a simple single moving object into a object that manages an *array* of moving objects.*](https://youtu.be/FrILHRNwp5Y)
+[*If you'd rather watch me code than read, here's a 9 minute video walkthrough of me converting a simple single moving object into a object that manages an *array* of moving objects.*](https://youtu.be/ihyL1c5e7aI)
 
-For reference, here's what the code looked likeat the start of that video:
+For reference, here's what the code looked like at the start of that video:
 
 {%include codepen.html id="BaVKMez" %}
 
