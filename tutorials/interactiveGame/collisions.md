@@ -11,6 +11,8 @@ That's going to involve the following steps:
 3. Insert a new step into our `rain.move` method so that when the rain moves it checks for a collision with the bucket.
 4. When the rain hits the bucket, make something happen!
 
+For a more generic introduction to collisions, see [my collisions overview](../../gameLogic/collisions.md).
+
 ### 1. Letting the rain "see" the bucket
 
 My first step will be importing my bucket into my rain file, since now my rain drops need access to the bucket.
@@ -76,51 +78,6 @@ export const bucket = {
     }
   }
 }
-```
-
-#### Circles colliding? Use the distance formula
-
-If you just have two circles interacting, you can use the distance formula to measure the distance between two objects.
-
-
-$$ d = \sqrt {\left( {x_1 - x_2 } \right)^2 + \left( {y_1 - y_2 } \right)^2 } $$
-
-Translated into JavaScript, that would look something like this:
-
-```typescript
-
-export const someObject = {
-  x : 10, 
-  y : 10,
-  function measureDistance (x,y) {
-    // Square root of...
-    return Math.sqrt(      
-      Math.pow(
-        this.x - x, // x1 - x2
-         2 // squared
-      )
-      + // plus
-      Math.pow(
-        this.y - y, // y1 - y2
-        2 // squared
-      )
-    )
-  }
-}
-```
-
-To check for a "collision" we just need think about the distance at which two items collide. So if you had two circles, you might have code like this:
-
-```typescript
-
-...
-if (player.measureDistance(enemy.x, enemy.y) < player.radius + enemy.radius) {
-  // Code for a collision
-  // goes here...
-  player.score += 1;
-}
-...
-
 ```
 
 ### 3 & 4. Check each rain drop when we move it and fill the bucket if it hits!

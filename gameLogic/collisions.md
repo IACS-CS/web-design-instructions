@@ -164,8 +164,7 @@ It's customary to use "a" and "b" to refer to arbitrary items being compared, bu
 
 To get the distance, we just have to translate this basic math into JavaScript. Here's the math:
 
-$$ d = \sqrt {\left( {x_1 - x_2 } \right)^2 + \left( {y_1 - y_2 } \right)^2 }
- $$
+![image](https://latex2png.com/pngs/6df9e51cfd2c419c70a2d2eaa1b5892b.png)
 
 ```javascript
 /* Calculate the distance between a and b using the pythogorean theorem */
