@@ -82,7 +82,9 @@ export const bucket = {
 
 If you just have two circles interacting, you can use the distance formula to measure the distance between two objects.
 
-$$ d = \sqrt {\left( {x_1 - x_2 } \right)^2 + \left( {y_1 - y_2 } \right)^2 }$
+```math
+d = \sqrt {\left( {x_1 - x_2 } \right)^2 + \left( {y_1 - y_2 } \right)^2 }
+```
 
 Translated into JavaScript, that would look something like this:
 
