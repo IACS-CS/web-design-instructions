@@ -9,6 +9,9 @@
     <script src=”https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id=”MathJax-script” async src=”https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
+      .inner, #header_wrap .inner {
+        max-width: 1280px !important;
+      }
       .cp_embed_wrapper {
         --width: calc(100vw - 10px);
         width: var(--width);
@@ -25,6 +28,7 @@
 
       header nav div {
         position: relative;
+        text-align: center;
       }
       header nav > div:hover {
         background-color: #424242;
@@ -88,10 +92,10 @@
           {% endif %}
           <nav>            
             <div>
-              <a href="/js1-docs/">About these Docs</a>
+              <a href="/js1-docs/">About</a>
             </div>
             <div>
-              <a href="/js1-docs/canvas/">Canvas How-To's</a>
+              <a href="/js1-docs/canvas/">Canvas</a>
               <div class="sub">
                 {% for page in site.pages | sort:"url" %}
                   {% if page.url contains 'canvas' %}
@@ -103,7 +107,7 @@
               </div>
             </div>
             <div>
-              <a href="/js1-docs/fundamentals">JS Fundamentals</a>  
+              <a href="/js1-docs/fundamentals">JavaScript</a>  
               <div class="sub">
                 {% for page in site.pages | sort: "url" %}
                   {% if page.url contains 'fundamentals' %}
