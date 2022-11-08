@@ -22,7 +22,7 @@ import {bucket} from './bucket';
 
 At this point, I can now write new code in `rain.ts` that references my `bucket`.
 
-### 2. Adding a Collision-Detection method to Buckket
+### 2. Adding a Collision-Detection method to Bucket
 
 Now I want the rain to know when it hits the top of the bucket, so I'm going to add a new method to my bucket object called "isInBucket" which checks if a rain drop is in the position to fall into my bucket.
 
@@ -31,21 +31,23 @@ Note: there's no "right" way to decide where this collision logic goes since it'
 Regardless, I recommend writing comments alongside your "if" statements in this collision code because it gets tricky to keep track of. Any time you're checking for collision with a rectangle, you're likely going to be using a pattern like this:
 
 ```typescript
-const genericObjectExample = {
-  genericCollisionExample
-  if (
-    x >= this.right // is it to the right of my right
-    &&
-    x <= this.left // and to the left of my left
-    &&
-    y >= this.top // and under my top
-    &&
-    y <= this.bottom // and under my bottom
-  ) {
-    return true
-  } else {
-    return false
+const someObjectThatYouCanCollideWith = {
+  isColliding (x, y) {
+    if (
+      x >= this.right // is it to the right of my right
+      &&
+      x <= this.left // and to the left of my left
+      &&
+      y >= this.top // and under my top
+      &&
+      y <= this.bottom // and under my bottom
+    ) {
+      return true
+    } else {
+      return false
+    }
   }
+}
 ```
 
 Here is the code for my "bucket" example:
@@ -80,7 +82,7 @@ export const bucket = {
 
 If you just have two circles interacting, you can use the distance formula to measure the distance between two objects.
 
-$d = \sqrt {\left( {x_1 - x_2 } \right)^2 + \left( {y_1 - y_2 } \right)^2 }$
+$$ d = \sqrt {\left( {x_1 - x_2 } \right)^2 + \left( {y_1 - y_2 } \right)^2 }$
 
 Translated into JavaScript, that would look something like this:
 
