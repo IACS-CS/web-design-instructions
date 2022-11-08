@@ -162,13 +162,18 @@ Now I just have to define my `getDistance` function, which will take two objects
 
 It's customary to use "a" and "b" to refer to arbitrary items being compared, but you can call the parameters whatever you like:
 
+To get the distance, we just have to translate this basic math into JavaScript. Here's the math:
+
+$$ d = \sqrt {\left( {x_1 - x_2 } \right)^2 + \left( {y_1 - y_2 } \right)^2 }
+ $$
+
 ```javascript
 /* Calculate the distance between a and b using the pythogorean theorem */
 function getDistance (a, b) {
   return Math.sqrt( // the square root of 
-    (a.x - b.x) * (a.x - b.x)  // the horizontal side of the triangle squared
+    Math.pow(a.x - b.x,2)  // the horizontal side of the triangle squared
     +                          // plus
-    (a.y - b.y) * (a.y - b.y) // the vertical side of the triangle squared
+    Math.pow(a.y - b.y,2) // the vertical side of the triangle squared
   );
 }
 ```
