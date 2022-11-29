@@ -14,7 +14,7 @@ No matter the platform we use for a game, the concept of a spritesheet is the sa
 
 ## Example Sprite
 
-I created a very simple spritesheet using [Piskel App](https://www.piskelapp.com/p/create/sprite). There are other tools you can use as well -- just google "spritesheet creator" to find something; or you can look for previously existing spritesheets you can use in your game from other artists.
+I created a very simple spritesheet using [Piskel App](https://www.piskelapp.com/p/create/sprite). There are other tools you can use as well -- just google "spritesheet creator" to find something; or you can look for previously existing spritesheets you can use in your game from other artists. [Here's a basic step-by-step walkthrough of working with piskelapp](https://app.tango.us/app/workflow/Workflow-with-Piskelapp-to-create-a-Spritesheet-5484e06854d04a23aa25dc757ea1cd3c)
 
 Some spritesheets come in rows and columns, to make my first example as simple as possible, I went ahead and set it to export in 1 row, so the image just looks like
 a slide reel, like this:
