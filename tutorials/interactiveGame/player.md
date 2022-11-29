@@ -1,5 +1,7 @@
 # Making a Player: Our First Object
 
+**Prefer video? [Here's a video walkthrough of setting up a first object in this game](https://www.youtube.com/watch?v=M4ia30HdqOU)**
+
 So far, we've created functions and variables, and we've *used* objects, but you've likely never created an object before in JavaScript. We're going to create an object for our player using the simplest method possible (there are several ways to do this): the object literal.
 
 ## An Overview of Objects

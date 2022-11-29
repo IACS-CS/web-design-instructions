@@ -106,3 +106,5 @@ export const rain = {
   }
 }
 ```
+
+*Next step: [make a score board](scoreboard.md).*
