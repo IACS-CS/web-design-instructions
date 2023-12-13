@@ -1,5 +1,8 @@
-# JavaScript How-To's!
-Hello students! I put together a new home for my how-to's hosted on github pages. My intention here is that these markdown files will be a bit longer lasting than the platforms we use to host code, which change from year to year (Cloud 9, repl.it, trinket.io, etc -- we've moved through a bunch over the past several years).
+# Web Design Portfolio Instructions
+Hello students -- repl.it is leaving us so I'm jumping ship and moving to GitHub, which should make it easier for me
+to write and improve instructions over time.
+
+This is the first step!
 
 This webpage will grow and eventually replace the [Google Doc of How-To's](https://docs.google.com/document/d/1MrPTAd-LPJpUH93BYElgGv_abhhagAWaURrOtqjfj9A/edit) that I made and shared with you earlier this semester.
 
