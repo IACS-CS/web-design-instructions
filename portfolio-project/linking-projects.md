@@ -33,13 +33,11 @@ You can then include some CSS to customize the iFrame, like so:
 
 ```css
 #zen-iframe {
-    iframe {
-        width: 1200px;
-        height: 800px;
-        border: 2px solid #eee;
-    }
+    width: 1200px;
+    height: 800px;
+    border: 2px solid #eee;
 }
 
 ```
 
-{%include local.html page="iframe-example.html" height="100%" %}
+{%include local.html page="iframe-example.html" width="1280" %}
