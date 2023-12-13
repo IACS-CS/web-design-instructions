@@ -5,5 +5,5 @@ plugins:
 relative_links:
   enabled: true
   collections: true
-title: JS1 Help
-description: How-To's from Mr. Hinkle's Intro to JavaScript Class
+title: Web Design Instructions
+description: How-To's from Mr. Hinkle's Intro to Web Design Class
