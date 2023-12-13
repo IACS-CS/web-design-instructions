@@ -12,11 +12,7 @@ We are following the practice of *progressive enhancement*, meaning that without
 
 Once we get our code working well, though, this whole thing will be pretty snazzy.
 
-Before we do anything, we have a plain HTML page with local links, which looks like this:
-
-{% include codepen.html id="yLZWjJp" %}
-
-To make this work, we need links that point to IDs like...
+Before we do anything, we have a plain HTML page with local, working links.
 
 ```html
 
@@ -26,6 +22,11 @@ To make this work, we need links that point to IDs like...
 <section id="section1>...</section>
 <section id="section2>...</section>
 ```
+
+In practice, clicking on a link will scroll to the item with the matching ID. Here's a page with some more content
+so you can see how it looks in practice:
+
+{% include codepen.html id="yLZWjJp" %}
 
 In order to prepare for formatting, we'll do a bit more and wrap those links and out tab content in a container, like this...
 
