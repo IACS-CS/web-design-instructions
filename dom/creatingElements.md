@@ -6,10 +6,7 @@ There are two main ways to access elements in the DOM via JavaScript:
 
 - [Accessing Elements in the DOM](#accessing-elements-in-the-dom)
   - [Selecting Elements](#selecting-elements)
-  - [Creating Elements](#creating-elements)
-    - [Creating the Element](#creating-the-element)
-    - [Appending an Element to the Document](#appending-an-element-to-the-document)
-    - [Modifying elements](#modifying-elements)
+  - [Modifying elements](#modifying-elements)
 
 ## Selecting Elements
 
@@ -62,68 +59,34 @@ Note: if there are multiple elements, querySelector will just select the *first*
 ```javascript
 for (let div of document.querySelectorAll('.some-class')) {
   // write some code to run for each element...
+  // e.g. turn the div red when clicked...
+  div
+    .addEventListener(
+      "click",
+      function (e) {
+        e.target.style.backgroundColor = 'red';
+      }
+    )
 }
 ```
 
-## Creating Elements
 
-There are two steps to creating an element:
 
-1. Create the element
-2. Add it to the document.
+## Modifying elements
 
-You will need *somewhere* to add the document, so usually creating an element *still* requires you to [select an element](#selecting-elements), though if you're feeling particularly lazy, `document.body` should point to the toplevel body element on the page, so, presuming your page at least has a body, you can always just use `document.body.appendChild` to add to an element to a page (this can be useful if you want to just add a pop-up window on top of the page, for example).
+Usually you'll want to do something with the elements you access, such as add or remove a class, or put text in them or set attributes.
 
-### Creating the Element
-
-To create a new empty element, you simply call `document.createElement` with the name of the element you want to create as a string, as in `document.createElement('a')` or `document.createElement('canvas')`.
-
-You will then need to save a reference to that new element in a variable so you can do something with it, like this:
-
-```html
-let canv = document.createElement("canvas");
-```
-
-### Appending an Element to the Document
-
-To add an element to a document, you can call `appendChild` from any dom element -- this will tack your element on after any other children belonging to that element.
+### Adding/Removing Classes
+The easiest way to handle this with minimal JavaScript is just to add or remove a class, like this...
 
 ```javascript
-// Create a new canvas
-let canv = document.createElement('canvas');
-// Add it to the body
-document.body.appendChild(canv);
+let myDiv = document.querySelector('div');
+myDiv.classList.add('active');
 ```
 
-The JavaScript above would transform HTML that looked like this:
+You can also remove a class with ```myDiv.classList.remove('active')``` or toggle a class on or off with ```myDiv.classList.toggle('active')```
 
-```html
-<html> 
-  <head>...</head>
-  <body>
-    <h1>Hello World</h1>
-  </body>
-</html>
-```
-
-into HTML like this:
-
-```html
-<html> 
-  <head>...</head>
-  <body>
-    <h1>Hello World</h1>
-    <canvas></canvas>
-  </body>
-</html>
-```
-
-There are various other methods for adding HTML to a page which you might occasionally want, such as 
- [insertBefore](https://www.w3schools.com/jsref/met_node_insertbefore.asp) and [replaceChild](https://www.w3schools.com/jsref/met_node_replacechild.asp). You might also find [insertAdjacentHTML](https://www.w3schools.com/jsref/met_node_insertadjacenthtml.asp) handy from time to time.
-
-### Modifying elements
-
-Usually you'll want to do something with the elements you create, such as put text in them or set attributes.
+### Adding/Removing HTML or Text
 
 The *easiest* way to add content to an element is just to set it's innerHTML property -- then you can write HTML as a string, like this:
 

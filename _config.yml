@@ -1,5 +1,7 @@
 theme: jekyll-theme-slate
 markdown: kramdown
+kramdown:
+  input: GFM # GitHub Flavored Markdown
 plugins:
   - jekyll-relative-links
 relative_links:
