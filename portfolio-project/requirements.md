@@ -32,4 +32,4 @@ Possible projects include.
 2. Keep track of your goals and progress in a TODO.md file
 3. Use comments to explain what your code does and to give credit where you have drawn heavily on examples from the internet or on help from github copilot or another AI.
 
-[See Instructions to get Started](./Instructions.md)
+[See Instructions to get Started](./instructions.md)
