@@ -98,7 +98,7 @@
               <a href="/web-design-instructions/portfolio-project/">Portfolio Project</a>
               <div class="sub">
                 {% for page in site.pages | sort:"url" %}
-                  {% if page.url contains 'canvas' %}
+                  {% if page.url contains 'portfolio-project' %}
                   <a href="/web-design-instructions/{{ page.url }}">
                       {{ page.title }}
                   </a>
