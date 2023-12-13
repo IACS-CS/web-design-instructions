@@ -37,7 +37,7 @@
         position: absolute;
         transform: translateY(-100%);
         opacity: 0;
-        transition: all 300ms;
+        
         background-color: #212121;
         display: flex;
         flex-direction: column;        
@@ -84,12 +84,7 @@
           <h1 id="project_title">{{ site.title | default: site.github.repository_name }}</h1>
           <h2 id="project_tagline">{{ site.description | default: site.github.project_tagline }}</h2>
 
-          {% if site.show_downloads %}
-            <section id="downloads">
-              <a class="zip_download_link" href="{{ site.github.zip_url }}">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="{{ site.github.tar_url }}">Download this project as a tar.gz file</a>
-            </section>
-          {% endif %}
+        
           <nav>            
             <div>
               <a href="/web-design-instructions/">About</a>
@@ -106,18 +101,7 @@
                 {% endfor %}
               </div>
             </div>
-            <div>
-              <a href="/web-design-instructions/fundamentals">JavaScript</a>  
-              <div class="sub">
-                {% for page in site.pages | sort: "url" %}
-                  {% if page.url contains 'fundamentals' %}
-                  <a href="/web-design-instructions/{{ page.url }}">
-                      {{ page.title }}
-                  </a>
-                  {% endif %}   
-                {% endfor %}
-              </div>       
-            </div>
+           
              <div>
               <a href="/web-design-instructions/dom">The DOM</a>  
               <div class="sub">
@@ -130,30 +114,8 @@
                 {% endfor %}
               </div>       
             </div>
-            <div>
-              <a href="/web-design-instructions/animation">Animation</a>  
-              <div class="sub">
-                {% for page in site.pages | sort: "order" %}
-                  {% if page.url contains 'animation' %}
-                  <a href="/web-design-instructions/{{ page.url }}">
-                      {{ page.title }}
-                  </a>
-                  {% endif %}   
-                {% endfor %}
-              </div>       
-            </div>
-            <div>
-              <a href="/web-design-instructions/gameLogic">Game Logic</a>  
-              <div class="sub">
-                {% for page in site.pages | sort: "order" %}
-                  {% if page.url contains 'gameLogic' %}
-                  <a href="/web-design-instructions/{{ page.url }}">
-                      {{ page.title }}
-                  </a>
-                  {% endif %}   
-                {% endfor %}
-              </div>       
-            </div>
+            
+            
             <div>
               <a href="/web-design-instructions/tutorials">Tutorials</a>  
               <div class="sub">
