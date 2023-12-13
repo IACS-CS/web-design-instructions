@@ -34,7 +34,7 @@ You can then include some CSS to customize the iFrame, like so:
 ```css
 #zen-iframe {
     iframe {
-        max-width: 800px;
+        width: 1200px;
         height: 800px;
         border: 2px solid #eee;
     }
@@ -42,4 +42,4 @@ You can then include some CSS to customize the iFrame, like so:
 
 ```
 
-{%include local.html page="iframe-example.html" height="900px" %}
+{%include local.html page="iframe-example.html" height="100%" %}
