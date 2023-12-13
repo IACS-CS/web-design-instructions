@@ -1,4 +1,8 @@
-# Instructions  
+# Instructions for making a Tabbed Page!  
+
+1. [Setting up your HTML](./index.md)
+2. [Styling your tabs with CSS](./1-style.md)
+3. [Making it work with JavaScript](./2-javascript.md)
 
 This tutorial is going to walk you through creating a simple tabbed interface.
 

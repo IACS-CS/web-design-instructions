@@ -1,4 +1,4 @@
-## Step 2: Add some JavaScript to the links!
+## Step 3: Add some JavaScript to the links!
 
 By default, links with a hashtag will jump to the anchor
 which is why this page works without any javascript. But our goal is to hide the content we're not using and

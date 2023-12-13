@@ -1,4 +1,4 @@
-# Step 1: A Little Style
+# Step 2: A Little Style
 
 Before we jump into JavaScript, let's make this page look a little bit nicer.
 
@@ -90,3 +90,5 @@ We can also make the active tab look different so it's clear which tab is select
 At this point, our page *looks* right but doesn't work, like this:
 
 {% include codepen.html id="abXrGBP" tabs="html,css,result" %}
+
+[Next step: Adding JavaScript!](./2-javascript.md)
