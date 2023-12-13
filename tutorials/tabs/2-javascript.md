@@ -158,4 +158,4 @@ on top of one another.
 
 When all is said and done, we have a page like this:
 
-{% include codepen.html id="WNPBJxj" %}
+{% include codepen.html id="WNPBJxj" tabs="css,js,html" %}

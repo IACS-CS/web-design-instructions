@@ -25,6 +25,7 @@ To make this work, we need links that point to IDs like...
 
 In order to prepare for formatting, we'll do a bit more and wrap those links and out tab content in a container, like this...
 
+```html
 <div class="tab-container">
     <ul class="tabs">
         <li><a href="#section1">...</a></li>
@@ -37,5 +38,5 @@ In order to prepare for formatting, we'll do a bit more and wrap those links and
 </div>
 ```
 
-Next up: adding a little style: 
+Next up: [adding a little style!](./1-style.md)
 

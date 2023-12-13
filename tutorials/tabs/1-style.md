@@ -89,4 +89,4 @@ We can also make the active tab look different so it's clear which tab is select
 
 At this point, our page *looks* right but doesn't work, like this:
 
-{% include codepen.html id="abXrGBP" %}
+{% include codepen.html id="abXrGBP" tabs="html,css,result" %}
