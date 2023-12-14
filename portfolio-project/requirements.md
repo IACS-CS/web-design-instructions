@@ -3,20 +3,31 @@
 Create a unique "Portfolio" that reflects your personality and identity as a designer.
 
 ## Content Requirements
-1. Include both projects and information about yourself in the portfolio.
-Possible projects include.
+1. Include an "About Me" that gives us some information about yourself.
+ 
+1. Include projects with work and descriptions:
+Possible projects include the following (you can also highlight non-web-design
+work if you like, though I'd like you to include at least *one* web design project
+in your portfolio):
     1. Choose-Your-Own Adventure Project
     2. Zen Garden Project
     3. Imitation Project
     4. Portfolio Project
-2. Include sample code showing your understanding of key concepts from the class:
+
+1. Include sample code showing your understanding of key concepts from the class:
     1. HTML
     2. CSS
     3. JavaScript
-3. Use JavaScript to create interactivity in your portfolio. You could include...
+
+2. Include at least one JavaScript-powered element to make your portfolio interactive, such as...
     1. Tabs / Sidebar / Slideshow or other content selector
     2. Extra "bling" or fun when a user scrolls, clicks or interacts with your page.
-    3. Beautiful images.
+    3. Sliders or slideshows
+
+3. Honors Requirements
+   1. "Wow" me with a bold, beautiful and original design.
+   2. Include at least one delightful "easter egg" in your site (let me know what it is if it's well hidden so I can give you credit for it!).
+
 
 ## Coding & Design Requirements
 
