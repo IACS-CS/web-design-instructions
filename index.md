@@ -10,14 +10,15 @@ This webpage will grow and eventually replace the [Google Doc of How-To's](https
 [Portfolio Project](./portfolio-project/)
 
 ## Concepts
-[The DOM](./dom/)
+- [The DOM](./dom/)
 
 ## Games
 
 ### Games from Mr. H
-[Box Model: Cat in a Box!](https://cat-in-box.netlify.app/)
-[Selectors: Find the Cat!](https://cat-in-box.netlify.app/#selectors-0)
-[Intro to JS: Disco Cats!](https://cat-in-box.netlify.app/#vanilla-0)
+
+- [Box Model: Cat in a Box!](https://cat-in-box.netlify.app/)
+- [Selectors: Find the Cat!](https://cat-in-box.netlify.app/#selectors-0)
+- [Intro to JS: Disco Cats!](https://cat-in-box.netlify.app/#vanilla-0)
 
 ### Games from Other Designers
 

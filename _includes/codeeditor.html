@@ -1,0 +1,101 @@
+<script>
+  // Grab code-blocks and assign children common IDs?
+  document.addEventListener("DOMContentLoaded", () => {
+    for (let div of document.querySelectorAll(".ace-custom-code-block")) {
+      if (div.id) continue;
+      let randomSeed = Math.random().toString(36).substr(2, 9);
+      div.id = "ace-custom-code-block-" + randomSeed;
+      const editor = div.querySelector("ace-editor");
+      editor.id = "ace-editor-" + randomSeed;
+      const iframe = div.querySelector("iframe");
+      iframe.id = "iframe-" + randomSeed;
+      editor.addEventListener("change", (e) => handleChange(editor, iframe));
+      editor.addEventListener("input", (e) => handleChange(editor, iframe));
+      const setInitialValue = () => {
+        let result;
+        try {
+          result = handleChange(editor, iframe);
+        } catch (err) {
+          console.log("Oops? ", err);
+        }
+        if (!result) {
+          console.log("try again?");
+          setTimeout(setInitialValue, 200);
+        }
+      };
+      setInitialValue();
+    }
+  });
+
+  function handleChange(editorDiv, iframeEl) {
+    const html = ace
+      .edit(editorDiv.querySelector("#code_editor_text_value"))
+      .getValue();
+    // Write HTML to iframe document...
+    iframeEl.contentWindow.document.open();
+    iframeEl.contentWindow.document.write(html);
+    iframeEl.contentWindow.document.close();
+    return html.trim();
+  }
+</script>
+<div class="ace-custom-code-block">
+  <ace-editor id="editor-{{ unique_id }}" language="html"
+    >{{ include.content | escape }}</ace-editor
+  >
+  <div class="result-block">
+    <div class="result-title">Result</div>
+    <div class="iframe-wrap">
+      <iframe
+        id="iframe-{{ unique_id }}"
+        style="height: {{ include.height }}"
+      ></iframe>
+    </div>
+  </div>
+</div>
+
+<style>
+  .iframe-wrap {
+    height: 100%;
+  }
+  .ace-custom-code-block {
+    display: flex;
+    flex-wrap: wrap;
+    --gap: 8px;
+    gap: var(--gap);
+    box-sizing: border-box;
+    background-color: #fafafa;
+    margin-bottom: 16px;
+  }
+  ace-editor {
+    flex-basis: calc(50% - var(--gap) / 2);
+  }
+  .result-block {
+    flex-basis: calc(50% - var(--gap) / 2);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .result-block .result-title {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 8px;
+    border-radius: 8px 8px 0 0;
+    background-color: var(--bg, #3a3636);
+    color: #fff;
+  }
+  .ace-custom-code-block iframe {
+    background-color: white;
+    border: 1px solid #232222;
+    height: 400px;
+  }
+
+  .ace-custom-code-block iframe {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #333;
+    box-sizing: border-box;
+  }
+</style>

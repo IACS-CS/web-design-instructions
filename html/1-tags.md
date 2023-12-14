@@ -34,7 +34,7 @@ the content in the middle to make it easier to read.
 ```
 
 Go ahead and try editing the code below to try out some different tags:
-```html.run
+{%capture code %}
 <p>
   This content is inside of a tag 
 </p>
@@ -59,5 +59,7 @@ Go ahead and try editing the code below to try out some different tags:
   different, such as: 
   i, b, blockquote, or li
 </p>
-```
+{% endcapture %}
+{% include codeeditor.html content=code %}
 
+[Next up: structure](./2-structure.md)

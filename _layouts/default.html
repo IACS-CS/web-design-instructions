@@ -6,13 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,maximum-scale=2">
     <link rel="stylesheet" type="text/css" media="screen" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <script src=”https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id=”MathJax-script” async src=”https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script
+  src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Ace-Editor-Web-Component@1.0.2/dist/ace-editor-wc.min.js"
+  defer
+></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/MarketingPipeline/Ace-Editor-Web-Component@v1.0.2/dist/ace-editor-wc.min.css"
+/>
     <style>
       .inner, #header_wrap .inner {
         max-width: 50em !important;
       }
-      .cp_embed_wrapper {
+      .cp_embed_wrapper,.ace-custom-code-block {
         --width: calc(100vw - 60px);
         width: var(--width);
         position: relative;
@@ -87,14 +95,14 @@
         
           <nav>            
             <div>
-              <a href="/web-design-instructions/">About</a>
+              <a href="{{ site.baseurl }}/">About</a>
             </div>
-            <div>ﬁ
-              <a href="/web-design-instructions/portfolio-project/">Portfolio Project</a>
+            <div>
+              <a href="{{ site.baseurl }}portfolio-project/">Portfolio Project</a>
               <div class="sub">
                 {% for page in site.pages | sort:"url" %}
                   {% if page.url contains 'portfolio-project' %}
-                  <a href="/web-design-instructions/{{ page.url }}">
+                  <a href="{{ site.baseurl }}{{ page.url }}">
                       {{ page.title }}
                   </a>
                   {% endif %}   
@@ -103,11 +111,11 @@
             </div>
            
              <div>
-              <a href="/web-design-instructions/dom">The DOM</a>  
+              <a href="{{ site.baseurl }}dom">The DOM</a>  
               <div class="sub">
                 {% for page in site.pages | sort: "order" %}
                   {% if page.url contains 'dom' %}
-                  <a href="/web-design-instructions/{{ page.url }}">
+                  <a href="{{ site.baseurl }}{{ page.url }}">
                       {{ page.title }}
                   </a>
                   {% endif %}   
@@ -117,9 +125,9 @@
             
             
             <div>
-              <a href="/web-design-instructions/tutorials">Tutorials</a>  
+              <a href="{{ site.baseurl }}/tutorials">Tutorials</a>  
               <div class="sub">
-                 <a href="/web-design-instructions/tutorials/tabs/">Tabs</a>                  
+                 <a href="{{ site.baseurl }}/tutorials/tabs/">Tabs</a>                  
               </div>
             </div>
           </nav>

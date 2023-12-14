@@ -26,7 +26,7 @@ At the highest level, HTML pages contain elements that lay out the basic structu
 The first element is **html** which contains the whole document.
 **html** contains a **head** and a **body**. The **head** contains information *about* the page, such as the title that is shown in the tab on the browser and styling information. The **body** contains the actual content of the page (text, images, etc) that will be displayed.
 
-```html.run
+{% capture code %}
 <html>
    <head>
       <title>My Page</title>
@@ -43,6 +43,7 @@ The first element is **html** which contains the whole document.
       <p>This is a paragraph</p>
     </body>
 </html>
-```
+{% endcapture %}
+{% include codeeditor.html content=code %}
 
 Every page you create should contain at the very least **html**, **head**, **title** and **body**. 
