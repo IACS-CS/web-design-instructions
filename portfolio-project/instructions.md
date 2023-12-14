@@ -2,7 +2,9 @@
 
 [Next: How-To's](./how-tos.md)
 
-Your first step should be writing a TODO list in the file `TODO.md`. That list will contain your design objectives, document your progress, and help you track what you need to do each day.
+Before you jump in, I'd recommend looking at some [model portfolios](./models.md) for inspiration.
+
+Your next step should be writing a TODO list in the file `TODO.md`. That list will contain your design objectives, document your progress, and help you track what you need to do each day.
 
 ## Elements
 Elements you will want to spend time on include:
