@@ -1,10 +1,10 @@
 # Portfolio Project
 
-- [Models](./models.md)
-- [Requirements](./requirements.md)
-- [Instructions](./instructions.md)
-- [How To's](./how-tos.md)
-- [Getting started linking projects](./linking-projects.md)
+- [Models](./p4-models)
+- [Requirements](./p2-requirements)
+- [Instructions](./p3-instructions)
+- [How To's](./p5-how-tos)
+- [Getting started linking projects](./p6-linking-projects)
 
 
 
