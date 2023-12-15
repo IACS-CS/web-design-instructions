@@ -64,4 +64,3 @@ Go ahead and try editing the code below to try out some different tags:
 {% endcapture %}
 {% include codeeditor.html content=code %}
 
-[Next up: structure](./2-structure.md)
