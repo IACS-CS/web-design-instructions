@@ -1,0 +1,63 @@
+<div id="sidebar_wrap">
+  <button id="sidebar-toggle" onclick="toggleSidebar()">
+    <div class="hamburger-icon"><span></span><span></span><span></span></div>
+  </button>
+  <div id="sidebar">
+    <ul></ul>
+  </div>
+</div>
+
+<script>
+    /* Populate with content -- we do this in HTML instead of the other JS
+    because we need Jekyll to populate our JSON object */
+    var sitePages = [
+      {% for page in site.pages %}
+        {% if page.title %}
+          {% if page.url contains 'index.html' %}
+            {
+              title: '{{ page.title }}',
+              url: '{{ page.url | relative_url }}',
+              children: [
+                {% for child in page.children %}
+                  {
+                    title: '{{ child.title }}',
+                    url: '{{ child.url | relative_url }}',
+                  },
+                {% endfor %}
+              ],
+            },
+          {% else %}
+            {
+              title: '{{ page.title }}',
+              url: '{{ page.url | relative_url }}',
+            },
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    ];
+
+  function buildSidebar(currentPath) {
+    const folder = currentPath.replace(/[^/]*$/, "");
+    var filteredPages = sitePages.filter(function (page) {
+      // Adjust this condition to match your filtering logic
+      return page.url.includes(folder);
+    });
+
+    // Now, build your sidebar using filteredPages
+    // This is just a basic example
+    var sidebarHtml = "<ul>";
+    filteredPages.forEach(function (page) {
+      let active = ''
+      if (currentPath == page.url) {
+        active = 'class="active"'
+      }
+      sidebarHtml += `<li ${active}><a ${active} href="${page.url}">${page.title}</a></li>`;
+    });
+    sidebarHtml += "</ul>";
+
+    document.getElementById("sidebar").innerHTML = sidebarHtml;
+  }
+
+  // Call this function with the current path
+  buildSidebar(window.location.pathname);
+</script>

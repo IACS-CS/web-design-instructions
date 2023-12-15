@@ -1,0 +1,102 @@
+:root {
+  --sidebar-width: 15em;
+  --sidebar-toggle-size: 32px;
+}
+
+#sidebar {
+  width: var(--sidebar-width);
+  flex-basis: var(--sidebar-width);
+  background-color: #f4f4f4;
+  padding: 1em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding-top: var(--sidebar-toggle-size);
+  overflow: auto; /* Enable scrolling if the sidebar is too long for the window */
+  display: none; /* Hidden by default */
+  align-self: stretch;
+  display: none;
+}
+#sidebar.active {
+  display: block;
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+#sidebar ul li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 8px 16px;
+  transition: background-color 0.3s;
+}
+
+#sidebar ul li a.active,
+#sidebar ul li a:hover {
+  background-color: #ddd;
+}
+
+/* Positioning for sidebar... */
+#main_content_wrap {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: var(--sidebar-toggle-size);
+}
+
+#main_content_wrap:has(#sidebar-toggle.active) #main_content {
+  /* Adjusts when the sidebar is visible */
+  /* padding-right: calc(var(--sidebar-width) + var(--sidebar-toggle-size)); */
+}
+
+/* Toggle code... */
+#sidebar-toggle {
+  z-index: 1000; /* Ensures it's above other content */
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: var(--sidebar-toggle-size);
+  height: var(--sidebar-toggle-size);
+}
+#sidebar_wrap {
+  position: sticky;
+  top: 0;
+  left: 0;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.hamburger-icon span {
+  display: block;
+  width: var(--sidebar-toggle-size); /* Width of the hamburger lines */
+  height: 3px; /* Height of the hamburger lines */
+  background-color: #333;
+  border: 1px solid #eee;
+  margin: calc((var(--sidebar-toggle-size) - 3px) / 8) 0;
+  transition: 0.4s;
+}
+
+/* Styling for when sidebar is opened - optional */
+#sidebar-toggle.active .hamburger-icon span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+#sidebar-toggle.active .hamburger-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+#sidebar-toggle.active .hamburger-icon span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Media query to display the sidebar on larger screens */
+@media screen and (max-width: 55em) {
+  #main_content_wrap {
+    flex-direction: column;
+    gap: 8px;
+  }
+  #main_content {
+    padding-top: 0 !important;
+  }
+}

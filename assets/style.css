@@ -1,0 +1,21 @@
+.inner,
+#header_wrap .inner {
+  max-width: 50em !important;
+}
+.cp_embed_wrapper,
+.ace-custom-code-block {
+  --width: calc(100vw - 60px);
+  width: var(--width);
+  position: relative;
+  left: calc((100% - var(--width)) / 2);
+}
+header h2 {
+  margin-top: 0;
+}
+#forkme_banner {
+  transform: scale(0.7);
+}
+#header_wrap header.inner {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}

@@ -1,84 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
 
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,maximum-scale=2">
-    <link rel="stylesheet" type="text/css" media="screen" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script
-  src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Ace-Editor-Web-Component@1.0.2/dist/ace-editor-wc.min.js"
-  defer
-></script>
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/MarketingPipeline/Ace-Editor-Web-Component@v1.0.2/dist/ace-editor-wc.min.css"
-/>
-    <style>
-      .inner, #header_wrap .inner {
-        max-width: 50em !important;
-      }
-      .cp_embed_wrapper,.ace-custom-code-block {
-        --width: calc(100vw - 60px);
-        width: var(--width);
-        position: relative;
-        left: calc((100% - var(--width))/2);
-      }
-      header nav a {
-        color : white;        
-      }
-      header nav {
-        display: flex;
-        justify-content: space-between;
-      }
-
-      header nav div {
-        position: relative;
-        text-align: center;
-      }
-      header nav > div:hover {
-        background-color: #424242;
-      }
-      header nav div .sub {
-        position: absolute;
-        transform: translateY(-100%);
-        opacity: 0;
-        
-        background-color: #212121;
-        display: flex;
-        flex-direction: column;        
-        box-sizing: border-box;
-        z-index: 99;
-        pointer-events: none; /* Prevent hovering over missing menu from going crazy */        
-      }
-      header nav div .sub {
-        right: -16px;
-      }
-      header nav div:hover .sub {
-        display: block;
-        position: absolute;
-        transform: translateY(0);
-        opacity: 1;        
-      }
-      header nav div:hover .sub {
-        pointer-events: all;
-      }
-      .sub a {
-        text-decoration: none;
-        display: block;
-        padding: 0.5em;
-        width: calc(min(250px,100vw));
-        border-top: 1px solid #efefef;
-      }      
-      .sub a:hover {
-        background-color: #424242;
-      }
-    </style>
-{% seo %}
-    {% include head-custom.html %}
-  </head>
+ {% include layout/head.html %}
 
   <body>
 
@@ -91,55 +14,21 @@
 
           <h1 id="project_title">{{ site.title | default: site.github.repository_name }}</h1>
           <h2 id="project_tagline">{{ site.description | default: site.github.project_tagline }}</h2>
-
-        
-          <nav>            
-            <div>
-              <a href="{{ site.baseurl }}/">About</a>
-            </div>
-            <div>
-              <a href="{{ site.baseurl }}/portfolio-project/">Portfolio Project</a>
-              <div class="sub">
-                {% for page in site.pages | sort:"url" %}
-                  {% if page.url contains 'portfolio-project' %}
-                  <a href="{{ site.baseurl }}/{{ page.url }}">
-                      {{ page.title }}
-                  </a>
-                  {% endif %}   
-                {% endfor %}
-              </div>
-            </div>
-           
-             <div>
-              <a href="{{ site.baseurl }}/dom">The DOM</a>  
-              <div class="sub">
-                {% for page in site.pages | sort: "order" %}
-                  {% if page.url contains 'dom' %}
-                  <a href="{{ site.baseurl }}/{{ page.url }}">
-                      {{ page.title }}
-                  </a>
-                  {% endif %}   
-                {% endfor %}
-              </div>       
-            </div>
-            
-            
-            <div>
-              <a href="{{ site.baseurl }}/tutorials">Tutorials</a>  
-              <div class="sub">
-                 <a href="{{ site.baseurl }}/tutorials/tabs/">Tabs</a>                  
-              </div>
-            </div>
-          </nav>
+          {%include layout/menu.html %}                  
         </header>
     </div>
+  
+
 
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        {{ content }}
-      </section>
+      {%include layout/sidebar.html %}
+      <section id="main_content" class="inner">        
+        {{ content }}        
+      </section>      
     </div>
+    
+    
 
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
