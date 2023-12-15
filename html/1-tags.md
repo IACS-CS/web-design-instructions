@@ -1,3 +1,5 @@
+# Tags
+
 In HTML, the most fundamental piece of <b>syntax</b> (syntax is the set of rules behind a human language or programming language) is the <b>tag</b>.
 
 A **tag** consists of a pointy bracket, a word or set of letters (the tag name), and another pointy bracket.

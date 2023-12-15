@@ -1,19 +1,22 @@
+# Structure 
+
 In HTML, tags can be <b>nested</b> like nesting dolls, creating a complex structure. This will often mirror the structure of a document: for example, a menu contains menu items, a table contains cells, and a paragraph might contain words in <i>italics</i> or <a href="#">links</a>.
 
-```html.run
+{% capture code %}
 <p>
-  This is a 
+  This is a
   <i>paragraph</i>
   containing some
   <b>different</b>
   tags within it.
 </p>
-```
+{% endcapture %}
+{% include codeeditor.html content=code %}
 
 ****Page Structure****
 
 At the highest level, HTML pages contain elements that lay out the basic structure of a document. 
-```
+```html
 <html>
    <head>
      <!-- Information ABOUT the page -->
