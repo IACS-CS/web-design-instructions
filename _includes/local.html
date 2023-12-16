@@ -1,10 +1,10 @@
-<div>
+<div class="{% if include.width > 600 %}wide{% endif %}">
   <h3 style="margin: 0; background-color: #333; color: #eee; font-size: 1rem">
     Live Example
   </h3>
   <iframe
     style="box-shadow: 2px 2px #777; border: 1px solid #ccc"
-    src="/web-design-instructions/embeds/{{include.page}}"
+    src="{{baseurl}}/embeds/{{include.page}}"
     {%
     if
     include.width
