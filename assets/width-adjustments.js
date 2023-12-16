@@ -15,22 +15,16 @@ document.addEventListener("DOMContentLoaded", function () {
         let overflow = elWidth - mainRect.width;
         let mainWidthWithMargins = mainRect.width + marginLeft + marginRight;
         if (overflow > 0) {
-          console.log("Wide element overflows by ", overflow);
           if (mainWidthWithMargins > elWidth) {
             // in that case... we have room to "center" the wide element
             // within the margins...
             left = (elWidth - mainRect.width) / 2;
-            console.log("Center it by shifting ", left);
           } else {
             /* Otherwise, we *don't fit neatly and we'll overlap the sidebar */
             let widthToTheRight = mainRect.width + marginRight - 32; // 16px padding
             left = elWidth - widthToTheRight;
-            console.log("Push to right by shifting left: ", left);
           }
-        } else {
-          console.log("Nevermind -- it fits!");
         }
-        console.log("Setting left to : -", left);
         el.style.setProperty("left", `-${left}px`);
       }
     }
