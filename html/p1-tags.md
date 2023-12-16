@@ -1,3 +1,7 @@
+---
+order : 2
+--- 
+
 # Tags
 
 In HTML, the most fundamental piece of <b>syntax</b> (syntax is the set of rules behind a human language or programming language) is the <b>tag</b>.
