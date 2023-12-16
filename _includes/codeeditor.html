@@ -1,10 +1,10 @@
 <script>
   // Grab code-blocks and assign children common IDs?
   document.addEventListener("DOMContentLoaded", () => {
-    for (let div of document.querySelectorAll(".ace-custom-code-block")) {
+    for (let div of document.querySelectorAll(".ace-custom-html-block")) {
       if (div.id) continue;
       let randomSeed = Math.random().toString(36).substr(2, 9);
-      div.id = "ace-custom-code-block-" + randomSeed;
+      div.id = "ace-custom-html-block-" + randomSeed;
       const editor = div.querySelector("ace-editor");
       editor.id = "ace-editor-" + randomSeed;
       const iframe = div.querySelector("iframe");
@@ -38,7 +38,7 @@
     return html.trim();
   }
 </script>
-<div class="ace-custom-code-block wide">
+<div class="ace-custom-html-block wide">
   <ace-editor id="editor-{{ unique_id }}" language="html"
     >{{ include.content | escape }}</ace-editor
   >
@@ -57,7 +57,7 @@
   .iframe-wrap {
     height: 100%;
   }
-  .ace-custom-code-block {
+  .ace-custom-html-block {
     display: flex;
     flex-wrap: wrap;
     --gap: 8px;
@@ -86,13 +86,13 @@
     background-color: var(--bg, #3a3636);
     color: #fff;
   }
-  .ace-custom-code-block iframe {
+  .ace-custom-html-block iframe {
     background-color: white;
     border: 1px solid #232222;
     height: 400px;
   }
 
-  .ace-custom-code-block iframe {
+  .ace-custom-html-block iframe {
     width: 100%;
     height: 100%;
     border: 1px solid #333;
