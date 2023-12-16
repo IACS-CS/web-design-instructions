@@ -25,7 +25,14 @@
   <div>
     <a href="{{ '/tutorials' | relative_url }}">Tutorials</a>
     <div class="sub">
-      <a href="{{ '/tutorials/tabs/' | relative_url }}">Tabs</a>
+      {% for page in site.pages %} {% if page.url contains '/tutorials/' %} {%
+      assign url_after_tutorials = page.url | split: '/tutorials/' | last %} {%
+      assign slash_count = url_after_tutorials | size | minus:
+      url_after_tutorials | remove: '/' | size %} {% assign is_directory =
+      page.url | ends_with: '/' %} {% if slash_count == 1 or (slash_count == 0
+      and is_directory == false) %}
+      <a href="{{ page.url | relative_url }}">{{ page.title }}</a>
+      {% endif %} {% endif %} {% endfor %}
     </div>
   </div>
 </nav>
