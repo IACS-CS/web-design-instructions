@@ -30,6 +30,7 @@
             {
               title: '{{ page.title }}',
               url: '{{ page.url | relative_url }}',
+              order : '{{ page.order }}'
             },
           {% endif %}
         {% endif %}
@@ -38,11 +39,28 @@
 
   function buildSidebar(currentPath) {
     const folder = currentPath.replace(/[^/]*$/, "");
+    var regex = new RegExp(folder + "[^/]*[\\/]?$");
     var filteredPages = sitePages.filter(function (page) {
-      // Adjust this condition to match your filtering logic
-      return page.url.includes(folder);
+       // Regular expression to match either
+       // subfolder/not-a-slash...
+       // OR
+       // subfolder/subsubfolder/index.md
+      return regex.test(page.url);
+    }).sort(function (a, b) {
+      // Sort to ensure index/root page comes first
+      if (a.url.endsWith('index.md') || a.url === folder) {
+        return -1;
+      }
+      if (b.url.endsWith('index.md') || b.url === folder) {
+        return 1;
+      }
+      return a.url.localeCompare(b.url); // Optionally, sort remaining pages alphabetically by title
     });
-
+    // Check if the current path is two folders deep and ends with a '/'
+    if (folder.match(/\/[^/]+\/[^/]+\/$/) && window.location.pathname !== '/') {
+      filteredPages = [{ title: "Back", url: "../" },...filteredPages];
+    }
+    console.log('Filtered and sorted pages: ',filteredPages);
     // Now, build your sidebar using filteredPages
     // This is just a basic example
     var sidebarHtml = "<ul>";
@@ -54,6 +72,7 @@
       sidebarHtml += `<li ${active}><a ${active} href="${page.url}">${page.title}</a></li>`;
     });
     sidebarHtml += "</ul>";
+
 
     document.getElementById("sidebar").innerHTML = sidebarHtml;
   }
