@@ -3,8 +3,9 @@
   max-width: 50em !important;
 }
 .cp_embed_wrapper,
-.ace-custom-code-block {
-  --width: calc(100vw - 60px);
+.ace-custom-code-block,
+.wide {
+  --width: min(1280px, calc(100vw - 60px));
   width: var(--width);
   position: relative;
   left: calc((100% - var(--width)) / 2);
