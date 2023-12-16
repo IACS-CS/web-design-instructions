@@ -1,0 +1,58 @@
+<div class="ace-custom-code3-block wide">
+  <div class="editor-block">
+    <div class="editor-tabs">
+      <button
+        class="tab-button {% if include.startTab == 'html' or include.startTab == nil %}active{% endif %}"
+        onclick="openCode3Tab('html',event)"
+      >
+        HTML
+      </button>
+      <button
+        class="tab-button {% if include.startTab == 'css' %}active{% endif %}"
+        onclick="openCode3Tab('css',event)"
+      >
+        CSS
+      </button>
+      <button
+        class="tab-button {% if include.startTab == 'js' %}active{% endif %}"
+        onclick="openCode3Tab('js',event)"
+      >
+        JavaScript
+      </button>
+      <button
+        class="tab-button {% if include.startTab == 'all' %}active{% endif %}"
+        onclick="openCode3Tab('all',event)"
+      >
+        All
+      </button>
+    </div>
+    <div
+      class="html-editor code-editor"
+      style="display: {% if include.startTab == 'html' or include.startTab == nil  or include.startTab == 'all' %}block{% else %}none{% endif %}"
+    >
+      <ace-editor language="html">{{ include.html | escape }}</ace-editor>
+    </div>
+    <div
+      class="css-editor code-editor"
+      style="display: {% if include.startTab == 'css'  or include.startTab == 'all' %}block{% else %}none{% endif %}"
+    >
+      <ace-editor language="css">{{ include.css | escape }}</ace-editor>
+    </div>
+    <div
+      class="js-editor code-editor"
+      style="display: {% if include.startTab == 'js'  or include.startTab == 'all' %}block{% else %}none{% endif %}"
+    >
+      <ace-editor language="javascript">{{ include.js | escape }}</ace-editor>
+    </div>
+  </div>
+
+  <div class="result-block">
+    <div class="result-title">Result</div>
+    <div class="iframe-wrap">
+      <iframe
+        id="iframe-{{ unique_id }}"
+        style="height: {{ include.height }}"
+      ></iframe>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,97 @@
+/* General Styles... */
+
+.iframe-wrap {
+  height: 100%;
+  width: 100%;
+}
+.iframe-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.ace-custom-html-block,
+.ace-custom-code3-block {
+  display: flex;
+  flex-wrap: wrap;
+  --gap: 8px;
+  gap: var(--gap);
+  box-sizing: border-box;
+  background-color: #fafafa;
+  margin-bottom: 16px;
+}
+ace-editor {
+  flex-basis: calc(50% - var(--gap) / 2);
+}
+.result-block {
+  flex-basis: calc(50% - var(--gap) / 2);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.result-block .result-title {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 8px;
+  border-radius: 8px 8px 0 0;
+  background-color: var(--bg, #3a3636);
+  color: #fff;
+}
+.ace-custom-html-block iframe {
+  background-color: white;
+  border: 1px solid #232222;
+  height: 400px;
+  width: 100%;
+}
+
+.ace-custom-html-block iframe {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #333;
+  box-sizing: border-box;
+}
+/* For 3-editor */
+
+.editor-block {
+  flex-basis: calc(50% - var(--gap) / 2);
+}
+.editor-tabs {
+  display: flex;
+  justify-content: start;
+  gap: 4px;
+  padding-left: 16px;
+  background-color: #f4f4f4;
+  border-bottom: 1px solid #ccc;
+  height: 32px;
+}
+.tab-button.active {
+  background-color: #3a3636;
+  color: white;
+}
+.tab-button {
+  box-sizing: border-box;
+  height: 32px;
+  padding: 10px;
+  border-radius: 8px 8px 0 0;
+  border: 1px solid #333;
+  border-bottom: none;
+  background: none;
+  cursor: pointer;
+}
+
+.tab-button:focus {
+  outline: none;
+}
+
+/* Custom tweak to editor */
+.ace-editor-wc-text {
+  min-height: 5em;
+}
+.code-editor {
+  margin-bottom: 1em;
+}
+.ace-custom-code3-block .result-block {
+  margin-top: 32px;
+}
