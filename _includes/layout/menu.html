@@ -57,6 +57,7 @@
     }
     thisNode.name = lastNode;
     let childList = tree;
+    let root = "/";
     for (let parent of folders) {
       let existingParent = childList.find((f) => f.name === parent);
       if (existingParent) {
@@ -67,11 +68,13 @@
           name: parent,
           children: [],
           title: parent,
+          url: root + parent + "/",
         };
         console.log("New parent", newParent);
         childList.push(newParent);
         childList = newParent.children;
       }
+      root += parent + "/";
     }
     let existingNode = childList.find((f) => f.name === lastNode);
     if (existingNode) {
