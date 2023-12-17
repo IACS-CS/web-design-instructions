@@ -42,15 +42,17 @@ If you forget a &gt; or a quotation mark in an attribute, it can result it conte
 
 CSS, the language used for **style** information, is much fussier than HTML. Generally, the computer reads style rules from start to finish. If you make an error in CSS syntax, everything from the error down will stop working.
 
+**hint**: if you can't figure out why something is failing in CSS, try looking at the lines *before* the error
+
 {%capture code %}
 <html>
 <head>
 <style>
   h1 { 
-      color : green;
-  }
+      color : green;  
   body {
       color: purple;
+  }
   p {
       color : red;
   }
@@ -63,9 +65,9 @@ CSS, the language used for **style** information, is much fussier than HTML. Gen
   <h1>The heading works</h1>
   <div>Some other text that should be purple.</div>
   <p>Text that should be red.</p>
-  <p>The rules below <b>body</b> will fail
+  <p>The rules below <b>h1</b> will fail
    because I forgot
-  to type the } after the rules for body on line 9.
+  to type the } after the rules for h1 on line 9.
   
   <a href="#">(this should be orange, by the way!)</a>
   </p>
