@@ -38,6 +38,40 @@
     sidebarHtml += "</ul>";
 
     document.getElementById("sidebar").innerHTML = sidebarHtml;
+
+    document.addEventListener("DOMContentLoaded", () =>
+      addBreadcrumbs(currentPath, filteredPages)
+    );
+  }
+
+  function addBreadcrumbs(path, pages) {
+    let next;
+    let prev;
+    for (let i = 0; i < pages.length; i++) {
+      if (pages[i].url === path) {
+        next = pages[i + 1];
+        prev = pages[i - 1];
+        break;
+      }
+    }
+    console.log("Got next and prev", next, prev, "for page", path);
+    let main = document.querySelector("#main_content");
+    let breadcrumbs = document.createElement("div");
+    breadcrumbs.classList.add("breadcrumbs");
+    if (prev) {
+      if (prev.url == "../") {
+        breadcrumbs.innerHTML += `<a class="prev up" href="${prev.url}">↑</a>`;
+      } else {
+        breadcrumbs.innerHTML += `<a class="prev" href="${prev.url}">← ${prev.title}</a>`;
+      }
+    }
+    if (next) {
+      console.log("++next!");
+      breadcrumbs.innerHTML += `&nbsp;<a class="next" href="${next.url}">${next.title} →</a>`;
+    }
+    let breadcrumbsCopy = breadcrumbs.cloneNode(true);
+    main.prepend(breadcrumbs);
+    main.append(breadcrumbsCopy);
   }
 
   // Call this function with the current path
