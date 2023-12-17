@@ -1,3 +1,8 @@
+---
+order : 3
+---
+# Rows and Columns (Flexbox)
+
 In my examples so far, I've only been moving items in a single dimension: left-to-right in a row layout or top-to-bottom in a column layout.
 
 To move items in the *second* dimension (i.e. up and down in a row), you use **alignment**. The *container* can align its items using the **align-items** property, or any given item can align itself using the **align-self** property.
@@ -5,7 +10,7 @@ To move items in the *second* dimension (i.e. up and down in a row), you use **a
 To see alignment in action, it helps to have items of different sizes. Let's imagine a menu.
 
 ```html.run
-<style>
+{%capture css %}
   nav {
     display: flex;
     flex-direction: row;
@@ -18,8 +23,9 @@ To see alignment in action, it helps to have items of different sizes. Let's ima
       border: 1px solid grey;
       display: block;
   }
- </style>
- <nav style="align-items:start">
+{%endcapture %}
+{%capture html %}
+<nav style="align-items:start">
     <a href="#">Home</a>
     <a href="#eat">Order<br>Food!</a>
     <button>Log Out</button>
@@ -43,12 +49,13 @@ To see alignment in action, it helps to have items of different sizes. Let's ima
     <button>Log Out</button>
     <div>align-items: stretch</div>
  </nav>
-```
+ {%endcapture%}
+{%include editor3.html css=css html=html startTab="html" disableTabs="js" %}
 
 Now with your justify and align properties, you can move items on either a left-right or top-bottom axis.
 
 ```html.run
-<style>
+{%capture css %}
     section {
         display: flex;
         height: 70px;
@@ -65,8 +72,9 @@ Now with your justify and align properties, you can move items on either a left-
     p {
         margin: 5px;
     }
-</style>
+{%endcapture %}
 
+{%capture html %}
 <section style="
     justify-content: center; 
     align-items: center
@@ -102,4 +110,5 @@ Now with your justify and align properties, you can move items on either a left-
    <div></div>
    <div></div>
 </section>
-```
+{%endcapture%}
+{%include editor3.html css=css html=html startTab="html" disableTabs="js" %}

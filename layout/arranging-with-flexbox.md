@@ -1,8 +1,13 @@
-**Introducing Flexbox**
+---
+order: 2
+---
+# Flexbox
+
+## Introducing Flexbox
 
 If you want to do more than stack boxes on top of each other, you need something better than block layouts. Luckily, HTML introduced *flexbox*, a system for arranging boxes in rows or columns.
 
-**Row Layouts**
+## Row Layouts
 
 The default "flex" layout is in a row, with items being layed out
 from left to right. You can use the **justify-content** property to decide how the elements get distributed. They default to all stacking on the left-hand side (flex-start). Other useful values are:
@@ -12,8 +17,8 @@ from left to right. You can use the **justify-content** property to decide how t
 * space-between: Put the content at the edges, with space between evenly
 * space-evenly: Space content out evenly, including space at the edges
 
-```html.run
-<style>
+
+{%capture css %}
   section {
       display: flex;
   }
@@ -26,8 +31,9 @@ from left to right. You can use the **justify-content** property to decide how t
       border: 1px solid red;
       padding: 3px;
   }
-</style>
+{%endcapture %}
 
+{%capture html %}
 <section>
     <div>flex-start (default)</div>
     <div>box 2</div>
@@ -53,9 +59,10 @@ from left to right. You can use the **justify-content** property to decide how t
     <div>box 2</div>
     <div>box 3</div>
 </section>
-```
+{%endcapture%}
+{%include editor3.html css=css html=html startTab="html" disableTabs="js" %}
 
-**Creating Flex Layouts**
+## Creating Flex Layouts
 
 To use "flexbox", you need at a minimum to set the CSS property of
 the container to
@@ -64,7 +71,7 @@ display:flex
 ```
 
 You can do that using a style rule in a stylesheet or style tag, like this:
-```
+```html
 <style>
    section {
        display: flex
@@ -74,20 +81,21 @@ You can do that using a style rule in a stylesheet or style tag, like this:
 ```
 
 Or you could use inline styles:
-```html.run
+{%capture content %}
 <section style="
     display: flex; 
     justify-content: flex-end;
 ">
   <div>Wow</div> <div>Cool is flexbox</div>
 </section>
-```
+{%endcapture %}
+{%include codeeditor.html content=content %}
 
-**Column Layouts**
+## Column Layouts
 If you change the ```flex-direction``` to **column**, then everything in the row layout just gets rotated by ninety degrees.
 
 ```html.run
-<style>
+{%capture css %}
   body {
       display: flex;
   }
@@ -105,7 +113,8 @@ If you change the ```flex-direction``` to **column**, then everything in the row
       border: 1px solid red;
       padding: 3px;
   }
-</style>
+{%endcapture %}
+{%capture html %}
 <body>
 <section>
     <div>flex-start (default)</div>
@@ -133,7 +142,8 @@ If you change the ```flex-direction``` to **column**, then everything in the row
     <div>box 3</div>
 </section>
 </body>
-```
+{%endcapture%}
+{%include editor3.html css=css html=html startTab="html" disableTabs="js" %}
 
 
 

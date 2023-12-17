@@ -10,7 +10,8 @@
 <script>
   function buildSidebar(currentPath) {
     const folder = currentPath.replace(/[^/]*$/, "");
-    var regex = new RegExp(folder + "[^/]*[\\/]?$");
+    var regex = new RegExp("^" + folder + "[^/]*[\\/]?$");
+    console.log("Testing sidebar subpages with regex", regex);
     var filteredPages = sitePages.filter(function (page) {
       // Regular expression to match either
       // subfolder/not-a-slash...
@@ -21,9 +22,9 @@
 
     // Check if the current path is two folders deep and ends with a '/'
     if (folder.match(/\/[^/]+\/[^/]+\/$/) && window.location.pathname !== "/") {
-      filteredPages = [{ title: "Back", url: "../" }, ...filteredPages];
+      filteredPages = [{ title: "← Back", url: "../" }, ...filteredPages];
     }
-    console.log("Filtered and sorted pages: ", filteredPages);
+    console.log("Sidebar pages: ", filteredPages);
     // Now, build your sidebar using filteredPages
     // This is just a basic example
     var sidebarHtml = "<ul>";

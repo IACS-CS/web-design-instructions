@@ -1,8 +1,14 @@
+---
+order: 5
+---
+
+# A Business Card: Nested Flex Boxes
+
 When you have a complex layout, you often want to think of it as multiple boxes, some of which may work in different directions.
 
 Let's look, for example, at a business card with a header, a footer, and a center.
 
-![Screen Shot 2021-09-16 at 3.28.02 PM.png](/api/files/61439ae76525133c457ac9d3/screen-shot-2021-09-16-at-3-28-02-pm.png "Screen Shot 2021-09-16 at 3.28.02 PM.png")
+![Business Card Example](../assets/images/business-card.png)
 
 The header involves info in the left and right corners of the card.
 The body has a left/right design that should be centered.
@@ -13,7 +19,7 @@ As I lay the card out I'll start with the biggest container: the outer box.
 
 I'll add the following style rules for the main box to make the three parts of the card spread out... as I work, I'm going to put borders on everything so I can see the boxes the browser is using.
 
-```
+```css
   main {
       display: flex;
       flex-direction: column;
@@ -23,8 +29,8 @@ I'll add the following style rules for the main box to make the three parts of t
   
 ```
 
-```html.run
-<style>
+
+{%capture css %}
 main {
       width: 500px;
       height: 300px;
@@ -44,7 +50,8 @@ main {
   div {
       border: 1px solid grey; 
   }
-</style>
+{%endcapture %}
+{%capture html %}
 <main>
   <header>
     <div>
@@ -72,21 +79,22 @@ main {
     <div>72 Tyng Rd. <br>Tyngsboro MA<br>01879</div>
   </footer>
 </main>
-```
+{%endcapture%}
+{%include editor3.html css=css html=html startTab="css" disableTabs="js" %}
 
 
 Next up, I need to make each of my internal flex-boxes move left to right.
 
 I'll add a rule for them:
-```
+```css
 header, footer, section {
     display: flex;
     flex-direction: row;
 }
 ```
 
-```html.run
-<style>
+
+{%capture css %}
 main {
       width: 500px;
       height: 300px;
@@ -113,7 +121,8 @@ main {
   div {
       border: 1px solid grey; 
   }
-</style>
+{%endcapture %}
+{%capture html %}
 <main>
   <header>
     <div>
@@ -141,7 +150,8 @@ main {
     <div>72 Tyng Rd. <br>Tyngsboro MA<br>01879</div>
   </footer>
 </main>
-```
+{%endcapture%}
+{%include editor3.html css=css html=html startTab="css" disableTabs="js" %}
 
 Last up, I need to adjust the alignment for each box
 inside my card.
@@ -150,13 +160,13 @@ inside my card.
 * Section: align in the center
 * Footer: align on the bottom and spread out
 
-```
+```css
 header {
-    align-items: start;
+    align-items: flex-start;
     justify-content: space-between;
 }
 footer {
-    align-items: end;
+    align-items: flex-end;
     justify-content: space-between;
 }
 section {
@@ -166,8 +176,8 @@ section {
 ```
 
 
-```html.run
-<style>
+
+{%capture css %}
 main {
       width: 500px;
       height: 300px;
@@ -185,11 +195,11 @@ main {
   }
   
   header {
-    align-items: start;
+    align-items: flex-start;
     justify-content: space-between;
   }
 footer {
-    align-items: end;
+    align-items: flex-end;
     justify-content: space-between;
 }
 section {
@@ -207,7 +217,8 @@ section {
   div {
       border: 1px solid grey; 
   }
-</style>
+{%endcapture %}
+{%capture html %}
 <main>
   <header>
     <div>
@@ -235,13 +246,14 @@ section {
     <div>72 Tyng Rd. <br>Tyngsboro MA<br>01879</div>
   </footer>
 </main>
-```
+{%endcapture%}
+{%include editor3.html css=css html=html startTab="css" disableTabs="js" %}
 
 
 Now that everything is positioned right, you can play with the rest of your layout. Here's a "final" card:
 
-```html.run
-<style>
+
+{%capture css %}
 main {
       width: 500px;
       height: 300px;
@@ -264,11 +276,11 @@ main {
   }
 
   header {
-    align-items: start;
+    align-items: flex-start;
     justify-content: space-between;
   }
 footer {
-    align-items: end;
+    align-items: flex-end;
     justify-content: space-between;
     padding-bottom: 5px;
 }
@@ -281,7 +293,8 @@ section {
     font-family: Monospace;
     color: #558;
   }
-</style>
+{%endcapture %}
+{%capture html %}
 <main>
   <header>
     <div>
@@ -309,4 +322,5 @@ section {
     <div>72 Tyng Rd. <br>Tyngsboro MA<br>01879</div>
   </footer>
 </main>
-```
+{%endcapture%}
+{%include editor3.html css=css html=html startTab="css" disableTabs="js" %}

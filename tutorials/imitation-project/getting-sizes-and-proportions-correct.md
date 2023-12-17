@@ -4,7 +4,7 @@ order: 2
 
 # Getting the basic sizing right.
 
-![Watch layout](https://i.ibb.co/HC9v348/31145-M-VID-20273dd2-7888-450d-b4aa-47e01db7ed07.webp)
+![Watch layout](../../assets/images/garmin-ad.webp)
 The first thing I notice about this image is the way the gray and the white split the image.
 
 To begin with, I'm going to just create a container for the whole image and then size them. It helps to create simple containers with simple class names for your ideas, like this:

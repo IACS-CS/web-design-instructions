@@ -1,3 +1,9 @@
+---
+order: 0
+---
+
+# Boxes, Boxes, Boxes
+
 HTML layout follows what is traditionally called "the box model." When the browser lays out a page, everything is treated as a rectangle and is layed out according to its width and height.
 
 A typical HTML page with no style rules is just layed out top-to-bottom, with boxes stacked on top of each other.
@@ -11,12 +17,12 @@ In addition to this, there are "inline" elements, which are stacked left to righ
 
 Inline elements typically fill up blocks.
 
-```html.run
-<style>
+{%capture css %}
   h1,h2,p,div,section,footer {
       border: 1px solid red;
   }
-</style>
+{%endcapture %}
+{%capture html %}
 <h1>Headings are blocks</h1>
 <p>I put a red border around everything on this page so you can
 see how the computer thinks of the rectangles.</p>
@@ -27,5 +33,6 @@ any margins by default. These include div, header, footer, section, article,
 main.</div>
 <section>This is a section after a div</section>
 <footer>And here is a footer</footer>
-```
+{%endcapture%}
+{%include editor3.html css=css html=html startTab="html" disableTabs="js" %}
 

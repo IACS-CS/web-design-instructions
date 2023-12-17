@@ -12,7 +12,7 @@ For this tutorial, we're going to use already-existing designs to simplify the p
 
 Here's an example layout that I'll try to achieve. 
 
-![Watch layout](https://i.ibb.co/HC9v348/31145-M-VID-20273dd2-7888-450d-b4aa-47e01db7ed07.webp)
+![Watch layout](../../assets/images/garmin-ad.webp)
 
 ## Step 2: Break it into pieces
 

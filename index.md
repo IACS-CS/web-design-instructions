@@ -1,13 +1,9 @@
 ---
-order: -10
+order: 0
 ---
 
 # Web Design
-Hello students -- repl.it is leaving us so I'm jumping ship and moving to GitHub, which should make it easier for me
-to write and improve instructions over time.
-
-This is the first step!
-
+Dear students: I'm trying to compile all of my resources in one place now. 
 This webpage will grow and eventually replace the [Google Doc of How-To's](https://docs.google.com/document/d/1MrPTAd-LPJpUH93BYElgGv_abhhagAWaURrOtqjfj9A/edit) that I made and shared with you earlier this semester.
 
 ## Projects

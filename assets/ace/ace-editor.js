@@ -1,6 +1,6 @@
 /* From https://cdn.jsdelivr.net/gh/MarketingPipeline/Ace-Editor-Web-Component@1.0.2/dist/ace-editor-wc.min.js */
 /**! * @license Ace-Editor-Web-Component - A web component to easily add a code editor or editor(s) to your web page! * VERSION: 1.0.2 * MORE INFO CAN BE FOUND AT https://github.com/MarketingPipeline/Ace-Editor-Web-Component */
-console.log("Loading ACE EDITOR!");
+
 /**! * @license Ace-Editor-Web-Component - A web component to easily add a code editor or editor(s) to your web page! * VERSION: 1.0.2 * MORE INFO CAN BE FOUND AT https://github.com/MarketingPipeline/Ace-Editor-Web-Component */ let AceEditorWC_Is_AceEditorLoaded =
   !1;
 class AceEditorWC extends HTMLElement {

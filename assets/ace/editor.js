@@ -1,6 +1,5 @@
 const currentScriptPath = document.currentScript.src;
 const acePath = currentScriptPath.replace(/[^\/]+.js/, "ace-editor.js");
-console.log("acePath: ", acePath);
 
 function addAce() {
   let script = document.createElement("script");
@@ -9,8 +8,6 @@ function addAce() {
 }
 
 function loadEditors() {
-  console.log("Run me!");
-
   function waitForAce() {
     if (window.ace) {
       loadHtmlEditors();
@@ -27,7 +24,6 @@ function loadEditors() {
 
 /* For HTML Only Editor */
 function loadHtmlEditors() {
-  console.log("Load HTML editors!");
   for (let div of document.querySelectorAll(".ace-custom-html-block")) {
     const editor = div.querySelector("ace-editor");
     const iframe = div.querySelector("iframe");
@@ -85,15 +81,6 @@ function loadFullEditors() {
     const errorBlock = block.querySelector(".error-block");
 
     const handleChange = (event) => {
-      console.log(
-        "Handle change! from ",
-        event,
-        block,
-        htmlEditor,
-        cssEditor,
-        jsEditor,
-        iframe
-      );
       const html = ace
         .edit(htmlEditor.querySelector("#code_editor_text_value"))
         .getValue();
@@ -124,7 +111,7 @@ function loadFullEditors() {
         colno,
         error
       ) {
-        console.log("Got iFrame Error!", message);
+        console.log("Error from Embedded Sample Code:", message);
         // Send error details to parent window or handle it within the iframe
         // For example, post the error message back to the parent
         // parent.postMessage({ type: "error", message: message }, "*");
@@ -134,20 +121,12 @@ function loadFullEditors() {
         return false; // Prevents the firing of the default event handler
       };
 
-      console.log(
-        "Set error handler?",
-        iframe.contentWindow,
-        iframe.contentWindow.onerror
-      );
       try {
-        console.log("Writing content");
         iframe.contentWindow.document.write(content);
-        console.log("Success?");
       } catch (err) {
         console.log("Unable to write", content);
         return;
       }
-      console.log("Done writing iframe");
       iframe.contentWindow.document.close();
     };
     /* for (let eventname of ["input", "change"]) {

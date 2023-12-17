@@ -9,11 +9,11 @@ My final step in a layout will be absolute positioning anything that needs to be
 In my case, I have a watch I need to add that looks like this:
 
 
-![Watch image](../assets/images/garmin.jpg);
+![Watch image](../../assets/images/garmin.jpg);
 
 My goal is to create this:
 
-![Watch layout](../assets/images/garmin-ad.webp)
+![Watch layout](../../assets/images/garmin-ad.webp)
 
 Currently, I have the following layout, basically arranged around two columns like this:
 
