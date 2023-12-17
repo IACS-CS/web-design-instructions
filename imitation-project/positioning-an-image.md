@@ -270,21 +270,21 @@ section {
                 </div>
             </div>
         </div>
-        <img src="{{"/assets/images/garmin.png" | relativeUrl}}">
+        <img src="{{"/assets/images/garmin.png" | relative_url}}">
     </section>
     <section class="column right white">
         <div class = "square-grid">
             <div class="item">
-                <img src="{{"/assets/images/garmin.png" | relativeUrl}}">
+                <img src="{{"/assets/images/garmin.png" | relative_url}}">
             </div>
             <div class="item">
-                <img src="{{"/assets/images/garmin.png" | relativeUrl}}">
+                <img src="{{"/assets/images/garmin.png" | relative_url}}">
             </div>
             <div class="item">
-                <img src="{{"/assets/images/garmin.png" | relativeUrl}}">
+                <img src="{{"/assets/images/garmin.png" | relative_url}}">
             </div>
             <div class="item">
-                <img src="{{"/assets/images/garmin.png" | relativeUrl}}">
+                <img src="{{"/assets/images/garmin.png" | relative_url}}">
             </div>
         </div>
     </section>
