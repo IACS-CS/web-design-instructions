@@ -79,7 +79,7 @@ const closeButton = document.querySelector('#lightbox-close');
 Loop through each image in the gallery using a `for-of` loop and add a click event listener:
 
 ```javascript
-const galleryImages = document.querySelectorAll('.gallery img');
+var galleryImages = document.querySelectorAll('.gallery img');
 
 for (const image of galleryImages) {
   image.addEventListener('click', openLightbox);
@@ -121,8 +121,7 @@ the style and script elements which you would have in separate `script.js` and `
 in a real project.
 
 
-{%capture code %}
-<style>
+{%capture css %}
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -173,9 +172,8 @@ in a real project.
   right: 16px;
   top: 16px;
 }
-</style>
-
-
+{%endcapture %}
+{%capture html %}
 <section class="gallery">   
     <img src="https://picsum.photos/200/300">
     <img src="https://picsum.photos/800/1300">
@@ -192,16 +190,16 @@ in a real project.
   <img id="lightbox-image" src="" alt="">
   <button id="lightbox-close">Close</button>
 </div>
+{%endcapture%}
+{%capture js %}
+var galleryImages = document.querySelectorAll('.gallery img');
+var lightbox = document.querySelector('#lightbox');
+var lightboxImage = document.querySelector('#lightbox-image');
+var closeButton = document.querySelector('#lightbox-close');
 
-<script>
-const galleryImages = document.querySelectorAll('.gallery img');
-const lightbox = document.querySelector('#lightbox');
-const lightboxImage = document.querySelector('#lightbox-image');
-const closeButton = document.querySelector('#lightbox-close');
-
-galleryImages.forEach(image => {
+for (let image of galleryImages) {
   image.addEventListener('click', openLightbox);
-});
+}
 
 function openLightbox(event) {
   const clickedImage = event.target;    
@@ -217,10 +215,10 @@ function closeLightbox() {
   lightbox.classList.remove('visible');
   lightboxImage.src = '';
 }
-</script>
+
 
 {% endcapture %}
-{% include codeeditor.html content=code height="600px" %}
+{% include editor3.html html=html js=js css=css startTab="js" height="600px" %}
 
 ## Credits
 This tutorial was generated with the help of Google Bard -- thanks Large Language Model!
