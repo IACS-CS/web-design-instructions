@@ -25,7 +25,7 @@ For our purposes, there are three types of selectors you're likely to need:
   JavaScript
 
   ```javascript
-  let div = document.querySelector('#there-can-be-only-one');
+  var div = document.querySelector('#there-can-be-only-one');
   ```
 
 2. The **class** selector is prefixed with a **.** and is meant to indicate a new "type" of thing.
@@ -39,7 +39,7 @@ HTML
 JavaScript
 
 ```javascript
-let div = document.querySelector('.menu-item');
+var div = document.querySelector('.menu-item');
 ```
 
 3. The **element** selector is just the name of the element.
@@ -51,7 +51,7 @@ let div = document.querySelector('.menu-item');
 JavaScript
 
 ```javascript
-let div = document.querySelector('canvas');
+var div = document.querySelector('canvas');
 ```
 
 Note: if there are multiple elements, querySelector will just select the *first*. You can also use `querySelectorAll` to get a collection of all elements, which you can loop through like this:
@@ -80,7 +80,7 @@ Usually you'll want to do something with the elements you access, such as add or
 The easiest way to handle this with minimal JavaScript is just to add or remove a class, like this...
 
 ```javascript
-let myDiv = document.querySelector('div');
+var myDiv = document.querySelector('div');
 myDiv.classList.add('active');
 ```
 
@@ -91,7 +91,7 @@ You can also remove a class with ```myDiv.classList.remove('active')``` or toggl
 The *easiest* way to add content to an element is just to set it's innerHTML property -- then you can write HTML as a string, like this:
 
 ```javascript
-let div = document.createElement('div');
+var div = document.createElement('div');
 div.innerHTML = `
 <h2>Wow a heading</h2>
 <p>My amazing bit of JavaScript-generated HTML</p>
@@ -101,7 +101,7 @@ div.innerHTML = `
 Note: if you are accepting data from users and inserting it into your web application, it's not a great idea to use the innerHTML method, since code inserted this way could include e.g. a `<script>` tag which could contain malicious code. You can use the `innerText` to set text with no markup included, which is usually what you want to do if you're setting text from a user, like this:
 
 ```javascript
-let div = document.createElement('div');
+var div = document.createElement('div');
 div.innerText = textFromUser;
 ```
 
