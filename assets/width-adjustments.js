@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   setWidthVarsForMainContent();
+  setTimeout(setWidthVarsForMainContent, 200);
 
   // ResizeObserver to watch for changes in the size of the main_content
   const resizeObserver = new ResizeObserver(() => setWidthVarsForMainContent());

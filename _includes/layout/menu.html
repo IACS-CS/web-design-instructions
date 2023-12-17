@@ -1,5 +1,5 @@
-<nav>
-  <div>
+<nav id="dropdown-menu">
+  <!-- <div>
     <a href="{{ '/' | relative_url }}">About</a>
   </div>
   <div>
@@ -34,5 +34,76 @@
       <a href="{{ page.url | relative_url }}">{{ page.title }}</a>
       {% endif %} {% endif %} {% endfor %}
     </div>
-  </div>
+  </div> -->
 </nav>
+
+<script>
+  console.log("Menu loads with ", sitePages);
+  let root = "{{ " / " | relativeUrl }}";
+  console.log("root is", root);
+  let tree = [];
+  sitePages.map((page) => {
+    let thisNode = { ...page, name };
+    if (page.url.substring(page.url.length - 1) === "/") {
+      thisNode.children = [];
+    }
+    let folders = page.url.split("/");
+    while (folders[0] === "") {
+      folders.shift(); // ignore leading slashes
+    }
+    let lastNode = folders.pop();
+    if (lastNode === "") {
+      lastNode = folders.pop();
+    }
+    thisNode.name = lastNode;
+    let childList = tree;
+    for (let parent of folders) {
+      let existingParent = childList.find((f) => f.name === parent);
+      if (existingParent) {
+        console.log("Parent exists:", existingParent);
+        childList = existingParent.children;
+      } else {
+        let newParent = {
+          name: parent,
+          children: [],
+          title: parent,
+        };
+        console.log("New parent", newParent);
+        childList.push(newParent);
+        childList = newParent.children;
+      }
+    }
+    let existingNode = childList.find((f) => f.name === lastNode);
+    if (existingNode) {
+      console.log("Node already exists, merge it");
+      console.log("Merging in", thisNode.url, thisNode.title, existingNode);
+      existingNode.title = thisNode.title;
+      existingNode.url = thisNode.url;
+      existingNode.order = thisNode.order;
+    } else {
+      console.log("Push node", thisNode.url, thisNode.title, "to", childList);
+      childList.push(thisNode);
+    }
+  });
+  console.log("I built me a tree", tree);
+
+  let navEl = document.getElementById("dropdown-menu");
+
+  for (let topBranch of tree) {
+    navEl.appendChild(buildBranch(topBranch));
+  }
+
+  function buildBranch(branch) {
+    let el = document.createElement("div");
+    el.innerHTML = `<div>
+      <a href="${branch.url}">${branch.title}</a>
+      <div class="sub">
+        ${branch.children
+          .map((child) => {
+            return `<a href="${child.url}">${child.title}</a>`;
+          })
+          .join("")}
+      </div>`;
+    return el;
+  }
+</script>

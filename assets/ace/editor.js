@@ -33,6 +33,7 @@ function loadHtmlEditors() {
     const iframe = div.querySelector("iframe");
     editor.addEventListener("change", (e) => handleChange(editor, iframe));
     editor.addEventListener("input", (e) => handleChange(editor, iframe));
+    editor.addEventListener("keypress", (e) => handleChange(editor, iframe));
     handleChange(editor, iframe);
   }
 
@@ -81,10 +82,12 @@ function loadFullEditors() {
     const cssEditor = block.querySelector(".css-editor ace-editor");
     const jsEditor = block.querySelector(".js-editor ace-editor");
     const iframe = block.querySelector(".result-block iframe");
+    const errorBlock = block.querySelector(".error-block");
 
-    const handleChange = () => {
+    const handleChange = (event) => {
       console.log(
         "Handle change! from ",
+        event,
         block,
         htmlEditor,
         cssEditor,
@@ -113,6 +116,29 @@ function loadFullEditors() {
       `;
 
       iframe.contentWindow.document.open();
+
+      iframe.contentWindow.onerror = function (
+        message,
+        source,
+        lineno,
+        colno,
+        error
+      ) {
+        console.log("Got iFrame Error!", message);
+        // Send error details to parent window or handle it within the iframe
+        // For example, post the error message back to the parent
+        // parent.postMessage({ type: "error", message: message }, "*");
+        errorBlock.appendChild(
+          makeErrorDiv(message, source, lineno, colno, error)
+        );
+        return false; // Prevents the firing of the default event handler
+      };
+
+      console.log(
+        "Set error handler?",
+        iframe.contentWindow,
+        iframe.contentWindow.onerror
+      );
       try {
         console.log("Writing content");
         iframe.contentWindow.document.write(content);
@@ -124,13 +150,40 @@ function loadFullEditors() {
       console.log("Done writing iframe");
       iframe.contentWindow.document.close();
     };
-    for (let eventname of ["input", "change"]) {
+    /* for (let eventname of ["input", "change"]) {
       for (let editor of [jsEditor, cssEditor, htmlEditor]) {
         editor.addEventListener(eventname, handleChange);
       }
+    } */
+    for (let editor of [jsEditor, cssEditor, htmlEditor]) {
+      ace
+        .edit(editor.querySelector("#code_editor_text_value"))
+        .getSession()
+        .on("change", handleChange);
     }
 
+    block
+      .querySelector(".js-editor")
+      .addEventListener("keypress", handleChange);
+
     handleChange();
+  }
+}
+
+function makeErrorDiv(message, source, lineno, colno, error) {
+  const errorDiv = document.createElement("div");
+  errorDiv.classList.add("error");
+  errorDiv.innerHTML = `        
+    <p>${message} at (${lineno}:${colno}</p>        
+  `;
+  return errorDiv;
+}
+
+function clearErrors(event) {
+  let clickedElement = event.target;
+  let errorBlock = clickedElement.closest(".error-block");
+  for (let div of errorBlock.querySelectorAll("div")) {
+    div.remove();
   }
 }
 

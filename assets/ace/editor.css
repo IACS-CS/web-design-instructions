@@ -3,11 +3,14 @@
 .iframe-wrap {
   height: 100%;
   width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 .iframe-wrap iframe {
   width: 100%;
-  height: 100%;
   border: none;
+  flex-grow: 1;
 }
 .ace-custom-html-block,
 .ace-custom-code3-block {
@@ -26,8 +29,12 @@ ace-editor {
   flex-basis: calc(50% - var(--gap) / 2);
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex-grow: 1;
 }
+.result-block iframe {
+  flex-grow: 1;
+}
+
 .result-block .result-title {
   height: 40px;
   display: flex;
@@ -42,13 +49,13 @@ ace-editor {
 .ace-custom-html-block iframe {
   background-color: white;
   border: 1px solid #232222;
-  height: 400px;
+
   width: 100%;
 }
 
 .ace-custom-html-block iframe {
   width: 100%;
-  height: 100%;
+
   border: 1px solid #333;
   box-sizing: border-box;
 }
@@ -94,4 +101,34 @@ ace-editor {
 }
 .ace-custom-code3-block .result-block {
   margin-top: 32px;
+}
+
+.error-block {
+  background-color: #3a3636;
+  color: #fff;
+  font-size: x-small;
+  position: relative;
+}
+
+.error-block div {
+  margin-top: 4px;
+}
+.error-block p {
+  margin: 0;
+}
+.error-block .close-button {
+  display: none;
+}
+.error-block:has(div) .close-button {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  color: #fff;
+  background-color: #aa0000;
+  width: 15px;
+  height: 15px;
+  box-sizing: border-box;
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
 }

@@ -1,24 +1,30 @@
+{% assign disabledTabs = include.disableTabs | split : " " %}
+
 <div class="ace-custom-code3-block wide">
   <div class="editor-block">
     <div class="editor-tabs">
+      {%unless disabledTabs contains 'html' %}
       <button
         class="tab-button {% if include.startTab == 'html' or include.startTab == nil %}active{% endif %}"
         onclick="openCode3Tab('html',event)"
       >
         HTML
       </button>
+      {% endunless %} {%unless disabledTabs contains 'css' %}
       <button
         class="tab-button {% if include.startTab == 'css' %}active{% endif %}"
         onclick="openCode3Tab('css',event)"
       >
         CSS
       </button>
+      {% endunless %} {%unless disabledTabs contains 'js' %}
       <button
         class="tab-button {% if include.startTab == 'js' %}active{% endif %}"
         onclick="openCode3Tab('js',event)"
       >
         JavaScript
       </button>
+      {% endunless %}
       <button
         class="tab-button {% if include.startTab == 'all' %}active{% endif %}"
         onclick="openCode3Tab('all',event)"
@@ -48,11 +54,12 @@
 
   <div class="result-block">
     <div class="result-title">Result</div>
-    <div class="iframe-wrap">
-      <iframe
-        id="iframe-{{ unique_id }}"
-        style="height: {{ include.height }}"
-      ></iframe>
+    <iframe
+      id="iframe-{{ unique_id }}"
+      style="height: {{ include.height }}"
+    ></iframe>
+    <div class="error-block">
+      <span class="close-button" onclick="clearErrors(event)">&times;</span>
     </div>
   </div>
 </div>
