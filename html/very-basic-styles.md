@@ -5,7 +5,7 @@ order: 10
 
 Styling web pages is done in a language called **CSS** which is quite complex and beyond the scope of this tutorial. That said, in my experience students are much happier if they make at least a few basic style changes right away, so this document will go over some very basic styling rules.
 
-**The Style Tag**
+## The Style Tag
 
 A very basic way to add "style" to a webpage is to add a &lt;style&gt; tag to the &lt;head&gt; of the page. Everything **inside** the style tag is in **CSS** which is a language of its own. CSS has the following structure:
 
@@ -25,7 +25,8 @@ Here's an example of a basic rule you might have (this rule would have to go **i
 body {
     width: 300px;
     margin: auto;
-}```
+}
+```
 
 That rule has two parts: **width** sets the width of the **body** element (effectively the whole page). The **margin** rule sets margins. Setting margins to "auto" will make the left and right margin equal and use up all available extra space, effectively centering the page.
 
@@ -50,13 +51,13 @@ That rule has two parts: **width** sets the width of the **body** element (effec
 {%endcapture %}
 {%include codeeditor.html content=code %}
 
-**Inline Styles**
+## Inline Styles
 
 In addition to creating style rules for the whole document in the &lt;style&gt; tag, you can add styles directly to any element by using a style *attribute*. Nowadays, people usually avoid style attributes if they can because they are much harder to change (if you change your mind about what colors you like, it's much easier to change one style rule for all elements of a given type than to change a hundred style attributes on individual elements). That said, if what you want is to change just *one* particular element, then the style attribute is your friend. It's also a lot easier to understand for students just starting out.
 
 When you use the *style* attribute, you just include the "rule" part of the style, with no *selector* and no curly brackets {} needed.
 
-```
+```html
 <tagname style="
   property: value; 
   property: value; 
@@ -73,10 +74,11 @@ When you use the *style* attribute, you just include the "rule" part of the styl
 
 {%endcapture %}
 {%include codeeditor.html content=code %}
-****Some Useful CSS Properties****
+
+## Some Useful CSS Properties
 
 
-**Fonts**
+### Fonts 
 
 You can change a lot on a page by changing the fonts up. There are five properties you are likely to want to use to change text.
 
@@ -126,7 +128,7 @@ Here are some quick examples:
 {%endcapture %}
 {%include codeeditor.html content=code %}
 
-**Backgrounds and Blocks**
+### Backgrounds and Blocks
 
 Students often want to make something a certain color. To change the color of a whole page or a section of the page, you use the property
 **background-color** (the values are [in hex code](https://www.google.com/search?q=hex+color+picker&oq=hex+color+picker&aqs=chrome..69i57j0i67j0i512l7.3272j0j1&sourceid=chrome&ie=UTF-8(using hex colors)).
@@ -197,6 +199,6 @@ Here is an example using some size units and background colors to add color to a
 {%endcapture %}
 {%include codeeditor.html content=code %}
 
-**Reference Materials**
+### Reference Materials
 
 We will go much more in depth on CSS eventually. For now, if there is something else you want to do to an element, you can try looking through the w3 schools list of [CSS properties](https://www.w3schools.com/cssref/). Be aware that any properties relating to positioning will involve understanding how the browser handles layouts, which is a complex topic we will delve into later and will be hard to grasp just by playing with it (though you're welcome to try!).
