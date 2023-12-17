@@ -5,10 +5,10 @@
 .cp_embed_wrapper,
 .ace-custom-code-block,
 .wide {
-  --width: min(1280px, calc(100vw - 60px));
-  width: var(--width);
+  /*--width: min(1280px, calc(100vw - 60px));*/
+  width: min(var(--main-width), 1280px);
   position: relative;
-  left: calc((100% - var(--width)) / 2);
+  container-type: inline-size;
 }
 header h2 {
   margin-top: 0;

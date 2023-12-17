@@ -15,13 +15,20 @@
 .ace-custom-html-block,
 .ace-custom-code3-block {
   display: flex;
-  flex-wrap: wrap;
   --gap: 8px;
   gap: var(--gap);
   box-sizing: border-box;
   background-color: #fafafa;
   margin-bottom: 16px;
 }
+@container (max-width: 858px) {
+  .ace-custom-html-block,
+  .ace-custom-code3-block {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
 ace-editor {
   flex-basis: calc(50% - var(--gap) / 2);
 }

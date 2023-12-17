@@ -1,12 +1,14 @@
-<div class="ace-custom-html-block wide">
-  <ace-editor id="editor-{{ unique_id }}" language="html"
-    >{{ include.content | escape }}</ace-editor
-  >
-  <div class="result-block">
-    <div class="result-title">Result</div>
-    <iframe
-      id="iframe-{{ unique_id }}"
-      style="height: {{ include.height }}"
-    ></iframe>
+<div class="wide">
+  <div class="ace-custom-html-block">
+    <ace-editor id="editor-{{ unique_id }}" language="html"
+      >{{ include.content | escape }}</ace-editor
+    >
+    <div class="result-block">
+      <div class="result-title">Result</div>
+      <iframe
+        id="iframe-{{ unique_id }}"
+        style="height: {{ include.height }}"
+      ></iframe>
+    </div>
   </div>
 </div>

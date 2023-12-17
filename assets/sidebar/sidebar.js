@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function updateSidebarStatus() {
   var sidebar = document.getElementById("sidebar");
   var toggle = document.getElementById("sidebar-toggle");
-  var minWidthForSidebar = 65 * 16; // Assuming 65em as the breakpoint (1em = 16px)
+  var minWidthForSidebar = 1090; // px
 
   if (window.innerWidth >= minWidthForSidebar) {
     // Screen is wide enough, activate sidebar

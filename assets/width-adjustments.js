@@ -7,7 +7,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const computedStyle = window.getComputedStyle(mainContent);
       const marginLeft = parseInt(computedStyle.marginLeft, 10);
       const marginRight = parseInt(computedStyle.marginRight, 10);
-
+      document.documentElement.style.setProperty(
+        "--main-width",
+        mainRect.width + marginLeft + marginRight - 32 + "px"
+      );
       for (let el of document.querySelectorAll(".wide")) {
         let left = 0;
         let elWidth = el.getBoundingClientRect().width;
@@ -20,9 +23,10 @@ document.addEventListener("DOMContentLoaded", function () {
             // within the margins...
             left = (elWidth - mainRect.width) / 2;
           } else {
-            /* Otherwise, we *don't fit neatly and we'll overlap the sidebar */
-            let widthToTheRight = mainRect.width + marginRight - 32; // 16px padding
-            left = elWidth - widthToTheRight;
+            /* Otherwise, we don't fit, so let's just go as far left as possible *
+            /* let widthToTheRight = mainRect.width + marginRight - 32; // 16px padding
+            left = elWidth - widthToTheRight; */
+            left = marginLeft - 16; // 16px padding
           }
         }
         el.style.setProperty("left", `-${left}px`);
