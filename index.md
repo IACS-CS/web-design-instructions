@@ -9,9 +9,6 @@ This webpage will grow and eventually replace the [Google Doc of How-To's](https
 ## Projects
 [Portfolio Project](./portfolio-project/)
 
-## Concepts
-- [The DOM](./dom/)
-
 ## Games
 
 ### Games from Mr. H
