@@ -40,6 +40,4 @@ You can then include some CSS to customize the iFrame, like so:
 
 ```
 
-Has this changed?
-
 {%include local.html page="iframe-example.html" width=1080 height=650 %}
