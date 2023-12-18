@@ -127,6 +127,7 @@ in a real project.
   flex-wrap: wrap;
   gap: 10px;
   margin: 0 auto;
+  justify-content: center;
 }
 
 .gallery img {
@@ -175,15 +176,21 @@ in a real project.
 {%endcapture %}
 {%capture html %}
 <section class="gallery">   
-    <img src="https://picsum.photos/200/300">
-    <img src="https://picsum.photos/800/1300">
-    <img src="https://picsum.photos/1200/1300">
-    <img src="https://picsum.photos/2000/3000">
-    <img src="https://picsum.photos/2001/3008">
-    <img src="https://picsum.photos/899/1698">
-    <img src="https://picsum.photos/799/1448">
-    <img src="https://picsum.photos/1999/1298">
-    <img src="https://picsum.photos/899/1298">  
+    <img src="https://picsum.photos/800/1200?random=1">
+    <img src="https://picsum.photos/1200/800?random=2">
+    <img src="https://picsum.photos/800/800?random=3">
+    <img src="https://picsum.photos/800/1200?random=4">
+    <img src="https://picsum.photos/1200/800?random=5">
+    <img src="https://picsum.photos/800/800?random=6">
+    <img src="https://picsum.photos/800/1200?random=7">
+    <img src="https://picsum.photos/1200/800?random=8">
+    <img src="https://picsum.photos/800/800?random=9">
+    <img src="https://picsum.photos/800/1200?random=10">
+    <img src="https://picsum.photos/1200/800?random=11">
+    <img src="https://picsum.photos/800/800?random=12">
+    <img src="https://picsum.photos/800/1200?random=13">
+    <img src="https://picsum.photos/1200/800?random=14">
+    <img src="https://picsum.photos/800/800?random=15">    
 </section>
 
 <div id="lightbox" class="hidden">
