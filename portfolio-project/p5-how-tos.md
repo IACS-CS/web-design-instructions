@@ -1,12 +1,17 @@
 # Portfolio Project How To's
 
-- [requirements](./requirements.md)  
-- [instructions overview](./instructions.md)
+## Here's a list of helpful How To's for the portfolio project.
 
-Here's a list of helpful How To's for the portfolio project.
+- [Linking or Embedding Projects](./linking-projects)
+- [Making a Tabbed Interface Tutorial](../tutorials/tabs/index)
+- [Creating a "Lightbox" gallery](../tutorials/lightbox)
+- [Creating a "Typing" effect](../tutorials/timed-typing/)
 
-- [Linking or Embedding Projects](./linking-projects.md)
-- [Making a Tabbed Interface Tutorial](../tutorials/tabs/index.md)
-- Second link
-- Third link
-- Fix me...
+
+## Codepens and Other Materials from the Past
+
+- [Rotated/Fixed Header Demo](https://codepen.io/thinkle-iacs/pen/rNRBxWw?editors=1100)
+- [Tabbed transitions](https://codepen.io/thinkle-iacs/pen/QWxorpq)
+- [Tabbed transitions with in/out](https://codepen.io/thinkle-iacs/pen/QWxoxbV)
+- [Magic Scrolling effects](https://codepen.io/thinkle-iacs/pen/MWXLNLL?editors=0110)
+- [Backdrop Filter](https://codepen.io/thinkle-iacs/pen/VwBLBOZ?editors=1100)
