@@ -1,0 +1,3 @@
+To run the thing...
+
+bundle exec jekyll serve
