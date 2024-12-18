@@ -146,7 +146,7 @@ in a real project.
   background-color: rgba(0, 0, 0, 0.7);
   display: grid;
   place-content: center; 
-  transition: opacity 300ms; 
+  transition: opacity 300ms;     
 }
 #lightbox.visible {
   visibility: visible;
@@ -160,8 +160,9 @@ in a real project.
 }
 
 #lightbox img {
-  max-width: 80%;
-  max-height: 80vh;
+  max-width: 80vw; /* no wider than 80% of the screen */
+  max-height: 80vh; /* no taller than 80% of the screen */
+  object-fit: contain; /* Keep aspect ratio */
 }
 
 #lightbox-close {
