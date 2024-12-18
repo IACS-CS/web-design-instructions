@@ -1,6 +1,7 @@
 {% assign disabledTabs = include.disableTabs | split : " " %}
-<div class="wide">
+<div class="wide">  
   <div class="ace-custom-code3-block">
+    
     <div class="editor-block">
       <div class="editor-tabs">
         {%unless disabledTabs contains 'html' %}
@@ -36,19 +37,19 @@
         class="html-editor code-editor"
         style="display: {% if include.startTab == 'html' or include.startTab == nil  or include.startTab == 'all' %}block{% else %}none{% endif %}"
       >
-        <ace-editor language="html">{{ include.html | escape }}</ace-editor>
+        <ace-editor language="html">{{ include.html | escape  }}</ace-editor>
       </div>
       <div
         class="css-editor code-editor"
         style="display: {% if include.startTab == 'css'  or include.startTab == 'all' %}block{% else %}none{% endif %}"
       >
-        <ace-editor language="css">{{ include.css | escape }}</ace-editor>
+        <ace-editor language="css">{{ include.css  }}</ace-editor>
       </div>
       <div
         class="js-editor code-editor"
         style="display: {% if include.startTab == 'js'  or include.startTab == 'all' %}block{% else %}none{% endif %}"
       >
-        <ace-editor language="javascript">{{ include.js | escape }}</ace-editor>
+        <ace-editor language="javascript">{{ include.js  }}</ace-editor>
       </div>
     </div>
 
