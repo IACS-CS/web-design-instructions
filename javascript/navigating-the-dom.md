@@ -50,7 +50,7 @@ function addBorder (event) {
     main.style.border = '2px solid purple';
 }
 {% endcapture %}
-{%include editor3.html js=js html=html disableTab="css" defaultTab="all" %}
+{%include editor3.html js=js html=html disableTabs="css" defaultTab="all" %}
 
 
 ### Moving down to children
@@ -82,7 +82,7 @@ Here's a live example:
     }
   }
 {%endcapture %}
-{%include editor3.html js=js html=html disableTab="css" startTab="all" %}
+{%include editor3.html js=js html=html disableTabs="css" startTab="all" %}
 
 ### Moving across to siblings
 
@@ -124,7 +124,7 @@ Here's an example of those properties at work:
     }
 {% endcapture %}
 
-{%include editor3.html js=js html=html disableTab="css" startTab="all" %}
+{%include editor3.html js=js html=html disableTabs="css" startTab="all" %}
 
 ## Searching From an Element
 
