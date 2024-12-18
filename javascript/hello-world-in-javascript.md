@@ -58,7 +58,7 @@ We also used *assignment* to set the *innerHTML* of the div in the second line a
 The second thing in our code was the code to grab an element. The method `querySelector` will look inside of any
 HTML element (in this case, the whole `document`) and `return` the first matching element (or `null` if there is no matching element).
 
-If we just wrote `document.querySelector("some-valid-selector")` on its own line, it would have no effect. Usually, we will *either* save the result in a variable, as we did above with the `let` statement, *or* we will use *dot notation* to do something write away with the result.
+If we just wrote `document.querySelector("some-valid-selector")` on its own line, it would have no effect. Usually, we will *either* save the result in a variable, as we did above with the `let` statement, *or* we will use *dot notation* to do something right away with the result.
 
 
 ### Dot notation and *chaining*
